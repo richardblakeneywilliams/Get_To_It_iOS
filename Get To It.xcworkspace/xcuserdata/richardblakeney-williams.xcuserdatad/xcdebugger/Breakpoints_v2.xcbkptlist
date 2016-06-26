@@ -9,76 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Get_To_It_iOS/CreateJobDetailsController.swift"
-            timestampString = "487629297.810773"
+            filePath = "Get_To_It_iOS/ToWorkController.swift"
+            timestampString = "488571816.804933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "CreateJobDetailsController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Get_To_It.CreateJobDetailsController.takePicsCat.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UICollectionView&gt;"
-                  moduleName = "Get To It"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/richardblakeney-williams/Documents/iOS%20Projects/Get_To_It_iOS/Get_To_It_iOS/CreateJobDetailsController.swift"
-                  timestampString = "487621431.475028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Get_To_It.CreateJobDetailsController.takePicsCat.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UICollectionView&gt;"
-                  moduleName = "Get To It"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/richardblakeney-williams/Documents/iOS%20Projects/Get_To_It_iOS/Get_To_It_iOS/CreateJobDetailsController.swift"
-                  timestampString = "487621431.475182"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Get_To_It.CreateJobDetailsController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Get_To_It.CreateJobDetailsController"
-                  moduleName = "Get To It"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/richardblakeney-williams/Documents/iOS%20Projects/Get_To_It_iOS/Get_To_It_iOS/CreateJobDetailsController.swift"
-                  timestampString = "487621431.47527"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "212">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Get_To_It.CreateJobDetailsController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Get_To_It.CreateJobDetailsController&gt;"
-                  moduleName = "Get To It"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/richardblakeney-williams/Documents/iOS%20Projects/Get_To_It_iOS/Get_To_It_iOS/CreateJobDetailsController.swift"
-                  timestampString = "487621431.475348"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

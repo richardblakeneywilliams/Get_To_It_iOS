@@ -270,15 +270,16 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-JQ-cGH">
                                 <rect key="frame" x="86" y="112" width="494" height="50"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hnz-Qy-ORB">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hnz-Qy-ORB">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UIJ-Ym-xgU" customClass="addedPhotoPreviewCell" customModule="Get_To_It" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="addedPhotoPreviewCell" reuseIdentifier="addedPhotoCell" id="UIJ-Ym-xgU" customClass="addedPhotoPreviewCell" customModule="Get_To_It" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -286,6 +287,8 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xg0-hO-RZJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -296,12 +299,15 @@
                                             <constraint firstAttribute="bottom" secondItem="Xg0-hO-RZJ" secondAttribute="bottom" id="Jsc-da-TgK"/>
                                             <constraint firstItem="Xg0-hO-RZJ" firstAttribute="leading" secondItem="UIJ-Ym-xgU" secondAttribute="leading" id="Wdj-cf-SfJ"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="Xg0-hO-RZJ" id="ioh-yd-e81"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JW8-9O-JRc">
-                                    <rect key="frame" x="0.0" y="0.0" width="494" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="S4t-XL-pvc" id="sq5-Od-gH5"/>
+                                    <outlet property="delegate" destination="S4t-XL-pvc" id="hlA-nQ-lHP"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,7 +374,7 @@
         <!--Location-->
         <scene sceneID="REH-dv-wB8">
             <objects>
-                <viewController id="Ktp-Ol-W0P" sceneMemberID="viewController">
+                <viewController id="Ktp-Ol-W0P" customClass="locationPickerViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gEx-La-Hqt"/>
                         <viewControllerLayoutGuide type="bottom" id="G5r-ce-1Pf"/>
@@ -379,10 +385,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Location" id="vp0-Dg-Tp5"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="A1w-jG-6j2" id="fbx-fP-nEM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F61-pD-i9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="A1w-jG-6j2">
+                    <connections>
+                        <outlet property="delegate" destination="Ktp-Ol-W0P" id="Yb9-Ly-3Nd"/>
+                        <outlet property="searchContentsController" destination="Ktp-Ol-W0P" id="VON-Dz-Sby"/>
+                        <outlet property="searchResultsDataSource" destination="Ktp-Ol-W0P" id="Ptb-ez-W8e"/>
+                        <outlet property="searchResultsDelegate" destination="Ktp-Ol-W0P" id="eQK-5K-JBz"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2739" y="862"/>
+            <point key="canvasLocation" x="2805" y="862"/>
         </scene>
         <!--To Work-->
         <scene sceneID="Kan-9a-HcA">

@@ -31,6 +31,7 @@
 		DBD496FE1D0FA08800B8417E /* CreateJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */; };
 		DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */; };
 		DBD497081D10642200B8417E /* ToWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497071D10642200B8417E /* ToWorkController.swift */; };
+		DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */; };
 		F18C1528342AAAC8679CA47C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755DD8ED46AD1A429957BB35 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		DBD497021D104FAC00B8417E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Sign-In:Create Account.strings"; sourceTree = "<group>"; };
 		DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addedPhotoPreviewCell.swift; sourceTree = "<group>"; };
 		DBD497071D10642200B8417E /* ToWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToWorkController.swift; sourceTree = "<group>"; };
+		DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationPickerViewController.swift; sourceTree = "<group>"; };
 		E7391EB36DE6A1405025C6C7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */,
 				DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */,
 				DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */,
+				DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */,
 			);
 			name = "Create Job";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */,
 				DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */,
 				DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */,
+				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */,

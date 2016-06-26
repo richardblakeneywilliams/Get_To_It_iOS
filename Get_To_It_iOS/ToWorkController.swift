@@ -8,21 +8,34 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class ToWorkController: UIViewController {
+
+class ToWorkController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86,
-                                                          longitude: 151.20, zoom: 6)
+        let locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.stopUpdatingLocation()
+        }
+        
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(-38.7045423,
+                                                          longitude: 176.0346538, zoom: 12)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
+        mapView.settings.zoomGestures = true
         mapView.settings.myLocationButton = true
         self.view = mapView
-        
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        marker.position = CLLocationCoordinate2DMake(-38.7045423,176.0346538)
+        marker.title = "Taupo"
+        marker.snippet = "New Zealand"
         marker.map = mapView
     }
 

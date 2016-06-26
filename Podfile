@@ -7,4 +7,6 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'GoogleMaps'
+pod 'SnapKit', '~> 0.15.0'
+
 

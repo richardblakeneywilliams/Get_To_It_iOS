@@ -11,11 +11,7 @@ import UIKit
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var categorySelected = String()
-    //var catArray = [UIImage]()
-    
-    var catArray = [UIImage(named: "Gardening_test"), UIImage(named: "Manual Labour")]
-    
-    var cameraOption = 0
+    var catArray = [UIImage]()
     
     @IBOutlet weak var takePicsCat: UICollectionView!
     @IBOutlet weak var jobTitleTextField: UITextField!
@@ -25,12 +21,9 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.hideKeyboardWhenTappedAround()
         descriptionTextView.layer.cornerRadius = 6
-        
         let realLightGrey:UIColor = UIColor(red:0.78, green:0.78, blue:0.80, alpha:1.0)
-        
         descriptionTextView.layer.borderColor = realLightGrey.CGColor
         descriptionTextView.layer.borderWidth = 1
         
@@ -41,12 +34,15 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         imagePicker.delegate = self
         let alertController = UIAlertController(title: "Chose a photo source", message: "", preferredStyle: .ActionSheet)
         let takePhotoAction: UIAlertAction = UIAlertAction(title: "Take Photo", style: .Default) { (action:UIAlertAction!) in
-            imagePicker.sourceType = .Camera
-            NSOperationQueue.mainQueue().addOperationWithBlock({() -> Void in
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-                
-            })
-            
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                imagePicker.sourceType = .Camera
+            } else {
+                let noCamAlert = UIAlertController(title: "No Camera Available!", message: "", preferredStyle: .Alert)
+                let cancelNoCam: UIAlertAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+                noCamAlert.addAction(cancelNoCam)
+                self.presentViewController(noCamAlert, animated: true, completion: nil)
+            }
+            self.presentViewController(imagePicker, animated: true, completion: nil)
         }
         
         let pickFromAlbumAction: UIAlertAction = UIAlertAction(title: "Chose from existing photos", style: .Default){ (action:UIAlertAction!) in
@@ -56,17 +52,13 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
                 
             })
         }
-        
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in }
         
         alertController.addAction(takePhotoAction)
         alertController.addAction(pickFromAlbumAction)
         alertController.addAction(cancelAction)
         
-        takePicsCat.hidden = false
-        
         self.presentViewController(alertController, animated: true, completion:nil)
-        
     }
     
     
@@ -84,20 +76,20 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         catArray.append(image)
         takePicsCat.reloadData()
         dismissViewControllerAnimated(false, completion: nil)
-
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("MEMES1")
-        return self.catArray.count
+        return catArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        print("MEMES2")
-        let cell = takePicsCat.dequeueReusableCellWithReuseIdentifier("addedPhotoPreviewCell", forIndexPath: indexPath) as! addedPhotoPreviewCell
+        let cell = takePicsCat.dequeueReusableCellWithReuseIdentifier("addedPhotoCell", forIndexPath: indexPath) as! addedPhotoPreviewCell
         cell.image?.image = self.catArray[indexPath.row]
-        cell.backgroundColor = UIColor.lightTextColor()
         return cell
     }
 }
