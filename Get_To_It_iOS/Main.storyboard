@@ -371,7 +371,7 @@
             </objects>
             <point key="canvasLocation" x="2020" y="862"/>
         </scene>
-        <!--Location-->
+        <!--Enter Address Of Job-->
         <scene sceneID="REH-dv-wB8">
             <objects>
                 <viewController id="Ktp-Ol-W0P" customClass="locationPickerViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
@@ -384,7 +384,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Location" id="vp0-Dg-Tp5"/>
+                    <navigationItem key="navigationItem" title="Enter Address Of Job" id="vg2-jT-rCi">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Coy-SE-CXS">
+                            <connections>
+                                <action selector="backButton:" destination="Ktp-Ol-W0P" id="cHu-gS-pCP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="uB9-uL-uGc">
+                            <connections>
+                                <action selector="nextButton:" destination="Ktp-Ol-W0P" id="yDU-ym-4Cy"/>
+                                <segue destination="lxO-A8-8s2" kind="show" identifier="ToHoursSegue" id="Bgh-RC-Hcg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="A1w-jG-6j2" id="fbx-fP-nEM"/>
                     </connections>
@@ -399,7 +411,40 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2805" y="862"/>
+            <point key="canvasLocation" x="2775" y="862"/>
+        </scene>
+        <!--Time Picker View Controller-->
+        <scene sceneID="gSB-pk-jAm">
+            <objects>
+                <viewController id="lxO-A8-8s2" customClass="TimePickerViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hHK-Vm-yvk"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAT-PE-iKP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xzq-9J-yL6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwU-qB-Q2P" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="250"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kwU-qB-Q2P" firstAttribute="leading" secondItem="xzq-9J-yL6" secondAttribute="leading" id="27g-j3-M3W"/>
+                            <constraint firstItem="kwU-qB-Q2P" firstAttribute="top" secondItem="hHK-Vm-yvk" secondAttribute="bottom" id="nIw-L2-L3u"/>
+                            <constraint firstItem="JAT-PE-iKP" firstAttribute="top" secondItem="kwU-qB-Q2P" secondAttribute="bottom" constant="237" id="um8-Z2-Pfo"/>
+                            <constraint firstAttribute="trailing" secondItem="kwU-qB-Q2P" secondAttribute="trailing" id="vN6-bb-5Tn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="kwU-qB-Q2P" id="wXI-Sa-rfn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwf-Rg-lcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508" y="862"/>
         </scene>
         <!--To Work-->
         <scene sceneID="Kan-9a-HcA">
