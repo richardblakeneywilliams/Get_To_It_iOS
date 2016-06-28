@@ -1,16 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B6CB6C305CF08B1A3C520F571CBEE141E0E2B3F1",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3A4A40E7AEDAE72FF09A95E1FB1CB1448F821977",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "CE087E07D57661612519BF053C6BEF980C143055" : 0,
-    "B6CB6C305CF08B1A3C520F571CBEE141E0E2B3F1" : 0
+    "3A4A40E7AEDAE72FF09A95E1FB1CB1448F821977" : 0,
+    "CE087E07D57661612519BF053C6BEF980C143055" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5017F20D-4837-4CFC-A1C2-E57C4AC8156D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "CE087E07D57661612519BF053C6BEF980C143055" : "Get_To_It_iOS\/verify-ios-sdk\/",
-    "B6CB6C305CF08B1A3C520F571CBEE141E0E2B3F1" : "Get_To_It_iOS\/"
+    "3A4A40E7AEDAE72FF09A95E1FB1CB1448F821977" : "Get_To_It_iOS\/",
+    "CE087E07D57661612519BF053C6BEF980C143055" : "Get_To_It_iOS\/verify-ios-sdk\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Get To It",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -19,7 +19,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/richardblakeneywilliams\/Get_To_It_iOS.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B6CB6C305CF08B1A3C520F571CBEE141E0E2B3F1"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3A4A40E7AEDAE72FF09A95E1FB1CB1448F821977"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/github.com\/nexmo\/verify-ios-sdk.git",

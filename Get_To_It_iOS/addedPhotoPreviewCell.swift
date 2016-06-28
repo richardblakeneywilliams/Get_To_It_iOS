@@ -12,4 +12,5 @@ class addedPhotoPreviewCell: UICollectionViewCell {
     
     @IBOutlet var image: UIImageView!
     
+    
 }

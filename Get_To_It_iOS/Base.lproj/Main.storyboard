@@ -146,7 +146,7 @@
                                                     <outlet property="imageView" destination="wwL-DF-RzK" id="aA3-AI-CfR"/>
                                                     <outlet property="label" destination="YK1-0S-PuC" id="690-NS-e28"/>
                                                     <outlet property="roundedCornerView" destination="INy-zG-NwO" id="HTm-2d-LYV"/>
-                                                    <segue destination="S4t-XL-pvc" kind="show" identifier="ShowDetails" id="zog-Wp-ecs"/>
+                                                    <segue destination="S4t-XL-pvc" kind="show" identifier="SelectCategorySegue" id="zog-Wp-ecs"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -227,7 +227,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Sub Category would your job fall within?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-RX-yMC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Sub Category would your job fall within? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-RX-yMC">
                                 <rect key="frame" x="20" y="233" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LHs-Tp-5ue"/>
@@ -259,13 +259,6 @@
                                 <state key="normal" title="Button" image="Camera"/>
                                 <connections>
                                     <action selector="openCameraButton:" destination="S4t-XL-pvc" eventType="touchUpInside" id="6VG-Ig-dfu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-si-d4G">
-                                <rect key="frame" x="269" y="501" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <segue destination="Ktp-Ol-W0P" kind="show" id="Gp0-YP-BZC"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-JQ-cGH">
@@ -320,7 +313,6 @@
                             <constraint firstItem="J7h-K2-ea0" firstAttribute="bottom" secondItem="Mhd-JQ-cGH" secondAttribute="bottom" id="6Ty-1Q-UYe"/>
                             <constraint firstItem="Top-EO-GNo" firstAttribute="trailing" secondItem="GZG-RX-yMC" secondAttribute="trailing" id="9FO-CY-lZ1"/>
                             <constraint firstItem="5qU-Es-CaX" firstAttribute="top" secondItem="bX6-Rv-7aF" secondAttribute="bottom" constant="8" symbolic="YES" id="9fb-RK-QOJ"/>
-                            <constraint firstItem="HRg-si-d4G" firstAttribute="centerX" secondItem="0X9-3v-DkG" secondAttribute="centerX" id="AZx-Gl-apw"/>
                             <constraint firstItem="J7h-K2-ea0" firstAttribute="leading" secondItem="4zv-XA-yap" secondAttribute="leading" id="AuP-CQ-4C3"/>
                             <constraint firstItem="4zv-XA-yap" firstAttribute="centerX" secondItem="g35-lo-SDu" secondAttribute="centerX" id="BbD-ST-XTr"/>
                             <constraint firstItem="4zv-XA-yap" firstAttribute="leading" secondItem="Top-EO-GNo" secondAttribute="leading" id="Hi0-OT-YKR"/>
@@ -342,7 +334,6 @@
                             <constraint firstItem="7CB-gm-LEY" firstAttribute="top" secondItem="0X9-3v-DkG" secondAttribute="bottom" constant="64" id="t53-qZ-zIj"/>
                             <constraint firstItem="bX6-Rv-7aF" firstAttribute="top" secondItem="GZG-RX-yMC" secondAttribute="bottom" constant="8" symbolic="YES" id="thP-g5-Ef1"/>
                             <constraint firstItem="AAh-Gd-3Ay" firstAttribute="leading" secondItem="0X9-3v-DkG" secondAttribute="leading" id="u7n-dd-run"/>
-                            <constraint firstItem="HRg-si-d4G" firstAttribute="top" secondItem="0X9-3v-DkG" secondAttribute="bottom" constant="14" id="uZQ-uj-SOR"/>
                             <constraint firstItem="AAh-Gd-3Ay" firstAttribute="top" secondItem="5qU-Es-CaX" secondAttribute="bottom" constant="8" symbolic="YES" id="x3y-JO-6Qy"/>
                             <constraint firstItem="GZG-RX-yMC" firstAttribute="leading" secondItem="bX6-Rv-7aF" secondAttribute="leading" id="yR4-cW-w9l"/>
                             <constraint firstItem="GZG-RX-yMC" firstAttribute="trailing" secondItem="bX6-Rv-7aF" secondAttribute="trailing" id="ytF-rH-hgZ"/>
@@ -357,6 +348,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="hzJ-nG-Omo">
                             <connections>
                                 <action selector="nextNavBatAction:" destination="S4t-XL-pvc" id="LIb-GC-Szc"/>
+                                <segue destination="Ktp-Ol-W0P" kind="show" id="khc-jQ-rU6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -371,7 +363,7 @@
             </objects>
             <point key="canvasLocation" x="2020" y="862"/>
         </scene>
-        <!--Location-->
+        <!--Select Location-->
         <scene sceneID="REH-dv-wB8">
             <objects>
                 <viewController id="Ktp-Ol-W0P" customClass="locationPickerViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
@@ -382,24 +374,76 @@
                     <view key="view" contentMode="scaleToFill" id="tiE-gP-4CH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBT-ME-a08" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="423"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Job Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k8J-f8-oeP">
+                                <rect key="frame" x="20" y="504" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ktp-Ol-W0P" id="UBe-Qq-6Fb"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FBT-ME-a08" secondAttribute="bottom" constant="113" id="1n9-qv-hF1"/>
+                            <constraint firstAttribute="trailing" secondItem="FBT-ME-a08" secondAttribute="trailing" id="8jn-Za-Sr6"/>
+                            <constraint firstItem="FBT-ME-a08" firstAttribute="leading" secondItem="tiE-gP-4CH" secondAttribute="leading" id="Ame-jJ-yZn"/>
+                            <constraint firstItem="k8J-f8-oeP" firstAttribute="leading" secondItem="tiE-gP-4CH" secondAttribute="leadingMargin" id="Yhq-If-qpW"/>
+                            <constraint firstItem="FBT-ME-a08" firstAttribute="top" secondItem="gEx-La-Hqt" secondAttribute="bottom" id="cMy-9h-Ym5"/>
+                            <constraint firstItem="k8J-f8-oeP" firstAttribute="trailing" secondItem="tiE-gP-4CH" secondAttribute="trailingMargin" id="gAk-d2-N6m"/>
+                            <constraint firstItem="k8J-f8-oeP" firstAttribute="top" secondItem="FBT-ME-a08" secondAttribute="bottom" constant="17" id="zUM-Re-hCg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Location" id="vp0-Dg-Tp5"/>
+                    <navigationItem key="navigationItem" title="Select Location" id="KOk-E1-wZI">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Pz2-Qr-5pq">
+                            <connections>
+                                <action selector="backButton:" destination="Ktp-Ol-W0P" id="M3h-hH-mo9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="DQo-3v-s1d">
+                            <connections>
+                                <segue destination="BLm-x5-vXw" kind="show" identifier="LocationSegue" id="O5M-eG-457"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="A1w-jG-6j2" id="fbx-fP-nEM"/>
+                        <outlet property="kLocationTextField" destination="k8J-f8-oeP" id="p2r-9I-NVF"/>
+                        <outlet property="mapView" destination="FBT-ME-a08" id="Ref-MM-3U1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F61-pD-i9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="A1w-jG-6j2">
-                    <connections>
-                        <outlet property="delegate" destination="Ktp-Ol-W0P" id="Yb9-Ly-3Nd"/>
-                        <outlet property="searchContentsController" destination="Ktp-Ol-W0P" id="VON-Dz-Sby"/>
-                        <outlet property="searchResultsDataSource" destination="Ktp-Ol-W0P" id="Ptb-ez-W8e"/>
-                        <outlet property="searchResultsDelegate" destination="Ktp-Ol-W0P" id="eQK-5K-JBz"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2805" y="862"/>
+        </scene>
+        <!--Hours and Extras-->
+        <scene sceneID="ejq-jj-reP">
+            <objects>
+                <viewController id="BLm-x5-vXw" customClass="DateAndExtraFormController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="coO-1U-fuh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Efh-6K-IWa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="46J-Dm-e8b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hours and Extras" id="ZAQ-X8-EpE">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="8XN-v0-w1i">
+                            <connections>
+                                <action selector="backNavBar:" destination="BLm-x5-vXw" id="uiL-Uv-hhe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siw-aW-gto" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3520" y="862"/>
         </scene>
         <!--To Work-->
         <scene sceneID="Kan-9a-HcA">

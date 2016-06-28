@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class CurrentJob: Job {
+    static let instance: Job = Job()
+}

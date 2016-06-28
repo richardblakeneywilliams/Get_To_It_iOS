@@ -46,9 +46,13 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
             let indexPaths = self.catCollectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! CreateJobDetailsController
+            
+            CurrentJob.instance.category = self.names[indexPath.row]
             vc.categorySelected = self.names[indexPath.row]
         }
     }
+    
+    //MARK: Function for opening and starting new job.
     
 
 }

@@ -11,6 +11,8 @@ import UIKit
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var categorySelected = String()
+    
+    //need to sart saving these
     var catArray = [UIImage]()
     
     @IBOutlet weak var takePicsCat: UICollectionView!
@@ -26,8 +28,12 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         let realLightGrey:UIColor = UIColor(red:0.78, green:0.78, blue:0.80, alpha:1.0)
         descriptionTextView.layer.borderColor = realLightGrey.CGColor
         descriptionTextView.layer.borderWidth = 1
-        
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    }
+    
     
     @IBAction func openCameraButton(sender: AnyObject) {
         let imagePicker = UIImagePickerController()

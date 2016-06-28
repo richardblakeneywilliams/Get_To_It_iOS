@@ -1,3 +1,4 @@
+
 //
 //  locationPickerViewController.swift
 //  Get To It
@@ -8,76 +9,96 @@
 
 import UIKit
 import GoogleMaps
-import SnapKit
+import CoreLocation
 
-class locationPickerViewController: UIViewController {
+class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
-var resultsViewController: GMSAutocompleteResultsViewController?
-    var searchController: UISearchController?
-    var resultView: UITextView?
-    
-    var long: Double = 0
-    var lat: Double = 0
-    var name: String = ""
-    var address: String = ""
-
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var kLocationTextField: UITextField!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
         
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
+        let locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.stopUpdatingLocation()
         
-        let subView = UIView(frame: CGRectMake(0, 65.0, self.view.frame.size.width, 55.0))
         
-        subView.addSubview((searchController?.searchBar)!)
-        self.view.addSubview(subView)
-        searchController?.searchBar.sizeToFit()
-        searchController?.searchBar.placeholder = "Enter Job Address"
-        searchController?.hidesNavigationBarDuringPresentation = false
         
-        // When UISearchController presents the results view, present it in
-        // this view controller, not one further up the chain.
-        self.definesPresentationContext = true
-
+        let long = locationManager.location?.coordinate.longitude
+        let lat = locationManager.location?.coordinate.latitude
+        
+        var camera:GMSCameraPosition = GMSCameraPosition()
+        
+        if (long != nil){
+            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 16.0)
+        } else {
+            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 16.0)
+        }
+        mapView.camera = camera
+        mapView.myLocationEnabled = true
+        mapView.settings.setAllGesturesEnabled(true)
+        mapView.settings.myLocationButton = true
     }
     
+    // Present the Autocomplete view controller when the button is pressed.
+    func autocompleteClicked() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        self.presentViewController(autocompleteController, animated: true, completion: nil)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        autocompleteClicked()
+    }
+
+    
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
 
-// Handle the user's selection.
-extension locationPickerViewController: GMSAutocompleteResultsViewControllerDelegate {
-    func resultsController(resultsController: GMSAutocompleteResultsViewController,
-                           didAutocompleteWithPlace place: GMSPlace) {
-        searchController?.active = false
-        // Do something with the selected place. 
-        print("Place name: ", place.name)
-        print("Place address: ", place.formattedAddress)
-        print("Place attributions: ", place.attributions)
-        print("Place Coordinates: ", place.coordinate)
+
+extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
+        kLocationTextField.text = place.formattedAddress
+        let camera = GMSCameraPosition.cameraWithLatitude(place.coordinate.latitude,
+                                                          longitude: place.coordinate.longitude, zoom: 12)
+        mapView.camera = camera
         
-        name = place.name
-        address = place.formattedAddress!
-        long = place.coordinate.longitude
-        lat = place.coordinate.latitude
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(place.coordinate.latitude,place.coordinate.longitude)
+        marker.title = place.name
+        marker.snippet = place.formattedAddress
+        marker.map = mapView
+        
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func resultsController(resultsController: GMSAutocompleteResultsViewController,
-                           didFailAutocompleteWithError error: NSError){
+    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
         // TODO: handle the error.
         print("Error: ", error.description)
     }
     
+    // User canceled the operation.
+    func wasCancelled(viewController: GMSAutocompleteViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
+    func didRequestAutocompletePredictions(viewController: GMSAutocompleteViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
-    func didUpdateAutocompletePredictionsForResultsController(resultsController: GMSAutocompleteResultsViewController) {
+    func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
+    
 }
