@@ -11,19 +11,69 @@ import Eureka
 
 class DateAndExtraFormController: FormViewController {
     
+    let pricePerHour: Double = 20.00
+    
     @IBAction func backNavBar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
+    @IBAction func showAlert() {
+        let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can mkae their day and get alot more done with two", preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.hideKeyboardWhenTappedAround()
+        
         form =
             
             Section()
             
-            <<< IntRow() {
-                $0.title = "Hours Required"
+            <<< IntRow("Hours Required") {
+                $0.title = $0.tag
                 $0.placeholder = "Enter Here"
+            }.onChange({ (IntRow) in
+                let decimalRow = self.form.rowByTag("Total Cost")
+                var once: Bool = false
+                
+                if once != true {
+                    if IntRow.value == 1  {
+                        self.showAlert()
+                        decimalRow?.baseValue = Double(IntRow.value!)*self.pricePerHour
+                        decimalRow?.disabled
+                        decimalRow?.updateCell()
+                        once = true
+                    } else if IntRow.value != nil {
+                        decimalRow?.baseValue = Double(IntRow.value!)*self.pricePerHour
+                        decimalRow?.disabled
+                        decimalRow?.updateCell()
+                        once = true
+                    } else {
+                        decimalRow?.baseValue = 0.0
+                        decimalRow?.disabled
+                        decimalRow?.updateCell()
+                        once = true
+                    }
+                    once = true
+                }
+                once = true
+
+            })
+            
+        
+            <<< DecimalRow("Total Cost") {
+                $0.title = $0.tag
+                $0.placeholder = "Enter Here"
+                let formatter = CurrencyFormatter()
+                formatter.locale = .currentLocale()
+                formatter.numberStyle = .CurrencyStyle
+                $0.formatter = formatter
+                $0.disabled = true
             }
             
             +++
@@ -136,3 +186,18 @@ class DateAndExtraFormController: FormViewController {
         
     }
 }
+
+class CurrencyFormatter : NSNumberFormatter, FormatterProtocol {
+    override func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool {
+        guard obj != nil else { return false }
+        let str = string.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator("")
+        obj.memory = NSNumber(double: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))))
+        return true
+    }
+    
+    func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
+        return textInput.positionFromPosition(position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
+    }
+}
+
+
