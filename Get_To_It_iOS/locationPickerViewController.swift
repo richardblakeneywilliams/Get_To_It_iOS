@@ -14,7 +14,6 @@ import CoreLocation
 class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
-    
     @IBOutlet weak var kLocationTextField: UITextField!
     
     override func viewDidLoad() {

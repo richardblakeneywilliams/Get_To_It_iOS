@@ -10,10 +10,11 @@ import UIKit
 
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var categorySelected = String()
     
     //need to sart saving these
     var catArray = [UIImage]()
+    
+    
     
     @IBOutlet weak var takePicsCat: UICollectionView!
     @IBOutlet weak var jobTitleTextField: UITextField!
@@ -31,9 +32,21 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        if segue == "CreateJobDetailSegue"{
+            CurrentJob.instance.title = jobTitleTextField.text
+            CurrentJob.instance.subCategory = subCategoryTextField.text
+            CurrentJob.instance.description = descriptionTextView.text
+            print(CurrentJob.instance.category)
+            print("Just Below Detail FOOL")
+        }
+    }
+        
+    @IBAction func nextButton(sender: AnyObject) {
+        print("Am I never here")
+        self.performSegueWithIdentifier("CreateJobDetailSegue", sender: self)
     }
     
+
     
     @IBAction func openCameraButton(sender: AnyObject) {
         let imagePicker = UIImagePickerController()

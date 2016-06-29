@@ -12,6 +12,6 @@ class CreateJobPhotoCell: UICollectionViewCell {
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var label: UILabel!
-    @IBOutlet weak var roundedCornerView: UIView!
+    //@IBOutlet weak var roundedCornerView: UIView!
     
 }
