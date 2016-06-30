@@ -14,9 +14,9 @@ import Firebase
 class MainTabViewController: UITabBarController {
     
     
+    
     func showLoginScreen(){
         // Get login screen from storyboard and present it
-        //print("showLoginScreen ")
         let storyboard = UIStoryboard(name: "Sign-In:Create Account", bundle: nil)
         let viewController: LoginViewController = (storyboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController)
         presentViewController(viewController, animated: true, completion: nil)
@@ -26,14 +26,17 @@ class MainTabViewController: UITabBarController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        //print("MainTabViewController ViewDidAppear")
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //self.setNavigationBarItem()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -48,3 +51,4 @@ class MainTabViewController: UITabBarController {
     */
 
 }
+

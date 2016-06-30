@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return loggedIn
         }
     }
-
+    
     func showMainTabScreen(){
         // Get login screen from storyboard and present it
         //print("showTabScreen")
@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRDatabase.database().persistenceEnabled = true //Not sure where else this would go...
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GMSServices.provideAPIKey(Maps_API_Key)
-                
         if(LoggedIn){
             dispatch_async(dispatch_get_main_queue()){
                 self.showMainTabScreen()

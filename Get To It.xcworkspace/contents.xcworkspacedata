@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Get_To_It_iOS/Base.lproj/Main.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Get To It.xcodeproj">
    </FileRef>
    <FileRef

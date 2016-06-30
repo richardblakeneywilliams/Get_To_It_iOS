@@ -11,6 +11,9 @@
                 <tabBarController storyboardIdentifier="mainTabbedScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QXM-zU-cg8" customClass="MainTabViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="gmP-aM-gjH">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="59t-WQ-6Jd">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="J8F-FS-EVq"/>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Y0g-wP-e3D">
@@ -22,11 +25,12 @@
                         <segue destination="jlG-cp-7u2" kind="relationship" relationship="viewControllers" id="W4P-XT-eaw"/>
                         <segue destination="Q2D-X0-KvS" kind="relationship" relationship="viewControllers" id="njt-77-xlT"/>
                         <segue destination="oli-Za-nTX" kind="relationship" relationship="viewControllers" id="Nla-PU-5kv"/>
+                        <segue destination="CLX-0S-WgB" kind="relationship" relationship="viewControllers" id="p6v-MP-y5V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHZ-Fe-L8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-304" y="1245"/>
+            <point key="canvasLocation" x="-328" y="1457"/>
         </scene>
         <!--Workers In Your Area-->
         <scene sceneID="7Sa-du-yYS">
@@ -60,13 +64,101 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eQW-Wy-eUW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="gP1-NH-QKt"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eQW-Wy-eUW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4p-Ll-8u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1298" y="2295"/>
+        </scene>
+        <!--Account Settings View Controller-->
+        <scene sceneID="ARg-I6-FZ8">
+            <objects>
+                <viewController id="7Ku-1G-nYb" customClass="AccountSettingsViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fjo-rU-bmW"/>
+                        <viewControllerLayoutGuide type="bottom" id="X5w-gn-bjD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Df6-j7-kfm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DEh-nR-sbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="3079"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="wXD-ep-HJA">
+            <objects>
+                <viewController id="1Cw-wc-uZs" customClass="PaymentViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gww-SD-GrY"/>
+                        <viewControllerLayoutGuide type="bottom" id="fTV-GZ-86m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SOv-aS-OUF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFW-bn-46R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2606" y="3079"/>
+        </scene>
+        <!--My Money View Controller-->
+        <scene sceneID="tYG-F7-EkY">
+            <objects>
+                <viewController id="sbp-u0-Yge" customClass="MyMoneyViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nXW-f8-qaa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dpp-4q-cHl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CUp-S3-Fpz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8sl-jh-W3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="3807"/>
+        </scene>
+        <!--Past Jobs View Controller-->
+        <scene sceneID="Scz-Nc-x2L">
+            <objects>
+                <viewController id="6r4-hf-P5h" customClass="PastJobsViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eXV-tR-b6f"/>
+                        <viewControllerLayoutGuide type="bottom" id="yDb-9p-2vR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="crC-cu-0YE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwC-3l-kYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="3807"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="6pQ-C9-EgP">
+            <objects>
+                <viewController id="GqY-iO-Gcq" customClass="SettingViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jH0-Rs-obX"/>
+                        <viewControllerLayoutGuide type="bottom" id="3tF-bM-Ki5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AoF-Iv-Qzo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcH-h8-cTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2624" y="3809"/>
         </scene>
         <!--Select Category-->
         <scene sceneID="M3g-EH-fFg">
@@ -477,6 +569,32 @@
             </objects>
             <point key="canvasLocation" x="486" y="2295"/>
         </scene>
+        <!--More View Controller-->
+        <scene sceneID="Oc1-K9-pbf">
+            <objects>
+                <viewController id="7id-gE-2yU" customClass="MoreViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WdR-Sl-Ny3"/>
+                        <viewControllerLayoutGuide type="bottom" id="I3U-Dy-L80"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X13-Ta-jhU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SwF-8T-Tgk"/>
+                    <connections>
+                        <segue destination="7Ku-1G-nYb" kind="show" identifier="AccountSettingsSegue" id="WrT-Zi-22p"/>
+                        <segue destination="sbp-u0-Yge" kind="show" identifier="MyMoneySegue" id="Oho-Mb-qPa"/>
+                        <segue destination="6r4-hf-P5h" kind="show" identifier="PastJobsSegue" id="rZG-g3-yfo"/>
+                        <segue destination="1Cw-wc-uZs" kind="show" identifier="PaymentSegue" id="ARF-Qw-tjU"/>
+                        <segue destination="GqY-iO-Gcq" kind="show" identifier="SettingsSegue" id="Z4Y-H9-KYQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9rL-06-8Lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="3079"/>
+        </scene>
         <!--Create Job-->
         <scene sceneID="kj3-fA-aPe">
             <objects>
@@ -498,12 +616,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efZ-Y5-pat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="862"/>
+            <point key="canvasLocation" x="486" y="894"/>
+        </scene>
+        <!--More-->
+        <scene sceneID="jOn-M7-xPJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CLX-0S-WgB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="More" image="Menu" id="pfX-O3-iPa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xNa-hu-q6B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7id-gE-2yU" kind="relationship" relationship="rootViewController" id="Cbs-5U-1KU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mj-nV-sQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="3079"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera" width="76" height="76"/>
         <image name="Create Job" width="25" height="25"/>
+        <image name="Menu" width="22" height="22"/>
         <image name="My Jobs" width="25" height="25"/>
         <image name="To Work" width="25" height="25"/>
     </resources>

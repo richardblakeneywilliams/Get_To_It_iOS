@@ -18,15 +18,15 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.stopUpdatingLocation()
-        }
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.stopUpdatingLocation()
         
+        let long = locationManager.location?.coordinate.longitude
+        let lat = locationManager.location?.coordinate.latitude
         
-        let camera = GMSCameraPosition.cameraWithLatitude(-38.7045423,
-                                                          longitude: 176.0346538, zoom: 12)
+        let camera = GMSCameraPosition.cameraWithLatitude(lat!,
+                                                          longitude: long!, zoom: 18)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
         mapView.settings.zoomGestures = true

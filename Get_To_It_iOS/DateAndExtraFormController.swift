@@ -11,7 +11,8 @@ import Eureka
 
 class DateAndExtraFormController: FormViewController {
     
-    let pricePerHour: Double = 20.00
+    let pricePerHour = 20.00
+    
     
     @IBAction func backNavBar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
@@ -19,7 +20,7 @@ class DateAndExtraFormController: FormViewController {
     
     
     @IBAction func showAlert() {
-        let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can mkae their day and get alot more done with two", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can make their day and get alot more done with two", preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(defaultAction)
         presentViewController(alertController, animated: true, completion: nil)
@@ -32,7 +33,7 @@ class DateAndExtraFormController: FormViewController {
         
         form =
             
-            Section()
+            Section(header: "Enter Hours to work out cost", footer: "Calculated using our flat rate of $\(pricePerHour)0 per hour")
             
             <<< IntRow("Hours Required") {
                 $0.title = $0.tag

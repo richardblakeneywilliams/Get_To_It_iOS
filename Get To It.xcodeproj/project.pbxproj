@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0CF71FD76BF2E5942647EDD1 /* Pods_Get_To_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E6C98D0081E9614E654C1F /* Pods_Get_To_It.framework */; };
+		DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2EF1D24D981009F491E /* MoreViewController.swift */; };
+		DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB03D2F71D24E180009F491E /* ProfileImageView.xib */; };
 		DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB06D5811CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld */; };
 		DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */; };
+		DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */; };
+		DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */; };
+		DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */; };
+		DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9C1D2538FB00E0D4BC /* PaymentViewController.swift */; };
+		DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
 		DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */; };
@@ -66,8 +73,15 @@
 		1E8234FC6EC56131FBF1EC94 /* Pods-Get To It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.debug.xcconfig"; sourceTree = "<group>"; };
 		52E6C98D0081E9614E654C1F /* Pods_Get_To_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_To_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		755DD8ED46AD1A429957BB35 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB03D2EF1D24D981009F491E /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		DB03D2F71D24E180009F491E /* ProfileImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileImageView.xib; sourceTree = "<group>"; };
 		DB06D5821CF4381C0036A835 /* Get_To_It_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Get_To_It_iOS.xcdatamodel; sourceTree = "<group>"; };
 		DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMoneyViewController.swift; sourceTree = "<group>"; };
+		DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJobsViewController.swift; sourceTree = "<group>"; };
+		DB35DB9C1D2538FB00E0D4BC /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
 		DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobPhotoCell.swift; sourceTree = "<group>"; };
@@ -131,6 +145,20 @@
 				1306792C1F1A1A7265F70BCC /* Pods-Get To It.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB03D2F31D24E132009F491E /* More and Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DB03D2EF1D24D981009F491E /* MoreViewController.swift */,
+				DB03D2F71D24E180009F491E /* ProfileImageView.xib */,
+				DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */,
+				DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */,
+				DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */,
+				DB35DB9C1D2538FB00E0D4BC /* PaymentViewController.swift */,
+				DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */,
+			);
+			name = "More and Settings";
 			sourceTree = "<group>";
 		};
 		DB6A491A1CF6E5A100960A84 /* Create Job */ = {
@@ -223,6 +251,7 @@
 				DBCC07091CC868DC0070AEAA /* Info.plist */,
 				DB763A061CDA184600152107 /* MainTabViewController.swift */,
 				DBD497071D10642200B8417E /* ToWorkController.swift */,
+				DB03D2F31D24E132009F491E /* More and Settings */,
 			);
 			path = Get_To_It_iOS;
 			sourceTree = "<group>";
@@ -319,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */,
 				DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */,
 				DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */,
 				DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */,
@@ -382,9 +412,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */,
+				DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */,
 				DBD496FC1D0F80AB00B8417E /* Reachability.swift in Sources */,
+				DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */,
 				DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */,
 				DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */,
+				DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */,
 				DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */,
 				DB90FE291CF268640042A75A /* Category.swift in Sources */,
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
@@ -396,9 +430,11 @@
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
+				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
 				DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */,
 				DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */,
+				DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */,
 				DBD497081D10642200B8417E /* ToWorkController.swift in Sources */,
 				DBD496FE1D0FA08800B8417E /* CreateJobDetailsController.swift in Sources */,
 				DB90FE2B1CF271470042A75A /* GoogleMapsService.swift in Sources */,
@@ -524,6 +560,7 @@
 			baseConfigurationReference = 1E8234FC6EC56131FBF1EC94 /* Pods-Get To It.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -535,6 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.getToIt.Get-To-It-iOS";
 				PRODUCT_NAME = "Get To It";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -543,6 +581,7 @@
 			baseConfigurationReference = 1306792C1F1A1A7265F70BCC /* Pods-Get To It.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
