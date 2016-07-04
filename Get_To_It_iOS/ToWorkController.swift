@@ -25,18 +25,19 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
         let long = locationManager.location?.coordinate.longitude
         let lat = locationManager.location?.coordinate.latitude
         
-        let camera = GMSCameraPosition.cameraWithLatitude(lat!,
-                                                          longitude: long!, zoom: 18)
+        let camera = GMSCameraPosition.cameraWithLatitude(-38.7045423,
+                                                          longitude: 176.0346538, zoom: 18)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
         mapView.settings.zoomGestures = true
-        mapView.settings.myLocationButton = true
         self.view = mapView
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(-38.7045423,176.0346538)
-        marker.title = "Taupo"
-        marker.snippet = "New Zealand"
-        marker.map = mapView
+        
+        
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2DMake(-38.7045423,176.0346538)
+//        marker.title = "Taupo"
+//        marker.snippet = "New Zealand"
+//        marker.map = mapView
     }
 
 }

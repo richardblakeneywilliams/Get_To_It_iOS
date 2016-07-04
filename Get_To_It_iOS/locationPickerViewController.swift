@@ -10,13 +10,16 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import ChameleonFramework
 
 class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var kLocationTextField: UITextField!
     
+    
     override func viewDidLoad() {
+        
         
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
@@ -26,17 +29,15 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.stopUpdatingLocation()
         
-        
-        
         let long = locationManager.location?.coordinate.longitude
         let lat = locationManager.location?.coordinate.latitude
         
         var camera:GMSCameraPosition = GMSCameraPosition()
         
         if (long != nil){
-            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 16.0)
+            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 18)
         } else {
-            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 16.0)
+            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 18)
         }
         mapView.camera = camera
         mapView.myLocationEnabled = true
@@ -59,7 +60,19 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "LocationSegue" {
+            print(CurrentJob.instance?.lat)
+            print(CurrentJob.instance?.long)
+            print(CurrentJob.instance?.address)
+        }
+    }
 }
+
+
+
 
 
 extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
@@ -68,15 +81,19 @@ extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         kLocationTextField.text = place.formattedAddress
         let camera = GMSCameraPosition.cameraWithLatitude(place.coordinate.latitude,
-                                                          longitude: place.coordinate.longitude, zoom: 12)
+                                                          longitude: place.coordinate.longitude, zoom: 18)
         mapView.camera = camera
-        
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(place.coordinate.latitude,place.coordinate.longitude)
         marker.title = place.name
         marker.snippet = place.formattedAddress
         marker.map = mapView
         
+        CurrentJob.instance?.long = place.coordinate.longitude
+        CurrentJob.instance?.lat = place.coordinate.latitude
+        CurrentJob.instance?.address = place.formattedAddress
+        
+
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

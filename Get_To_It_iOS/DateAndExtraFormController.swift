@@ -18,6 +18,26 @@ class DateAndExtraFormController: FormViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func submitJob(){
+        var rowHoursReq = form.rowByTag("Hours Required")?.baseValue
+        let rowTotalCost = form.rowByTag("Total Cost")?.baseValue
+        let rowAllDay = form.rowByTag("All-day")?.baseValue
+        let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue
+        let rowJobEndTime = form.rowByTag("Job End Time")?.baseValue
+        let rowTools = form.rowByTag("Tools for the Job On-Site")?.baseValue
+        let rowPresent = form.rowByTag("Will you be present?")?.baseValue
+        
+
+        print(rowHoursReq)
+        print(rowTotalCost)
+        print(rowAllDay)
+        print(rowJobStartTime)
+        print(rowJobEndTime)
+        print(rowTools)
+        print(rowPresent)
+        
+    }
+    
     
     @IBAction func showAlert() {
         let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can make their day and get alot more done with two", preferredStyle: .Alert)
@@ -69,7 +89,6 @@ class DateAndExtraFormController: FormViewController {
         
             <<< DecimalRow("Total Cost") {
                 $0.title = $0.tag
-                $0.placeholder = "Enter Here"
                 let formatter = CurrencyFormatter()
                 formatter.locale = .currentLocale()
                 formatter.numberStyle = .CurrencyStyle
@@ -168,12 +187,12 @@ class DateAndExtraFormController: FormViewController {
             Section()
         
                 <<< SwitchRow("Tools for the Job On-Site"){
-                        $0.title = "Tools for the Job On-Site"
+                        $0.title = $0.tag
                         $0.value = true
                     }
         
                 <<< SwitchRow("Will you be present?"){
-                        $0.title = "Will you be present?"
+                        $0.title = $0.tag
                         $0.value = true
                 }
         
@@ -181,8 +200,10 @@ class DateAndExtraFormController: FormViewController {
             <<< ButtonRow() { (row: ButtonRow) -> Void in
                 row.title = "Submit Job"
                 }  .onCellSelection({ (cell, row) in
-                    print("Did it")
+                    self.submitJob()
                 })
+        
+
 
         
     }
@@ -199,6 +220,8 @@ class CurrencyFormatter : NSNumberFormatter, FormatterProtocol {
     func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
         return textInput.positionFromPosition(position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
     }
+    
+    
 }
 
 

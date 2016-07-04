@@ -8,9 +8,12 @@ target "Get To It" do
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'
 	pod 'Firebase/Core'
+    pod 'DZNEmptyDataSet'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'GoogleMaps'
     pod 'SnapKit', '~> 0.15.0'
+    pod 'ChameleonFramework/Swift'
+
 end
 

@@ -14,6 +14,7 @@ class Job{
         var description: NSString?
         var category: NSString?
         var subCategory: NSString?
+        var address: NSString?
         var long: Double?
         var lat: Double?
         var numberOfHours: Int?
@@ -23,7 +24,7 @@ class Job{
         var areTheyPresent: Bool?
     
     init(title: NSString, description: NSString, category: NSString, subCategory: NSString, long: Double, lat: Double,
-         numberOfHours: Int, jobStartTime: NSDate, jobEndTime: NSDate, toolsOnSite: Bool, areTheyPresent: Bool){
+         numberOfHours: Int, jobStartTime: NSDate, jobEndTime: NSDate, toolsOnSite: Bool, areTheyPresent: Bool, address: NSString){
         self.title = title
         self.description = description
         self.category = category
@@ -35,20 +36,10 @@ class Job{
         self.jobEndTime = jobEndTime
         self.toolsOnSite = toolsOnSite
         self.areTheyPresent = areTheyPresent
+        self.address = address
     }
     
     init(){
-//        self.title = ""
-//        self.description = ""
-//        self.category = ""
-//        self.subCategory = ""
-//        self.long = 0.0
-//        self.lat = 0.0
-//        self.numberOfHours = 0
-//        self.jobStartTime = NSDate()
-//        self.jobEndTime = NSDate()
-//        self.toolsOnSite = true
-//        self.areTheyPresent = true
     }
     
     

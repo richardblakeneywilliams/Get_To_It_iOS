@@ -9,5 +9,12 @@
 import Foundation
 
 class CurrentJob: Job {
-    static let instance: Job = Job()
+    static var instance: Job? = Job()
+    
+    
+    func destroy() {
+        CurrentJob.instance = nil
+    }
+    
 }
+

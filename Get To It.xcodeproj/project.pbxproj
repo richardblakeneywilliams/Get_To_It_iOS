@@ -17,6 +17,8 @@
 		DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */; };
 		DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9C1D2538FB00E0D4BC /* PaymentViewController.swift */; };
 		DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */; };
+		DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */; };
+		DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
 		DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */; };
@@ -82,6 +84,8 @@
 		DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJobsViewController.swift; sourceTree = "<group>"; };
 		DB35DB9C1D2538FB00E0D4BC /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableViewController.swift; sourceTree = "<group>"; };
+		DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableCell.swift; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
 		DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobPhotoCell.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 				DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */,
 			);
 			name = "More and Settings";
+			sourceTree = "<group>";
+		};
+		DB35DBA81D25544D00E0D4BC /* My Jobs  */ = {
+			isa = PBXGroup;
+			children = (
+				DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */,
+				DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */,
+			);
+			name = "My Jobs ";
 			sourceTree = "<group>";
 		};
 		DB6A491A1CF6E5A100960A84 /* Create Job */ = {
@@ -241,6 +254,7 @@
 				DB90FE2C1CF271760042A75A /* Services */,
 				DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */,
 				DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */,
+				DB35DBA81D25544D00E0D4BC /* My Jobs  */,
 				DB6A491A1CF6E5A100960A84 /* Create Job */,
 				DB8B1F221CEB1DCD004DAFED /* Model */,
 				DB8B1F1C1CEB165B004DAFED /* Sign-In */,
@@ -424,6 +438,7 @@
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
 				DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */,
 				DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */,
+				DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */,
 				DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */,
 				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,
@@ -431,6 +446,7 @@
 				DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
+				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
 				DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */,
 				DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */,

@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    //need to sart saving these
     var catArray = [UIImage]()
     
     
@@ -21,30 +21,31 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var subCategoryTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    @IBOutlet weak var openCameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        openCameraButton.backgroundColor = nil
+        
         descriptionTextView.layer.cornerRadius = 6
         let realLightGrey:UIColor = UIColor(red:0.78, green:0.78, blue:0.80, alpha:1.0)
         descriptionTextView.layer.borderColor = realLightGrey.CGColor
         descriptionTextView.layer.borderWidth = 1
     }
     
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue == "CreateJobDetailSegue"{
-            CurrentJob.instance.title = jobTitleTextField.text
-            CurrentJob.instance.subCategory = subCategoryTextField.text
-            CurrentJob.instance.description = descriptionTextView.text
-            print(CurrentJob.instance.category)
-            print("Just Below Detail FOOL")
+        if segue.identifier == "FromJobDetailToLocation" {
+            CurrentJob.instance?.description = descriptionTextView.text
+            CurrentJob.instance?.subCategory = subCategoryTextField.text
+            CurrentJob.instance?.title = jobTitleTextField.text
+            print(CurrentJob.instance?.description)
+            print(CurrentJob.instance?.title)
         }
     }
-        
-    @IBAction func nextButton(sender: AnyObject) {
-        print("Am I never here")
-        self.performSegueWithIdentifier("CreateJobDetailSegue", sender: self)
-    }
+    
+
     
 
     
