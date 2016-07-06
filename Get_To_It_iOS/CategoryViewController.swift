@@ -49,31 +49,13 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.layer.cornerRadius = 6
         cell.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
         cell.layer.borderWidth = 2
-        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //self.performSegueWithIdentifier(segueID, sender: self.navigationController)
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {        
         
         CurrentJob.instance!.category = self.names[indexPath.row]
-        print(CurrentJob.instance!.category)
+
     }
-    
-    
-    
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == segueID{
-//            let indexPaths = self.catCollectionView!.indexPathsForSelectedItems()!
-//            let indexPath = indexPaths[0] as NSIndexPath
-//            
-//            //Saves to CurrentJob that is a Singleton.
-//            CurrentJob.instance.category = self.names[indexPath.row]
-//            print(CurrentJob.instance.category = self.names[indexPath.row])
-//        }
-//    }
-    
-    
 
 }

@@ -22,9 +22,10 @@ class Job{
         var jobEndTime: NSDate?
         var toolsOnSite: Bool?
         var areTheyPresent: Bool?
+        var totalCost: Double?
     
     init(title: NSString, description: NSString, category: NSString, subCategory: NSString, long: Double, lat: Double,
-         numberOfHours: Int, jobStartTime: NSDate, jobEndTime: NSDate, toolsOnSite: Bool, areTheyPresent: Bool, address: NSString){
+         numberOfHours: Int, jobStartTime: NSDate, jobEndTime: NSDate, toolsOnSite: Bool, areTheyPresent: Bool, address: NSString, totalCost: Double){
         self.title = title
         self.description = description
         self.category = category
@@ -37,9 +38,12 @@ class Job{
         self.toolsOnSite = toolsOnSite
         self.areTheyPresent = areTheyPresent
         self.address = address
+        self.totalCost = totalCost
     }
     
     init(){
+        
+        
     }
     
     

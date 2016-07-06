@@ -27,7 +27,6 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         openCameraButton.backgroundColor = nil
-        
         descriptionTextView.layer.cornerRadius = 6
         let realLightGrey:UIColor = UIColor(red:0.78, green:0.78, blue:0.80, alpha:1.0)
         descriptionTextView.layer.borderColor = realLightGrey.CGColor
@@ -40,8 +39,6 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
             CurrentJob.instance?.description = descriptionTextView.text
             CurrentJob.instance?.subCategory = subCategoryTextField.text
             CurrentJob.instance?.title = jobTitleTextField.text
-            print(CurrentJob.instance?.description)
-            print(CurrentJob.instance?.title)
         }
     }
     

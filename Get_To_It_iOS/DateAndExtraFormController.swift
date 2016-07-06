@@ -8,38 +8,98 @@
 
 import UIKit
 import Eureka
+import FirebaseDatabase
 
 class DateAndExtraFormController: FormViewController {
     
     let pricePerHour = 20.00
     
+    let ref = FIRDatabase.database().reference()
     
     @IBAction func backNavBar(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     func submitJob(){
-        var rowHoursReq = form.rowByTag("Hours Required")?.baseValue
-        let rowTotalCost = form.rowByTag("Total Cost")?.baseValue
-        let rowAllDay = form.rowByTag("All-day")?.baseValue
-        let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue
-        let rowJobEndTime = form.rowByTag("Job End Time")?.baseValue
-        let rowTools = form.rowByTag("Tools for the Job On-Site")?.baseValue
-        let rowPresent = form.rowByTag("Will you be present?")?.baseValue
+        
+        if let cat = CurrentJob.instance!.category{
+            print(cat)
+        } else {
+            print("No Category")
+        }
+        
+        if let rowHoursReq = form.rowByTag("Hours Required")?.baseValue {
+            print(rowHoursReq)
+            CurrentJob.instance?.numberOfHours = rowHoursReq as? Int
+        } else {
+            print("Hours Required Not Entered")
+        }
+        
+        if let rowTotalCost = form.rowByTag("Total Cost")?.baseValue {
+            print(rowTotalCost)
+            CurrentJob.instance?.totalCost = rowTotalCost as? Double
+        } else {
+            print("RowTotalCost not calucated")
+        }
+        
+        //TODO: Look at all day job.
+        if let rowAllDay = form.rowByTag("All-day")?.baseValue {
+            print(rowAllDay)
+        } else {
+            print("Row All Day")
+        }
+        
+        if let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue {
+            print(rowJobStartTime)
+            CurrentJob.instance?.jobStartTime = rowJobStartTime as? NSDate
+        } else {
+            print("No Start Time Entered")
+        }
+        
+        if let rowJobEndTime = form.rowByTag("Job End Time")?.baseValue {
+            print(rowJobEndTime)
+            CurrentJob.instance?.jobEndTime = rowJobEndTime as? NSDate
+
+        } else {
+            print("No Job End Time Entered")
+        }
+        
+        if let rowTools = form.rowByTag("Tools for the Job On-Site")?.baseValue {
+            print(rowTools)
+            CurrentJob.instance?.toolsOnSite = rowTools as? Bool
+        } else {
+            print("No row tools enter")
+        }
+        if let rowPresent = form.rowByTag("Will you be present?")?.baseValue {
+            print(rowPresent)
+            CurrentJob.instance?.areTheyPresent = rowPresent as? Bool
+        } else {
+            print("No are you present entered")
+        }
+        if let des = CurrentJob.instance?.description {
+            print(des)
+        } else {
+            print("No title for job entered")
+        }
+        
+        if let subCat = CurrentJob.instance?.subCategory{
+            print(subCat)
+        } else {
+            print("No sub Category entered")
+        }
+        
+        if let des = CurrentJob.instance?.description{
+            print(des)
+        } else {
+            print("No description entered")
+        }
         
 
-        print(rowHoursReq)
-        print(rowTotalCost)
-        print(rowAllDay)
-        print(rowJobStartTime)
-        print(rowJobEndTime)
-        print(rowTools)
-        print(rowPresent)
         
     }
     
     
-    @IBAction func showAlert() {
+   func showAlert() {
         let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can make their day and get alot more done with two", preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(defaultAction)
@@ -201,6 +261,7 @@ class DateAndExtraFormController: FormViewController {
                 row.title = "Submit Job"
                 }  .onCellSelection({ (cell, row) in
                     self.submitJob()
+                    saveJob()
                 })
         
 

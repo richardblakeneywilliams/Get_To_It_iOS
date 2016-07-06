@@ -93,6 +93,24 @@ extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
         CurrentJob.instance?.lat = place.coordinate.latitude
         CurrentJob.instance?.address = place.formattedAddress
         
+        if let long = CurrentJob.instance?.long{
+            print(long)
+        } else {
+            print("No longitute")
+        }
+        
+        if let lat = CurrentJob.instance?.lat{
+            print(lat)
+        } else {
+            print("No latitude")
+        }
+        
+        if let address = CurrentJob.instance?.address {
+            print(address)
+        }  else {
+            print("No address")
+        }
+        
 
         
         self.dismissViewControllerAnimated(true, completion: nil)
