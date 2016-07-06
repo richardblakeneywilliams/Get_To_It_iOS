@@ -29,6 +29,7 @@ public func saveJob() {
     let jobEndTime = CurrentJob.instance?.jobEndTime
     let toolsOnSite = CurrentJob.instance?.toolsOnSite
     let areTheyPresent = CurrentJob.instance?.areTheyPresent
+    let totalCost = CurrentJob.instance?.totalCost
     
     
     let stringStart = String(jobStartTime)
@@ -50,7 +51,8 @@ public func saveJob() {
                "jobEndTime": stringEnd,
                "toolsOnSite": toolsOnSite!,
                "areTheyPresent": areTheyPresent!,
-               "address": address!]
+               "address": address!,
+               "totalCost": totalCost!]
     
     let childUpdates = ["/job/\(key)":job, "/user-jobs/\(uid)/\(key)/": job]
     

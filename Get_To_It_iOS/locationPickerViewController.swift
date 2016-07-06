@@ -20,7 +20,10 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     
     override func viewDidLoad() {
         
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+
         
+    
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
