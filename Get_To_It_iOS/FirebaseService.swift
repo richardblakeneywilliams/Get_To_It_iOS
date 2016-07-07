@@ -17,7 +17,7 @@ let FIREBASE_REF = FIRDatabase.database().reference()
 public func saveJob() {
     
     let title = CurrentJob.instance?.title
-    let uid = FIRAuth.auth()?.currentUser?.uid
+    var uid: String = (FIRAuth.auth()?.currentUser?.uid)!
     let address = CurrentJob.instance?.address
     let description = CurrentJob.instance?.description
     let category = CurrentJob.instance?.category
@@ -31,15 +31,26 @@ public func saveJob() {
     let areTheyPresent = CurrentJob.instance?.areTheyPresent
     let totalCost = CurrentJob.instance?.totalCost
     
-    
+    print("JOB START:   \(jobStartTime)")
+    print("JOB END:   \(jobEndTime)")
+    //Maybe unpack here??????
     let stringStart = String(jobStartTime)
     let stringEnd = String(jobEndTime)
     
     
+    if let id = FIRAuth.auth()?.currentUser?.uid{
+        uid = id
+    } else {
+        //Do something here
+    }
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-mm-dd"
+    
     let key = FIREBASE_REF.child("job").childByAutoId().key
  
     let job : [NSObject: AnyObject] =
-            ["uid": uid!,
+            ["uid": uid,
                "title": title!,
                "description": description!,
                "category": category!,
