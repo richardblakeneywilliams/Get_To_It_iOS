@@ -14,6 +14,7 @@ class DateAndExtraFormController: FormViewController {
     
     let pricePerHour = 20.00
     
+    
     let ref = FIRDatabase.database().reference()
     
     @IBAction func backNavBar(sender: AnyObject) {
@@ -49,16 +50,33 @@ class DateAndExtraFormController: FormViewController {
             print("Row All Day")
         }
         
-        if let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue {
-            print(rowJobStartTime)
-            CurrentJob.instance?.jobStartTime = rowJobStartTime as? NSDate
+        if let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue{
+            
+            let formatter = NSDateFormatter()
+            formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
+            formatter.timeZone = NSTimeZone(abbreviation: "NZST") //this is an issue.
+            let stringStart = formatter.stringFromDate((rowJobStartTime as? NSDate)!)
+            
+            print(stringStart)
+            
+            CurrentJob.instance?.jobStartTime = stringStart as String
         } else {
             print("No Start Time Entered")
         }
         
         if let rowJobEndTime = form.rowByTag("Job End Time")?.baseValue {
-            print(rowJobEndTime)
-            CurrentJob.instance?.jobEndTime = rowJobEndTime as? NSDate
+            
+            let formatter = NSDateFormatter()
+            formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
+            formatter.locale = NSLocale(localeIdentifier: "el_NZ")
+            formatter.timeZone = NSTimeZone(abbreviation: "NZST") //this is an issue.
+            
+            
+            let stringEnd = formatter.stringFromDate((rowJobEndTime as? NSDate)!)
+
+            print(stringEnd)
+            
+            CurrentJob.instance?.jobEndTime = stringEnd as String
 
         } else {
             print("No Job End Time Entered")

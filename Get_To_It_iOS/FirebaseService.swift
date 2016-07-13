@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import SwiftDate
 
 
 let FIREBASE_REF = FIRDatabase.database().reference()
@@ -31,21 +32,16 @@ public func saveJob() {
     let areTheyPresent = CurrentJob.instance?.areTheyPresent
     let totalCost = CurrentJob.instance?.totalCost
     
-    print("JOB START:   \(jobStartTime)")
-    print("JOB END:   \(jobEndTime)")
-    //Maybe unpack here??????
-    let stringStart = String(jobStartTime)
-    let stringEnd = String(jobEndTime)
-    
-    
+
     if let id = FIRAuth.auth()?.currentUser?.uid{
         uid = id
     } else {
         //Do something here
     }
     
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy-mm-dd"
+ 
+    
+    
     
     let key = FIREBASE_REF.child("job").childByAutoId().key
  
@@ -58,8 +54,8 @@ public func saveJob() {
                "longitute": long!,
                "latitude": lat!,
                "numberOfHours": numberOfHours!,
-               "jobStartTime": stringStart,
-               "jobEndTime": stringEnd,
+               "jobStartTime": jobStartTime!,
+               "jobEndTime": jobEndTime!,
                "toolsOnSite": toolsOnSite!,
                "areTheyPresent": areTheyPresent!,
                "address": address!,

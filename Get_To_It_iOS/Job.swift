@@ -18,31 +18,30 @@ class Job{
         var long: Double?
         var lat: Double?
         var numberOfHours: Int?
-        var jobStartTime: NSDate?
-        var jobEndTime: NSDate?
+        var jobStartTime: String?
+        var jobEndTime: String?
         var toolsOnSite: Bool?
         var areTheyPresent: Bool?
         var totalCost: Double?
     
-    init(title: NSString, description: NSString, category: NSString, subCategory: NSString, long: Double, lat: Double,
-         numberOfHours: Int, jobStartTime: NSDate, jobEndTime: NSDate, toolsOnSite: Bool, areTheyPresent: Bool, address: NSString, totalCost: Double){
-        self.title = title
-        self.description = description
-        self.category = category
-        self.subCategory = subCategory
-        self.long = long
-        self.lat = lat
-        self.numberOfHours = numberOfHours
-        self.jobStartTime = jobStartTime
-        self.jobEndTime = jobEndTime
-        self.toolsOnSite = toolsOnSite
-        self.areTheyPresent = areTheyPresent
-        self.address = address
-        self.totalCost = totalCost
-    }
+//    init(title: NSString, description: NSString, category: NSString, subCategory: NSString, long: Double, lat: Double,
+//         numberOfHours: Int, jobStartTime: String, jobEndTime: String, toolsOnSite: Bool, areTheyPresent: Bool, address: NSString, totalCost: Double){
+//        self.title = title
+//        self.description = description
+//        self.category = category
+//        self.subCategory = subCategory
+//        self.long = long
+//        self.lat = lat
+//        self.numberOfHours = numberOfHours
+//        self.jobStartTime = jobStartTime
+//        self.jobEndTime = jobEndTime
+//        self.toolsOnSite = toolsOnSite
+//        self.areTheyPresent = areTheyPresent
+//        self.address = address
+//        self.totalCost = totalCost
+//    }
     
     init(){
-        
         
     }
     

@@ -14,6 +14,8 @@ target "Get To It" do
 	pod 'GoogleMaps'
     pod 'SnapKit', '~> 0.15.0'
     pod 'ChameleonFramework/Swift'
+    pod 'SwiftDate'
+
 
 end
 
