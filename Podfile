@@ -11,6 +11,7 @@ target "Get To It" do
     pod 'DZNEmptyDataSet'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
 	pod 'GoogleMaps'
     pod 'SnapKit', '~> 0.15.0'
     pod 'ChameleonFramework/Swift'

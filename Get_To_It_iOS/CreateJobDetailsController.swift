@@ -8,11 +8,13 @@
 
 import UIKit
 import ChameleonFramework
+import FirebaseStorage
 
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     var catArray = [UIImage]()
+    var storage: FIRStorage!
     
     
     
@@ -26,6 +28,9 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        storage = FIRStorage.storage()
+        
         openCameraButton.backgroundColor = nil
         descriptionTextView.layer.cornerRadius = 6
         let realLightGrey:UIColor = UIColor(red:0.78, green:0.78, blue:0.80, alpha:1.0)
@@ -88,8 +93,30 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        //grab image from lib/camera
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        // Get local file URLs
+        guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        let imageData = UIImagePNGRepresentation(image)!
+        guard let imageURL: NSURL = info[UIImagePickerControllerReferenceURL] as? NSURL else { return }
+        
+        // Get a reference to the location where we'll store our photos
+        let photosRef = storage.reference().child("jobPhotos")
+        
+        // Get a reference to store the file at jobPhotos/<FILENAME>
+        let photoRef = photosRef.child("\(NSUUID().UUIDString).png")
+        
+        // Upload file to Firebase Storage
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/png"
+        photoRef.putData(imageData, metadata: metadata).observeStatus(.Success) { (snapshot) in
+            // When the image has successfully uploaded, we get it's download URL
+            let url = snapshot.metadata?.downloadURL()?.absoluteString
+            // Set the download URL to the message box, so that the user can send it to the database
+            
+        }
+
+
+        
+        
         catArray.append(image)
         takePicsCat.reloadData()
         dismissViewControllerAnimated(false, completion: nil)
