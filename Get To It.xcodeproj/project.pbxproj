@@ -20,6 +20,7 @@
 		DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */; };
 		DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */; };
 		DB3802321D598B0400ACCE0F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3802311D598B0400ACCE0F /* LocationService.swift */; };
+		DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3802361D598D9700ACCE0F /* LocationManager.swift */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
 		DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */; };
@@ -89,6 +90,7 @@
 		DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableViewController.swift; sourceTree = "<group>"; };
 		DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableCell.swift; sourceTree = "<group>"; };
 		DB3802311D598B0400ACCE0F /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		DB3802361D598D9700ACCE0F /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
 		DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobPhotoCell.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		DB90FE2C1CF271760042A75A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DB3802361D598D9700ACCE0F /* LocationManager.swift */,
 				DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */,
 				DB763A021CD9CEF900152107 /* FirebaseService.swift */,
 				DB90FE631CF3EEBA0042A75A /* NexmoService.swift */,
@@ -439,6 +442,7 @@
 				DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */,
 				DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */,
 				DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */,
+				DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */,
 				DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */,
 				DB90FE291CF268640042A75A /* Category.swift in Sources */,
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
