@@ -54,7 +54,6 @@
         <!--My Jobs-->
         <scene sceneID="rK5-Zi-gF6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzh-2y-iCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Hl5-mG-8dO" customClass="MyJobTableViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ta8-WJ-xDr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -134,6 +133,7 @@
                                     <outlet property="employerName" destination="uwU-VJ-CNK" id="IqG-yo-82C"/>
                                     <outlet property="employerProfilePic" destination="KZ1-b4-TZ7" id="lMf-d6-26D"/>
                                     <outlet property="titleLabel" destination="lSk-7i-KyZ" id="dLJ-6x-cR4"/>
+                                    <segue destination="pxA-Lf-wio" kind="show" id="J5v-kg-ZJ3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,8 +144,27 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Jobs" id="vJr-7O-lCo"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzh-2y-iCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298" y="2298"/>
+            <point key="canvasLocation" x="1278" y="2334"/>
+        </scene>
+        <!--My Job Details Controller-->
+        <scene sceneID="BuI-xQ-Dfs">
+            <objects>
+                <viewController id="pxA-Lf-wio" customClass="MyJobDetailsController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U9W-qf-TgD"/>
+                        <viewControllerLayoutGuide type="bottom" id="SiH-n7-47B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Byr-kz-fx1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ej-mf-O5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="2334"/>
         </scene>
         <!--Account Settings View Controller-->
         <scene sceneID="ARg-I6-FZ8">
@@ -218,7 +237,19 @@
                     <view key="view" contentMode="scaleToFill" id="CUp-S3-Fpz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Support Not Available in Beta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnG-E3-pwM">
+                                <rect key="frame" x="143" y="289" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NnG-E3-pwM" firstAttribute="centerX" secondItem="CUp-S3-Fpz" secondAttribute="centerX" id="Jba-sS-Uui"/>
+                            <constraint firstItem="NnG-E3-pwM" firstAttribute="centerY" secondItem="CUp-S3-Fpz" secondAttribute="centerY" id="cfi-5D-JuM"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sl-jh-W3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>

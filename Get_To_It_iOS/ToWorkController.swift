@@ -14,30 +14,30 @@ import CoreLocation
 class ToWorkController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
+        
+        //Put this in a manager. More than one view needs it. 
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.stopUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        locationManager.distanceFilter = 10
+        
+        locationManager.startUpdatingLocation()
         
         let long = locationManager.location?.coordinate.longitude
         let lat = locationManager.location?.coordinate.latitude
         
-        let camera = GMSCameraPosition.cameraWithLatitude(-38.7045423,
-                                                          longitude: 176.0346538, zoom: 18)
+        //Fix this later
+        let camera = GMSCameraPosition.cameraWithLatitude(lat!,
+                                                          longitude: long!, zoom: 15)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
         mapView.settings.zoomGestures = true
         self.view = mapView
         
-        
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2DMake(-38.7045423,176.0346538)
-//        marker.title = "Taupo"
-//        marker.snippet = "New Zealand"
-//        marker.map = mapView
     }
 
 }

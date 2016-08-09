@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import SnapKit
+import ChameleonFramework
 
 class MoreViewController: FormViewController {
     
@@ -16,6 +17,8 @@ class MoreViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        
         
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17

@@ -22,7 +22,6 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
         
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
 
-        
     
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
