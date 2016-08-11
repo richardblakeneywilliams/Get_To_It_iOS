@@ -14,15 +14,13 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     
     
     var catArray = [UIImage]()
-    var storage: FIRStorage!
-    
+    var storage: FIRStorage! //Need to add shit here.
     
     
     @IBOutlet weak var takePicsCat: UICollectionView!
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var subCategoryTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-    
     @IBOutlet weak var openCameraButton: UIButton!
     
     override func viewDidLoad() {
@@ -96,7 +94,7 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         // Get local file URLs
         guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         let imageData = UIImagePNGRepresentation(image)!
-        guard let imageURL: NSURL = info[UIImagePickerControllerReferenceURL] as? NSURL else { return }
+        //guard let imageURL: NSURL = info[UIImagePickerControllerReferenceURL] as? NSURL else { return }
         
         // Get a reference to the location where we'll store our photos
         let photosRef = storage.reference().child("jobPhotos")
@@ -109,7 +107,7 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         metadata.contentType = "image/png"
         photoRef.putData(imageData, metadata: metadata).observeStatus(.Success) { (snapshot) in
             // When the image has successfully uploaded, we get it's download URL
-            let url = snapshot.metadata?.downloadURL()?.absoluteString
+            //let url = snapshot.metadata?.downloadURL()?.absoluteString
             // Set the download URL to the message box, so that the user can send it to the database
             
         }

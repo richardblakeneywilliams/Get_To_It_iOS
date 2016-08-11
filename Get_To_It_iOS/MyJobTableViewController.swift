@@ -12,6 +12,9 @@ import GoogleMaps
 
 class MyJobTableViewController: UITableViewController  {
     
+    //var myJobsArray
+    //I need to add the ComsManager downloading the User_jobs table. Do I need to add a User_Jobs_Created/User_Jobs_Working?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,6 +45,12 @@ class MyJobTableViewController: UITableViewController  {
         cell.titleLabel.text = "Trimmed the hedges"
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.identifier == "MyJobsDetailSegue" {
+            
+        }
     }
 
 }

@@ -18,33 +18,35 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBOutlet weak var kLocationTextField: UITextField!
     
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //This created a new bug
+        LocationManager.instance.subscribeToUserLocation() { (userLocation) in
+            let camera = GMSCameraPosition.cameraWithLatitude(userLocation.coordinate.latitude,
+                longitude: userLocation.coordinate.longitude, zoom: 15)
+            
+            print("Location Picker, inside sub")
+            
+            self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+            self.mapView.myLocationEnabled = true //This is in the wrong place.
+            self.mapView.settings.zoomGestures = true
+            self.mapView.settings.myLocationButton = true
+            
+            //Here is the issue. But is it?
+            self.view = self.mapView
+            
+        }
+    }
+    
+    
     override func viewDidLoad() {
         
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
 
+    }
     
-        let locationManager = CLLocationManager()
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.stopUpdatingLocation()
-        
-        let long = locationManager.location?.coordinate.longitude
-        let lat = locationManager.location?.coordinate.latitude
-        
-        var camera:GMSCameraPosition = GMSCameraPosition()
-        
-        if (long != nil){
-            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 18)
-        } else {
-            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 18)
-        }
-        mapView.camera = camera
-        mapView.myLocationEnabled = true
-        mapView.settings.setAllGesturesEnabled(true)
-        mapView.settings.myLocationButton = true
+    override func viewWillDisappear(animated: Bool) {
+        LocationManager.instance.removeLastListener()
     }
     
     // Present the Autocomplete view controller when the button is pressed.

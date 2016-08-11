@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Get_To_It_iOS/FirebaseService.swift"
-            timestampString = "489749822.671839"
+            timestampString = "492644582.878733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "saveJob()"
             landmarkType = "7">
          </BreakpointContent>

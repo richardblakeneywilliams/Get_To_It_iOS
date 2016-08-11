@@ -39,10 +39,6 @@ public func saveJob() {
         //Do something here
     }
     
- 
-    
-    
-    
     let key = FIREBASE_REF.child("job").childByAutoId().key
  
     let job : [NSObject: AnyObject] =

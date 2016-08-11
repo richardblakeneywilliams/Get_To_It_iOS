@@ -10,11 +10,16 @@ import UIKit
 
 class MyJobDetailsController: UIViewController {
     
+    var jobTitle: String?
+    var jobLat: Double?
+    var jobLong: Double?
+    var jobCat: String?
+    var jobEmployerName: String?
+    var jobEmployerId: String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
-    
 
 }

@@ -41,7 +41,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     self.locationManager.requestWhenInUseAuthorization()
     if CLLocationManager.locationServicesEnabled() {
       locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+      locationManager.distanceFilter = 5.0
       locationManager.startUpdatingLocation()
       self.callBack = callBack
     }
