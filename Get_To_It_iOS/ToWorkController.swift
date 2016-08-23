@@ -27,18 +27,18 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
             let camera = GMSCameraPosition.cameraWithLatitude(userLocation.coordinate.latitude,
                 longitude: userLocation.coordinate.longitude, zoom: 15)
             self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-            self.mapView.myLocationEnabled = true
+            //self.mapView.myLocationEnabled = true
             self.mapView.settings.zoomGestures = true
             self.mapView.settings.myLocationButton = true
-            
             
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
             marker.appearAnimation = kGMSMarkerAnimationPop
             marker.icon = UIImage(named: "worker_spade")
+            //marker.
             marker.map = self.mapView
             
-            self.view = self.mapView
+            //self.view = self.mapView
         }
     }
     

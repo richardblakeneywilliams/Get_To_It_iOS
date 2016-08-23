@@ -26,6 +26,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
   func subscribeToUserLocation(andDoThisWithIt: (CLLocation) -> ()) {
     self.setUpLocationListener(andDoThisWithIt)
+    print(#function)
     self.listeners.append(LocationListener(id: currentId, callBack: andDoThisWithIt))
   }
 
@@ -40,6 +41,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   private func setUpLocationListener(callBack: (CLLocation) -> ()) {
     self.locationManager.requestWhenInUseAuthorization()
     if CLLocationManager.locationServicesEnabled() {
+    
+        print(#function)
       locationManager.delegate = self
       locationManager.distanceFilter = 5.0
       locationManager.startUpdatingLocation()
