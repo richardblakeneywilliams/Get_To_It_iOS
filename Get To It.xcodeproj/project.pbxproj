@@ -12,6 +12,7 @@
 		DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB03D2F71D24E180009F491E /* ProfileImageView.xib */; };
 		DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB06D5811CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld */; };
 		DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */; };
+		DB0C0A2B1D7EF18A004B5ED7 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */; };
 		DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */; };
 		DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */; };
 		DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */; };
@@ -57,6 +58,7 @@
 		DB03D2F71D24E180009F491E /* ProfileImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileImageView.xib; sourceTree = "<group>"; };
 		DB06D5821CF4381C0036A835 /* Get_To_It_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Get_To_It_iOS.xcdatamodel; sourceTree = "<group>"; };
 		DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMoneyViewController.swift; sourceTree = "<group>"; };
 		DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJobsViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				DB763A061CDA184600152107 /* MainTabViewController.swift */,
 				DBD497071D10642200B8417E /* ToWorkController.swift */,
 				DB03D2F31D24E132009F491E /* More and Settings */,
+				DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */,
 			);
 			path = Get_To_It_iOS;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */,
 				DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */,
 				DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */,
+				DB0C0A2B1D7EF18A004B5ED7 /* .travis.yml in Resources */,
 				DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
