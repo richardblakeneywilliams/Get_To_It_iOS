@@ -151,18 +151,36 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QG-gC-LxS" customClass="GMSMapView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="159"/>
+                                                    <color key="backgroundColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mow Lawns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1R-Zu-7HC">
+                                                    <rect key="frame" x="8" y="8" width="111" height="23"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.48688038789999999" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="111" id="VKk-UO-sVN"/>
+                                                        <constraint firstAttribute="height" constant="23" id="cOi-7J-kVA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="ICP-Hn-ejI" firstAttribute="leading" secondItem="TSE-wj-eaI" secondAttribute="leading" id="0Bk-oZ-dmG"/>
                                                 <constraint firstItem="31c-c9-dJJ" firstAttribute="leading" secondItem="ICP-Hn-ejI" secondAttribute="leading" id="573-Al-uyO"/>
                                                 <constraint firstItem="31c-c9-dJJ" firstAttribute="baseline" secondItem="5C9-0t-cju" secondAttribute="baseline" id="5f6-Fn-UzX"/>
+                                                <constraint firstItem="Y1R-Zu-7HC" firstAttribute="leading" secondItem="7z9-M0-zYr" secondAttribute="leading" id="5lK-66-cNb"/>
                                                 <constraint firstItem="F77-up-UaY" firstAttribute="top" secondItem="5C9-0t-cju" secondAttribute="bottom" id="65j-7r-tFI"/>
                                                 <constraint firstItem="5C9-0t-cju" firstAttribute="leading" secondItem="F77-up-UaY" secondAttribute="leading" id="8XM-8n-WhL"/>
                                                 <constraint firstItem="TSE-wj-eaI" firstAttribute="baseline" secondItem="OZI-8b-9By" secondAttribute="baseline" id="98l-PO-R4Y"/>
                                                 <constraint firstItem="TSE-wj-eaI" firstAttribute="bottom" secondItem="DhM-nE-ves" secondAttribute="bottomMargin" id="CGl-T7-mZE"/>
                                                 <constraint firstAttribute="bottom" secondItem="7z9-M0-zYr" secondAttribute="bottom" constant="8" id="CJJ-q0-7eB"/>
                                                 <constraint firstItem="TSE-wj-eaI" firstAttribute="firstBaseline" secondItem="OZI-8b-9By" secondAttribute="firstBaseline" id="Gx0-Bs-Jgh"/>
+                                                <constraint firstItem="Y1R-Zu-7HC" firstAttribute="leading" secondItem="9QG-gC-LxS" secondAttribute="leading" constant="8" id="J3x-eh-Ojj"/>
+                                                <constraint firstItem="Y1R-Zu-7HC" firstAttribute="top" secondItem="DhM-nE-ves" secondAttribute="topMargin" id="R1L-nF-9he"/>
                                                 <constraint firstItem="31c-c9-dJJ" firstAttribute="firstBaseline" secondItem="5C9-0t-cju" secondAttribute="firstBaseline" id="S5L-Xd-h4U"/>
                                                 <constraint firstItem="TSE-wj-eaI" firstAttribute="top" secondItem="ICP-Hn-ejI" secondAttribute="bottom" id="hH3-sf-XMN"/>
                                                 <constraint firstItem="OZI-8b-9By" firstAttribute="leading" secondItem="TSE-wj-eaI" secondAttribute="trailing" constant="13" id="iSs-8k-N60"/>
@@ -170,20 +188,11 @@
                                                 <constraint firstItem="31c-c9-dJJ" firstAttribute="leading" secondItem="7z9-M0-zYr" secondAttribute="trailing" constant="13" id="jer-BI-rVQ"/>
                                                 <constraint firstItem="31c-c9-dJJ" firstAttribute="top" secondItem="7z9-M0-zYr" secondAttribute="top" id="khe-hV-1eb"/>
                                                 <constraint firstItem="7z9-M0-zYr" firstAttribute="leading" secondItem="DhM-nE-ves" secondAttribute="leadingMargin" id="lmn-5F-V4h"/>
+                                                <constraint firstItem="Y1R-Zu-7HC" firstAttribute="top" secondItem="9QG-gC-LxS" secondAttribute="top" constant="8" id="pl5-5S-2ML"/>
+                                                <constraint firstItem="5C9-0t-cju" firstAttribute="top" secondItem="9QG-gC-LxS" secondAttribute="bottom" constant="9" id="qVS-w6-DmA"/>
                                                 <constraint firstAttribute="bottom" secondItem="F77-up-UaY" secondAttribute="bottom" constant="27" id="scq-Bb-edX"/>
+                                                <constraint firstAttribute="trailing" secondItem="9QG-gC-LxS" secondAttribute="trailing" id="yLl-ng-HfE"/>
                                             </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QG-gC-LxS" customClass="GMSMapView">
-                                            <rect key="frame" x="13" y="13" width="573" height="151"/>
-                                            <subviews>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1R-Zu-7HC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,15 +200,12 @@
                                         <constraint firstItem="DhM-nE-ves" firstAttribute="top" secondItem="3X9-2i-Wyz" secondAttribute="top" constant="8" id="1n8-dJ-R2U"/>
                                         <constraint firstItem="DhM-nE-ves" firstAttribute="trailing" secondItem="3X9-2i-Wyz" secondAttribute="trailingMargin" id="7l9-yg-fzM"/>
                                         <constraint firstItem="DhM-nE-ves" firstAttribute="leading" secondItem="3X9-2i-Wyz" secondAttribute="leadingMargin" id="BW0-qM-eJq"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9QG-gC-LxS" secondAttribute="bottom" constant="80.5" id="N8S-OK-evm"/>
-                                        <constraint firstItem="9QG-gC-LxS" firstAttribute="trailing" secondItem="3X9-2i-Wyz" secondAttribute="trailingMargin" constant="-6" id="mfH-5N-hgc"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="DhM-nE-ves" secondAttribute="bottom" constant="-0.5" id="oc5-94-oYQ"/>
-                                        <constraint firstItem="9QG-gC-LxS" firstAttribute="top" secondItem="3X9-2i-Wyz" secondAttribute="top" constant="13" id="tFv-sb-aPj"/>
-                                        <constraint firstItem="9QG-gC-LxS" firstAttribute="leading" secondItem="3X9-2i-Wyz" secondAttribute="leadingMargin" constant="5" id="x6t-Ch-EDJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="backgroundVIew" destination="DhM-nE-ves" id="50U-Xd-RnC"/>
+                                    <outlet property="categoryLabel" destination="Y1R-Zu-7HC" id="JXN-rK-Esd"/>
                                     <outlet property="mapView" destination="9QG-gC-LxS" id="dHj-MS-fjR"/>
                                     <outlet property="profilePictureView" destination="7z9-M0-zYr" id="jgh-cL-2UY"/>
                                     <outlet property="startTimeHour" destination="5C9-0t-cju" id="lZq-Zr-rhk"/>

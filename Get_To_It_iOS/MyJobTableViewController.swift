@@ -19,6 +19,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
     
         locationManager.requestAlwaysAuthorization()
@@ -67,16 +68,12 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyJobTableCell", forIndexPath: indexPath) as! MyJobTableCell
         
-//        cell.startTimeHour.text = "10pm"
-//        cell.startTimeMonth.text = "17th of August"
-//        cell.status.text = "Offer of Work Accepted"
+        cell.startTimeHour.text = "10pm"
+        cell.startTimeMonth.text = "17th of August"
+        cell.status.text = "Offer of Work Accepted"
         cell.profilePictureView.image = UIImage(named: "Callum")
-        cell.mapView.myLocationEnabled = true
+        //cell.mapView.myLocationEnabled = true
         
-//        var marker:GMSMarker = GMSMarker()
-//        marker.appearAnimation = true
-
-
 
         
         var camera:GMSCameraPosition = GMSCameraPosition()
@@ -91,18 +88,14 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         
         cell.mapView.camera = camera
         
-        let whiteRoundedView : UIView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 149))
+        let marker: GMSMarker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+        marker.title = "Mow Lawns"
+        marker.appearAnimation = kGMSMarkerAnimationPop
+        marker.map = cell.mapView
+    
         
-        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.8])
-        whiteRoundedView.layer.masksToBounds = false
-        whiteRoundedView.layer.cornerRadius = 2.0
-        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
-        whiteRoundedView.layer.shadowOpacity = 0.2
         
-        cell.contentView.addSubview(whiteRoundedView)
-        cell.contentView.sendSubviewToBack(whiteRoundedView)
-
-
         
         return cell
     }

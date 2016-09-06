@@ -214,6 +214,7 @@
 		DBCC06F91CC868DC0070AEAA /* Get_To_It_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */,
 				DB90FE2C1CF271760042A75A /* Services */,
 				DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */,
 				DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */,
@@ -229,7 +230,6 @@
 				DB763A061CDA184600152107 /* MainTabViewController.swift */,
 				DBD497071D10642200B8417E /* ToWorkController.swift */,
 				DB03D2F31D24E132009F491E /* More and Settings */,
-				DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */,
 			);
 			path = Get_To_It_iOS;
 			sourceTree = "<group>";

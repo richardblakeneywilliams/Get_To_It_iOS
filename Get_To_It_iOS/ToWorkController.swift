@@ -19,31 +19,47 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
         //Removes the blue theme from the Google logo in the bottom left corner.
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
         
-    }
-    
-    override func viewDidAppear(animated: Bool) {
+        //Put this in a manager. More than one view needs it.
+        let locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
-        LocationManager.instance.subscribeToUserLocation() { (userLocation) in
-            let camera = GMSCameraPosition.cameraWithLatitude(userLocation.coordinate.latitude,
-                longitude: userLocation.coordinate.longitude, zoom: 15)
-            self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-            //self.mapView.myLocationEnabled = true
-            self.mapView.settings.zoomGestures = true
-            self.mapView.settings.myLocationButton = true
-            
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            marker.appearAnimation = kGMSMarkerAnimationPop
-            marker.icon = UIImage(named: "worker_spade")
-            //marker.
-            marker.map = self.mapView
-            
-            //self.view = self.mapView
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        locationManager.distanceFilter = 10
+        
+        locationManager.startUpdatingLocation()
+        
+        let long = locationManager.location?.coordinate.longitude
+        let lat = locationManager.location?.coordinate.latitude
+        
+        var camera:GMSCameraPosition = GMSCameraPosition()
+        
+        if (long != nil){
+            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
+        } else {
+            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)
         }
-    }
-    
-   override func viewWillDisappear(animated: Bool) {
-        LocationManager.instance.removeLastListener()
+        
+
+
+
+        
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        //mapView.myLocationEnabled = true
+        mapView.settings.zoomGestures = true
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+        marker.appearAnimation = kGMSMarkerAnimationPop
+        marker.icon = UIImage(named: "worker_spade")
+        marker.map = mapView
+        
+        
+        self.view = mapView
+        
+        
     }
 
 }
