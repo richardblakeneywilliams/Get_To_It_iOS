@@ -12,19 +12,23 @@ import GoogleMaps
 class MyJobTableCell: UITableViewCell {
     
     
-    @IBOutlet weak var CategoryImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var categoryText: UILabel!
-    @IBOutlet weak var employerName: UILabel!
-    @IBOutlet weak var employerProfilePic: UIImageView!
-    @IBOutlet weak var categoryView: UIView!
-    //@IBOutlet weak var mapView: GMSMapView!
+
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var profilePictureView: UIImageView!
+    @IBOutlet weak var startTimeHour: UILabel!
+    @IBOutlet weak var startTimeMonth: UILabel!
+    @IBOutlet weak var status: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        categoryView.layer.cornerRadius = 6
-        categoryView.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
-        categoryView.layer.borderWidth = 2
+        
+        
+        
+        
+        
+        //profilePictureView.layer.cornerRadius = 6
+        //profilePictureView.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
+        //profilePictureView.layer.borderWidth = 2
         // Initialization code
         
         

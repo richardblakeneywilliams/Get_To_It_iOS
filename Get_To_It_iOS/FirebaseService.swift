@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-import SwiftDate
 
 
 let FIREBASE_REF = FIRDatabase.database().reference()

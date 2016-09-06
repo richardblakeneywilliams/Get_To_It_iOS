@@ -11,7 +11,7 @@ import ChameleonFramework
 import FirebaseStorage
 
 class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+        
     
     var catArray = [UIImage]()
     var storage: FIRStorage! //Need to add shit here.

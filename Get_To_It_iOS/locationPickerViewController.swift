@@ -11,6 +11,8 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 import ChameleonFramework
+import GooglePlaces
+import GooglePlacePicker
 
 class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     

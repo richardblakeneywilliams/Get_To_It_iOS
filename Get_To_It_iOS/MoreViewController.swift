@@ -8,7 +8,6 @@
 
 import UIKit
 import Eureka
-import SnapKit
 import ChameleonFramework
 
 class MoreViewController: FormViewController {

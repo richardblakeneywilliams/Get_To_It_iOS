@@ -10,15 +10,25 @@ import UIKit
 import GoogleMaps
 
 
-class MyJobTableViewController: UITableViewController  {
+class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    //var myJobsArray
-    //I need to add the ComsManager downloading the User_jobs table. Do I need to add a User_Jobs_Created/User_Jobs_Working?
+    let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.stopUpdatingLocation()
+        
+        
     }
-
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,17 +42,36 @@ class MyJobTableViewController: UITableViewController  {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //This is going to be a problem later
+        //OI CUNT THIS IS GOING TO BE A PROBLEM
         return 1
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyJobTableCell", forIndexPath: indexPath) as! MyJobTableCell
-        cell.categoryText.text = "Gardening"
-        cell.CategoryImageView.image = UIImage(named: "Gardening")
-        cell.employerName.text = "John Yates"
-        cell.employerProfilePic.image = UIImage(named: "Callum")
-        cell.titleLabel.text = "Trimmed the hedges"
+        
+//        cell.startTimeHour.text = "10pm"
+//        cell.startTimeMonth.text = "17th of August"
+//        cell.status.text = "Offer of Work Accepted"
+        cell.profilePictureView.image = UIImage(named: "Callum")
+        cell.mapView.myLocationEnabled = true
+        cell.mapView.settings.setAllGesturesEnabled(true)
+//        cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor.blackColor().CGColor
+
+        
+        var camera:GMSCameraPosition = GMSCameraPosition()
+        
+        let long = locationManager.location?.coordinate.longitude
+        let lat = locationManager.location?.coordinate.latitude
+        
+        if (long != nil){
+            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
+        } else {
+            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)
+        }
+        
+        cell.mapView.camera = camera
         
         return cell
     }

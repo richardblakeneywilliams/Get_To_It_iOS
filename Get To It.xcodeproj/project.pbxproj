@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CF71FD76BF2E5942647EDD1 /* Pods_Get_To_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E6C98D0081E9614E654C1F /* Pods_Get_To_It.framework */; };
+		D4811614A7E9E2518EF53AD7 /* Pods_Get_To_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B3E4175F969AE67E052114 /* Pods_Get_To_It.framework */; };
 		DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2EF1D24D981009F491E /* MoreViewController.swift */; };
 		DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB03D2F71D24E180009F491E /* ProfileImageView.xib */; };
 		DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB06D5811CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld */; };
@@ -48,35 +48,11 @@
 		DBFE431E1D595102003530CD /* MyJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE431D1D595102003530CD /* MyJobDetailsController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DB90FE501CF3E4160042A75A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2ABA3AB91B6166A800EB4842;
-			remoteInfo = VerifyIosSdk;
-		};
-		DB90FE521CF3E4160042A75A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A6B60761B67A04B005378E0;
-			remoteInfo = RequestSigning;
-		};
-		DB90FE541CF3E4160042A75A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A6B60981B67A078005378E0;
-			remoteInfo = DeviceProperties;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		1306792C1F1A1A7265F70BCC /* Pods-Get To It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.release.xcconfig"; sourceTree = "<group>"; };
-		1E8234FC6EC56131FBF1EC94 /* Pods-Get To It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.debug.xcconfig"; sourceTree = "<group>"; };
-		52E6C98D0081E9614E654C1F /* Pods_Get_To_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_To_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B3E4175F969AE67E052114 /* Pods_Get_To_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_To_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.debug.xcconfig"; sourceTree = "<group>"; };
 		755DD8ED46AD1A429957BB35 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.release.xcconfig"; sourceTree = "<group>"; };
 		DB03D2EF1D24D981009F491E /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		DB03D2F71D24E180009F491E /* ProfileImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileImageView.xib; sourceTree = "<group>"; };
 		DB06D5821CF4381C0036A835 /* Get_To_It_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Get_To_It_iOS.xcdatamodel; sourceTree = "<group>"; };
@@ -103,7 +79,6 @@
 		DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleMapsService.swift; path = ../GoogleMapsService.swift; sourceTree = "<group>"; };
-		DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VerifyIosSdk.xcodeproj; path = "verify-ios-sdk/VerifyIosSdk.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		DB90FE631CF3EEBA0042A75A /* NexmoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoService.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +103,7 @@
 			files = (
 				DB763A011CD2277600152107 /* libsqlite3.tbd in Frameworks */,
 				DB7639FF1CD2276900152107 /* libz.tbd in Frameworks */,
-				0CF71FD76BF2E5942647EDD1 /* Pods_Get_To_It.framework in Frameworks */,
+				D4811614A7E9E2518EF53AD7 /* Pods_Get_To_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,18 +116,9 @@
 				DB763A001CD2277600152107 /* libsqlite3.tbd */,
 				DB7639FE1CD2276900152107 /* libz.tbd */,
 				755DD8ED46AD1A429957BB35 /* Pods.framework */,
-				52E6C98D0081E9614E654C1F /* Pods_Get_To_It.framework */,
+				24B3E4175F969AE67E052114 /* Pods_Get_To_It.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		79A2294E514CD80F4192A969 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1E8234FC6EC56131FBF1EC94 /* Pods-Get To It.debug.xcconfig */,
-				1306792C1F1A1A7265F70BCC /* Pods-Get To It.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		DB03D2F31D24E132009F491E /* More and Settings */ = {
@@ -225,23 +191,13 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		DB90FE4B1CF3E4150042A75A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DB90FE511CF3E4160042A75A /* VerifyIosSdk.framework */,
-				DB90FE531CF3E4160042A75A /* RequestSigning.framework */,
-				DB90FE551CF3E4160042A75A /* DeviceProperties.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		DBCC06EE1CC868DC0070AEAA = {
 			isa = PBXGroup;
 			children = (
 				DBCC06F91CC868DC0070AEAA /* Get_To_It_iOS */,
 				DBCC06F81CC868DC0070AEAA /* Products */,
 				727043874429C3D4901A95D5 /* Frameworks */,
-				79A2294E514CD80F4192A969 /* Pods */,
+				F416BC6C3D9BD00002101329 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,7 +212,6 @@
 		DBCC06F91CC868DC0070AEAA /* Get_To_It_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */,
 				DB90FE2C1CF271760042A75A /* Services */,
 				DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */,
 				DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */,
@@ -274,6 +229,15 @@
 				DB03D2F31D24E132009F491E /* More and Settings */,
 			);
 			path = Get_To_It_iOS;
+			sourceTree = "<group>";
+		};
+		F416BC6C3D9BD00002101329 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */,
+				B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,42 +290,12 @@
 			mainGroup = DBCC06EE1CC868DC0070AEAA;
 			productRefGroup = DBCC06F81CC868DC0070AEAA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DB90FE4B1CF3E4150042A75A /* Products */;
-					ProjectRef = DB90FE4A1CF3E4150042A75A /* VerifyIosSdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				DBCC06F61CC868DC0070AEAA /* Get To It */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DB90FE511CF3E4160042A75A /* VerifyIosSdk.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VerifyIosSdk.framework;
-			remoteRef = DB90FE501CF3E4160042A75A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DB90FE531CF3E4160042A75A /* RequestSigning.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RequestSigning.framework;
-			remoteRef = DB90FE521CF3E4160042A75A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DB90FE551CF3E4160042A75A /* DeviceProperties.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DeviceProperties.framework;
-			remoteRef = DB90FE541CF3E4160042A75A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DBCC06F51CC868DC0070AEAA /* Resources */ = {
@@ -581,7 +515,7 @@
 		};
 		DBCC070D1CC868DC0070AEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E8234FC6EC56131FBF1EC94 /* Pods-Get To It.debug.xcconfig */;
+			baseConfigurationReference = 621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -599,7 +533,7 @@
 		};
 		DBCC070E1CC868DC0070AEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1306792C1F1A1A7265F70BCC /* Pods-Get To It.release.xcconfig */;
+			baseConfigurationReference = B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

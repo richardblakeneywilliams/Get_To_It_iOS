@@ -11,7 +11,6 @@ import FirebaseAuth
 import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
-import SnapKit
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
