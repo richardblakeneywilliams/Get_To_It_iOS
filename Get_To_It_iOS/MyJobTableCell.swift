@@ -18,17 +18,10 @@ class MyJobTableCell: UITableViewCell {
     @IBOutlet weak var startTimeHour: UILabel!
     @IBOutlet weak var startTimeMonth: UILabel!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var backgroundVIew: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
-        
-        
-        //profilePictureView.layer.cornerRadius = 6
-        //profilePictureView.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
-        //profilePictureView.layer.borderWidth = 2
         // Initialization code
         
         

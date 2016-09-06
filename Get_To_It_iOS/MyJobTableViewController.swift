@@ -13,12 +13,14 @@ import GoogleMaps
 class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    let cellSpacingHeight: CGFloat = 10
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
-        
+    
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
@@ -28,6 +30,12 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         
         
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,6 +53,15 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         //OI CUNT THIS IS GOING TO BE A PROBLEM
         return 1
     }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        
+    }
+    
+    
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -55,13 +72,14 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
 //        cell.status.text = "Offer of Work Accepted"
         cell.profilePictureView.image = UIImage(named: "Callum")
         cell.mapView.myLocationEnabled = true
-        cell.mapView.settings.setAllGesturesEnabled(true)
-//        cell.layer.borderWidth = 1
-//        cell.layer.borderColor = UIColor.blackColor().CGColor
+        
+//        var marker:GMSMarker = GMSMarker()
+//        marker.appearAnimation = true
+
+
 
         
         var camera:GMSCameraPosition = GMSCameraPosition()
-        
         let long = locationManager.location?.coordinate.longitude
         let lat = locationManager.location?.coordinate.latitude
         
@@ -72,6 +90,19 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         }
         
         cell.mapView.camera = camera
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 149))
+        
+        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.8])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubviewToBack(whiteRoundedView)
+
+
         
         return cell
     }
