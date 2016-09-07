@@ -32,6 +32,10 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     // MARK: - Table view data source
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
 
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

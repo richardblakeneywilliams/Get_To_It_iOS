@@ -14,7 +14,6 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     
     let locationManager = CLLocationManager()
     let cellSpacingHeight: CGFloat = 10
-
     
     
     override func viewDidLoad() {
@@ -80,7 +79,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         let long = locationManager.location?.coordinate.longitude
         let lat = locationManager.location?.coordinate.latitude
         
-        if (long != nil){
+        if (long != nil && lat != nil){
             camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
         } else {
             camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)

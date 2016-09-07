@@ -65,6 +65,7 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
         } else {
             camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 18)
         }
+        
         mapView.camera = camera
         mapView.myLocationEnabled = true
         mapView.settings.setAllGesturesEnabled(true)
