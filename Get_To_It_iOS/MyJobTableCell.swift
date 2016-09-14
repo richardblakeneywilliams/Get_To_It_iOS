@@ -23,16 +23,16 @@ class MyJobTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundVIew.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
+        backgroundVIew.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).cgColor
         backgroundVIew.layer.borderWidth = 1.5
         backgroundVIew.layer.cornerRadius = 8
         mapView.layer.cornerRadius = 8
 
         // Initialization code
-        bringSubviewToFront(categoryLabel)
+        bringSubview(toFront: categoryLabel)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

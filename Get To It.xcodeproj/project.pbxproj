@@ -20,8 +20,8 @@
 		DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */; };
 		DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */; };
 		DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */; };
-		DB3620571D80184B0038AD95 /* MyJobDetailControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */; };
 		DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3802361D598D9700ACCE0F /* LocationManager.swift */; };
+		DB44E9981D8162420084EE6F /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB44E9971D8162420084EE6F /* UserCell.xib */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
 		DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */; };
@@ -31,21 +31,19 @@
 		DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */; };
 		DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A061CDA184600152107 /* MainTabViewController.swift */; };
 		DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F191CEB15BD004DAFED /* Sign-In:Create Account.storyboard */; };
-		DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1D1CEB1DB1004DAFED /* User.swift */; };
 		DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1F1CEB1DBD004DAFED /* Job.swift */; };
 		DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */; };
 		DB90FE291CF268640042A75A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE281CF268640042A75A /* Category.swift */; };
 		DB90FE2B1CF271470042A75A /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */; };
-		DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE631CF3EEBA0042A75A /* NexmoService.swift */; };
 		DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */; };
 		DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07041CC868DC0070AEAA /* Assets.xcassets */; };
 		DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07061CC868DC0070AEAA /* LaunchScreen.storyboard */; };
 		DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */; };
-		DBD496FC1D0F80AB00B8417E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD496FB1D0F80AB00B8417E /* Reachability.swift */; };
 		DBD496FE1D0FA08800B8417E /* CreateJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */; };
 		DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */; };
 		DBD497081D10642200B8417E /* ToWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497071D10642200B8417E /* ToWorkController.swift */; };
 		DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */; };
+		DBF825941D819DD90098EA94 /* UserInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF825931D819DD90098EA94 /* UserInfoRow.swift */; };
 		DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF85AF11D21F367001E3E43 /* Main.storyboard */; };
 		DBFE431E1D595102003530CD /* MyJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE431D1D595102003530CD /* MyJobDetailsController.swift */; };
 /* End PBXBuildFile section */
@@ -67,8 +65,8 @@
 		DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableViewController.swift; sourceTree = "<group>"; };
 		DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableCell.swift; sourceTree = "<group>"; };
-		DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobDetailControllerCell.swift; sourceTree = "<group>"; };
 		DB3802361D598D9700ACCE0F /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		DB44E9971D8162420084EE6F /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
 		DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobPhotoCell.swift; sourceTree = "<group>"; };
@@ -78,24 +76,22 @@
 		DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DB763A061CDA184600152107 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		DB8B1F1A1CEB15BD004DAFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Sign-In:Create Account.storyboard"; sourceTree = "<group>"; };
-		DB8B1F1D1CEB1DB1004DAFED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB8B1F1F1CEB1DBD004DAFED /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleMapsService.swift; path = ../GoogleMapsService.swift; sourceTree = "<group>"; };
-		DB90FE631CF3EEBA0042A75A /* NexmoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoService.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCC07041CC868DC0070AEAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBCC07071CC868DC0070AEAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBCC07091CC868DC0070AEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DBD496FB1D0F80AB00B8417E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobDetailsController.swift; sourceTree = "<group>"; };
 		DBD497021D104FAC00B8417E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Sign-In:Create Account.strings"; sourceTree = "<group>"; };
 		DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addedPhotoPreviewCell.swift; sourceTree = "<group>"; };
 		DBD497071D10642200B8417E /* ToWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToWorkController.swift; sourceTree = "<group>"; };
 		DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationPickerViewController.swift; sourceTree = "<group>"; };
+		DBF825931D819DD90098EA94 /* UserInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoRow.swift; sourceTree = "<group>"; };
 		DBF85AF21D21F367001E3E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBFE431D1D595102003530CD /* MyJobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,7 +141,8 @@
 				DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */,
 				DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */,
 				DBFE431D1D595102003530CD /* MyJobDetailsController.swift */,
-				DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */,
+				DB44E9971D8162420084EE6F /* UserCell.xib */,
+				DBF825931D819DD90098EA94 /* UserInfoRow.swift */,
 			);
 			name = "My Jobs ";
 			sourceTree = "<group>";
@@ -176,7 +173,6 @@
 		DB8B1F221CEB1DCD004DAFED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB8B1F1D1CEB1DB1004DAFED /* User.swift */,
 				DB8B1F1F1CEB1DBD004DAFED /* Job.swift */,
 				DB90FE281CF268640042A75A /* Category.swift */,
 				DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */,
@@ -190,8 +186,6 @@
 				DB3802361D598D9700ACCE0F /* LocationManager.swift */,
 				DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */,
 				DB763A021CD9CEF900152107 /* FirebaseService.swift */,
-				DB90FE631CF3EEBA0042A75A /* NexmoService.swift */,
-				DBD496FB1D0F80AB00B8417E /* Reachability.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -276,12 +270,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Get To It Ltd";
 				TargetAttributes = {
 					DBCC06F61CC868DC0070AEAA = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 24XSKRK84U;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -312,6 +307,7 @@
 				DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */,
 				DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */,
 				DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */,
+				DB44E9981D8162420084EE6F /* UserCell.xib in Resources */,
 				DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */,
 				DB0C0A2B1D7EF18A004B5ED7 /* .travis.yml in Resources */,
 				DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */,
@@ -375,15 +371,14 @@
 			files = (
 				DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */,
 				DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */,
-				DBD496FC1D0F80AB00B8417E /* Reachability.swift in Sources */,
 				DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */,
 				DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */,
 				DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */,
 				DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */,
 				DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */,
+				DBF825941D819DD90098EA94 /* UserInfoRow.swift in Sources */,
 				DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */,
 				DB90FE291CF268640042A75A /* Category.swift in Sources */,
-				DB3620571D80184B0038AD95 /* MyJobDetailControllerCell.swift in Sources */,
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
 				DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */,
 				DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */,
@@ -392,11 +387,9 @@
 				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
-				DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
-				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
 				DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */,
 				DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */,
 				DBFE431E1D595102003530CD /* MyJobDetailsController.swift in Sources */,
@@ -452,8 +445,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -497,8 +492,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -525,10 +522,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 24XSKRK84U;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Get_To_It_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -536,6 +535,7 @@
 				PRODUCT_NAME = "Get To It";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -543,10 +543,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 24XSKRK84U;
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
@@ -575,7 +577,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.getToIt.Get-To-It-iOS";
 				PRODUCT_NAME = "Get To It";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

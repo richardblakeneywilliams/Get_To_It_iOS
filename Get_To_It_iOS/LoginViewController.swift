@@ -13,6 +13,26 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
+    /*!
+     //Facebook Login Shit
+     @abstract Sent to the delegate when the button was used to login.
+     @param loginButton the sender
+     @param result The results of the login
+     @param error The error (if any) from the login
+     */
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        } else {
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                UserDefaults.standard.set(user!.uid, forKey: "uid")
+                self.showMainTabScreen()
+            }
+        }
+    }
+
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -27,7 +47,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         self.view.addSubview(loginButton)
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
     }
@@ -36,51 +56,37 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         // Get main screen from storyboard and present it
         print("showTabScreen")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: MainTabViewController = (storyboard.instantiateViewControllerWithIdentifier("mainTabbedScreen") as! MainTabViewController)
-        presentViewController(viewController, animated: true, completion: nil)
+        let viewController: MainTabViewController = (storyboard.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)
+        present(viewController, animated: true, completion: nil)
     }
     
     //Email Login
-    @IBAction func loginAction(sender: AnyObject) {
+    @IBAction func loginAction(_ sender: AnyObject) {
         if let email = self.emailTextField.text, let password = self.passwordTextField.text {
-            FIRAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                 if let error = error {
                     print(error.localizedDescription)
                     return
                 } else {
-                    NSUserDefaults.standardUserDefaults().setObject(user!.uid, forKey: "uid")
+                    UserDefaults.standard.set(user!.uid, forKey: "uid")
                     print("Logged In")
                     self.showMainTabScreen()
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
-    //Facebook Login Shit
-   func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        } else {
-            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            NSUserDefaults.standardUserDefaults().setObject(user!.uid, forKey: "uid")
-            self.showMainTabScreen()
-            }
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
     //Logout Facebook
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton) {
         try! FIRAuth.auth()!.signOut()
     }
     
-    @IBAction func forgotPassword(sender: AnyObject) {
+    @IBAction func forgotPassword(_ sender: AnyObject) {
 
     }
     

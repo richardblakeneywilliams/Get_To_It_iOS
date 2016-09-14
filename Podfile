@@ -5,11 +5,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 target "Get To It" do
     
     pod 'FBSDKLoginKit'
-    pod 'Eureka'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Swift3'
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'
     pod 'Firebase/Core'
-    pod 'DZNEmptyDataSet'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
@@ -17,7 +16,9 @@ target "Get To It" do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
-    pod 'ChameleonFramework/Swift'
+    pod 'ChameleonFramework'
+
+
 
 
 end

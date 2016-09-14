@@ -17,8 +17,8 @@ class DateAndExtraFormController: FormViewController {
     
     let ref = FIRDatabase.database().reference()
     
-    @IBAction func backNavBar(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backNavBar(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func submitJob(){
@@ -52,10 +52,10 @@ class DateAndExtraFormController: FormViewController {
         
         if let rowJobStartTime = form.rowByTag("Job Start Time")?.baseValue{
             
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
-            formatter.timeZone = NSTimeZone(abbreviation: "NZST") //this is an issue.
-            let stringStart = formatter.stringFromDate((rowJobStartTime as? NSDate)!)
+            formatter.timeZone = TimeZone(abbreviation: "NZST") //this is an issue.
+            let stringStart = formatter.string(from: (rowJobStartTime as? NSDate)! as Date)
             
             print(stringStart)
             
@@ -66,13 +66,13 @@ class DateAndExtraFormController: FormViewController {
         
         if let rowJobEndTime = form.rowByTag("Job End Time")?.baseValue {
             
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
-            formatter.locale = NSLocale(localeIdentifier: "el_NZ")
-            formatter.timeZone = NSTimeZone(abbreviation: "NZST") //this is an issue.
+            formatter.locale = Locale(identifier: "el_NZ")
+            formatter.timeZone = TimeZone(abbreviation: "NZST") //this is an issue.
             
             
-            let stringEnd = formatter.stringFromDate((rowJobEndTime as? NSDate)!)
+            let stringEnd = formatter.string(from: (rowJobEndTime as? NSDate)! as Date)
 
             print(stringEnd)
             
@@ -118,10 +118,10 @@ class DateAndExtraFormController: FormViewController {
     
     
    func showAlert() {
-        let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can make their day and get alot more done with two", preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let alertController = UIAlertController(title: "Only 1 hour mate...", message: "Come on mate, is it really worth their time for one hour? You can make their day and get alot more done with two", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
         
     }
     
@@ -168,8 +168,7 @@ class DateAndExtraFormController: FormViewController {
             <<< DecimalRow("Total Cost") {
                 $0.title = $0.tag
                 let formatter = CurrencyFormatter()
-                formatter.locale = .currentLocale()
-                formatter.numberStyle = .CurrencyStyle
+                formatter.numberStyle = .currencyAccounting
                 $0.formatter = formatter
                 $0.disabled = true
             }
@@ -179,20 +178,20 @@ class DateAndExtraFormController: FormViewController {
             SwitchRow("All-day") {
                 $0.title = $0.tag
                 }.onChange { [weak self] row in
-                    let startDate: DateTimeInlineRow! = self?.form.rowByTag("Job Start Time")
-                    let endDate: DateTimeInlineRow! = self?.form.rowByTag("Job End Time")
+                    let startDate: DateTimeInlineRow! = self?.form.rowByTag("Starts")
+                    let endDate: DateTimeInlineRow! = self?.form.rowByTag("Ends")
                     
                     if row.value ?? false {
-                        startDate.dateFormatter?.dateStyle = .MediumStyle
-                        startDate.dateFormatter?.timeStyle = .NoStyle
-                        endDate.dateFormatter?.dateStyle = .MediumStyle
-                        endDate.dateFormatter?.timeStyle = .NoStyle
+                        startDate.dateFormatter?.dateStyle = .medium
+                        startDate.dateFormatter?.timeStyle = .none
+                        endDate.dateFormatter?.dateStyle = .medium
+                        endDate.dateFormatter?.timeStyle = .none
                     }
                     else {
-                        startDate.dateFormatter?.dateStyle = .ShortStyle
-                        startDate.dateFormatter?.timeStyle = .ShortStyle
-                        endDate.dateFormatter?.dateStyle = .ShortStyle
-                        endDate.dateFormatter?.timeStyle = .ShortStyle
+                        startDate.dateFormatter?.dateStyle = .short
+                        startDate.dateFormatter?.timeStyle = .short
+                        endDate.dateFormatter?.dateStyle = .short
+                        endDate.dateFormatter?.timeStyle = .short
                     }
                     startDate.updateCell()
                     endDate.updateCell()
@@ -200,15 +199,15 @@ class DateAndExtraFormController: FormViewController {
                     endDate.inlineRow?.updateCell()
             }
             
-            <<< DateTimeInlineRow("Job Start Time") {
+            <<< DateTimeInlineRow("Starts") {
                 $0.title = $0.tag
-                $0.value = NSDate().dateByAddingTimeInterval(60*60*24)
+                $0.value = Date().addingTimeInterval(60*60*24)
                 }
                 .onChange { [weak self] row in
-                    let endRow: DateTimeInlineRow! = self?.form.rowByTag("Job End Time")
-                    if row.value?.compare(endRow.value!) == .OrderedDescending {
-                        endRow.value = NSDate(timeInterval: 60*60*24, sinceDate: row.value!)
-                        endRow.cell!.backgroundColor = .whiteColor()
+                    let endRow: DateTimeInlineRow! = self?.form.rowByTag("Ends")
+                    if row.value?.compare(endRow.value!) == .orderedDescending {
+                        endRow.value = Date(timeInterval: 60*60*24, since: row.value!)
+                        endRow.cell!.backgroundColor = .white
                         endRow.updateCell()
                     }
                 }
@@ -216,10 +215,10 @@ class DateAndExtraFormController: FormViewController {
                     inlineRow.cellUpdate { [weak self] cell, dateRow in
                         let allRow: SwitchRow! = self?.form.rowByTag("All-day")
                         if allRow.value ?? false {
-                            cell.datePicker.datePickerMode = .Date
+                            cell.datePicker.datePickerMode = .date
                         }
                         else {
-                            cell.datePicker.datePickerMode = .DateAndTime
+                            cell.datePicker.datePickerMode = .dateAndTime
                         }
                     }
                     let color = cell.detailTextLabel?.textColor
@@ -229,17 +228,17 @@ class DateAndExtraFormController: FormViewController {
                     cell.detailTextLabel?.textColor = cell.tintColor
             }
             
-            <<< DateTimeInlineRow("Job End Time"){
+            <<< DateTimeInlineRow("Ends"){
                 $0.title = $0.tag
-                $0.value = NSDate().dateByAddingTimeInterval(60*60*25)
+                $0.value = Date().addingTimeInterval(60*60*25)
                 }
                 .onChange { [weak self] row in
-                    let startRow: DateTimeInlineRow! = self?.form.rowByTag("Job Start Time")
-                    if row.value?.compare(startRow.value!) == .OrderedAscending {
-                        row.cell!.backgroundColor = .redColor()
+                    let startRow: DateTimeInlineRow! = self?.form.rowByTag("Starts")
+                    if row.value?.compare(startRow.value!) == .orderedAscending {
+                        row.cell!.backgroundColor = .red
                     }
                     else{
-                        row.cell!.backgroundColor = .whiteColor()
+                        row.cell!.backgroundColor = .white
                     }
                     row.updateCell()
                 }
@@ -247,10 +246,10 @@ class DateAndExtraFormController: FormViewController {
                     inlineRow.cellUpdate { [weak self] cell, dateRow in
                         let allRow: SwitchRow! = self?.form.rowByTag("All-day")
                         if allRow.value ?? false {
-                            cell.datePicker.datePickerMode = .Date
+                            cell.datePicker.datePickerMode = .date
                         }
                         else {
-                            cell.datePicker.datePickerMode = .DateAndTime
+                            cell.datePicker.datePickerMode = .dateAndTime
                         }
                     }
                     let color = cell.detailTextLabel?.textColor
@@ -259,6 +258,7 @@ class DateAndExtraFormController: FormViewController {
                     }
                     cell.detailTextLabel?.textColor = cell.tintColor
             }
+
         
             +++
             
@@ -288,16 +288,16 @@ class DateAndExtraFormController: FormViewController {
     }
 }
 
-class CurrencyFormatter : NSNumberFormatter, FormatterProtocol {
-    override func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool {
+class CurrencyFormatter : NumberFormatter, FormatterProtocol {
+    func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<AutoreleasingUnsafeMutablePointer<NSString?>>?) -> Bool {
         guard obj != nil else { return false }
-        let str = string.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator("")
-        obj.memory = NSNumber(double: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))))
+        let str = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        obj?.pointee = NSNumber(value: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))) as Double)
         return true
     }
     
     func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
-        return textInput.positionFromPosition(position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
+        return textInput.position(from: position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
     }
     
     

@@ -33,32 +33,32 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     // MARK: - Table view data source
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.names.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = catCollectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CreateJobPhotoCell
+        let cell = catCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CreateJobPhotoCell
         
-        cell.imageView?.image = self.imageArray[indexPath.row]
-        cell.label?.text = self.names[indexPath.row]
+        cell.imageView?.image = self.imageArray[(indexPath as NSIndexPath).row]
+        cell.label?.text = self.names[(indexPath as NSIndexPath).row]
     
         //Round the edges
         cell.layer.cornerRadius = 6
-        cell.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
+        cell.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).cgColor
         cell.layer.borderWidth = 2
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
         
-        CurrentJob.instance!.category = self.names[indexPath.row]
+        CurrentJob.instance!.category = self.names[(indexPath as NSIndexPath).row] as NSString?
 
     }
 

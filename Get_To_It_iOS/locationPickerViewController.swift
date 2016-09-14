@@ -20,31 +20,9 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBOutlet weak var kLocationTextField: UITextField!
     
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        //This created a new bug
-//        LocationManager.instance.subscribeToUserLocation() { (userLocation) in
-//            let camera = GMSCameraPosition.cameraWithLatitude(userLocation.coordinate.latitude,
-//                longitude: userLocation.coordinate.longitude, zoom: 15)
-//            
-//            print("Location Picker, inside sub")
-//            
-//            self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-//            self.mapView.myLocationEnabled = true //This is in the wrong place.
-//            self.mapView.settings.zoomGestures = true
-//            self.mapView.settings.myLocationButton = true
-//            
-//            //Here is the issue. But is it?
-//            //self.view = self.mapView
-//            
-//        }
-//    }
-    
-    
     override func viewDidLoad() {
         
-        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
         
         let locationManager = CLLocationManager()
@@ -61,39 +39,36 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
         var camera:GMSCameraPosition = GMSCameraPosition()
         
         if (long != nil){
-            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 18)
+            camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 18)
         } else {
-            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 18)
+            camera = GMSCameraPosition.camera(withLatitude: 48.857165, longitude: 2.354613, zoom: 18)
         }
         
         mapView.camera = camera
-        mapView.myLocationEnabled = true
+        mapView.isMyLocationEnabled = true
         mapView.settings.setAllGesturesEnabled(true)
         mapView.settings.myLocationButton = true
     }
     
-//    override func viewWillDisappear(animated: Bool) {
-//        LocationManager.instance.removeLastListener()
-//    }
     
     // Present the Autocomplete view controller when the button is pressed.
     func autocompleteClicked() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
-        self.presentViewController(autocompleteController, animated: true, completion: nil)
+        self.present(autocompleteController, animated: true, completion: nil)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         autocompleteClicked()
     }
 
     
-    @IBAction func backButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButton(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LocationSegue" {
             print(CurrentJob.instance?.lat)
             print(CurrentJob.instance?.long)
@@ -107,13 +82,33 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
 
 
 extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
+    /**
+     * Called when a non-retryable error occurred when retrieving autocomplete predictions or place
+     * details. A non-retryable error is defined as one that is unlikely to be fixed by immediately
+     * retrying the operation.
+     * <p>
+     * Only the following values of |GMSPlacesErrorCode| are retryable:
+     * <ul>
+     * <li>kGMSPlacesNetworkError
+     * <li>kGMSPlacesServerError
+     * <li>kGMSPlacesInternalError
+     * </ul>
+     * All other error codes are non-retryable.
+     * @param viewController The |GMSAutocompleteViewController| that generated the event.
+     * @param error The |NSError| that was returned.
+     */
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+
     
     // Handle the user's selection.
-    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         kLocationTextField.text = place.formattedAddress
         
         
-        let camera = GMSCameraPosition.cameraWithLatitude(place.coordinate.latitude,
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude,
                                                           longitude: place.coordinate.longitude, zoom: 18)
         mapView.camera = camera
         let marker = GMSMarker()
@@ -124,7 +119,7 @@ extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
         
         CurrentJob.instance?.long = place.coordinate.longitude
         CurrentJob.instance?.lat = place.coordinate.latitude
-        CurrentJob.instance?.address = place.formattedAddress
+        CurrentJob.instance?.address = place.formattedAddress as NSString?
         
         if let long = CurrentJob.instance?.long{
             print(long)
@@ -146,26 +141,22 @@ extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
         
 
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-        // TODO: handle the error.
-        print("Error: ", error.description)
-    }
     
     // User canceled the operation.
-    func wasCancelled(viewController: GMSAutocompleteViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
 }

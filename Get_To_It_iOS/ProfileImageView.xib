@@ -7,17 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="mXr-uT-26I" customClass="ProfilePictureViewNib">
-            <rect key="frame" x="0.0" y="0.0" width="365" height="130"/>
+            <rect key="frame" x="0.0" y="0.0" width="365" height="134"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="u08-te-Qxm">
-                    <rect key="frame" x="139" y="16" width="86" height="77"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="86" id="PfI-HH-Ch3"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Richard Blakeney-Williams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5h-em-DEr">
-                    <rect key="frame" x="88" y="95" width="189" height="21"/>
+                    <rect key="frame" x="88" y="99" width="189" height="21"/>
                     <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="xz5-5D-xKQ"/>
@@ -26,6 +20,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DefaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="u08-te-Qxm">
+                    <rect key="frame" x="139" y="14" width="86" height="77"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="86" id="PfI-HH-Ch3"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -37,7 +37,7 @@
                 <constraint firstAttribute="bottom" secondItem="M5h-em-DEr" secondAttribute="bottom" constant="14" id="fIZ-mN-4Fr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="728.5" y="601"/>
+            <point key="canvasLocation" x="728.5" y="599"/>
         </view>
     </objects>
     <resources>

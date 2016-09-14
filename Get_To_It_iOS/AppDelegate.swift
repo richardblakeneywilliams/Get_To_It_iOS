@@ -43,36 +43,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Get login screen from storyboard and present it
         //print("showTabScreen")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: MainTabViewController = (storyboard.instantiateViewControllerWithIdentifier("mainTabbedScreen") as! MainTabViewController)
+        let viewController: MainTabViewController = (storyboard.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)
         self.window!.makeKeyAndVisible()
-        self.window!.rootViewController!.presentViewController(viewController, animated: false, completion: nil)
+        self.window!.rootViewController!.present(viewController, animated: false, completion: nil)
     }
     
     func showLoginScreen(){
         // Get login screen from storyboard and present it
         //print("showLoginScreen")
         let storyboard = UIStoryboard(name: "Sign-In:Create Account", bundle: nil)
-        let viewController: LoginViewController = (storyboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController)
+        let viewController: LoginViewController = (storyboard.instantiateViewController(withIdentifier: "loginScreen") as! LoginViewController)
         self.window!.makeKeyAndVisible()
-        self.window!.rootViewController!.presentViewController(viewController, animated: true, completion: nil)
+        self.window!.rootViewController!.present(viewController, animated: true, completion: nil)
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
+        //Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
 
         //NexmoClient.start(applicationId: NEXMO_KEY , sharedSecretKey: NEXMO_SECRET)
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true //Not sure where else this would go...
+        FIRDatabase.database().persistenceEnabled = true
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GMSServices.provideAPIKey(Maps_API_Key)
         if(LoggedIn){
-            dispatch_async(dispatch_get_main_queue()){
+            DispatchQueue.main.async{
                 self.showMainTabScreen()
                 //print("Going to main tab screen from app delegate")
             }
         } else {
-            dispatch_async(dispatch_get_main_queue()){
+            DispatchQueue.main.async{
                 self.showLoginScreen()
                 //print("Going to login screen from app delegate")
             }
@@ -81,34 +81,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(application: UIApplication, openURL url: NSURL,
-                     sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL,
+                     sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance()
-            .application(application, openURL: url,
+            .application(application, open: url,
                          sourceApplication: sourceApplication, annotation: annotation)
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         //To track app opens
         //FBSDKAppEvents.activateApp()
     }
     
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         //self.saveContext()
