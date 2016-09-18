@@ -7,83 +7,71 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class MyJobDetailsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+class MyJobDetailsController: ButtonBarPagerTabStripViewController {
     
-    @IBOutlet weak var catCollectionView: UICollectionView!
-    @IBOutlet weak var catName: UILabel!
     
-    @IBOutlet weak var employerName: UILabel!
-    @IBOutlet weak var employerProfilePic: UIImageView!
-    let names = ["Gardening", "Manual Labour"]
-    let imageArray = [UIImage(named: "Gardening_test"), UIImage(named: "Manual Labour")]
-    
+    @IBOutlet weak var shadowView: UIView!
+    let blueInstagramColor = UIColor(red: 37/255.0, green: 111/255.0, blue: 206/255.0, alpha: 1.0)
+
     override func viewDidLoad() {
+        
+        
+        navigationItem.title = "Mow Lawns"
+        // change selected bar color
+        settings.style.buttonBarBackgroundColor = .whiteColor()
+        settings.style.buttonBarItemBackgroundColor = .whiteColor()
+        settings.style.selectedBarBackgroundColor = blueInstagramColor
+        settings.style.buttonBarItemFont = .boldSystemFontOfSize(14)
+        settings.style.selectedBarHeight = 2.0
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemTitleColor = .blackColor()
+        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
+        settings.style.buttonBarLeftContentInset = 0
+        settings.style.buttonBarRightContentInset = 0
+        
+        changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            oldCell?.label.textColor = .blackColor()
+            newCell?.label.textColor = self?.blueInstagramColor
+        }
         super.viewDidLoad()
-        
-        employerProfilePic.layer.cornerRadius = 17
-        employerProfilePic.frame = CGRectMake(0, 0, 34, 34)
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        employerProfilePic.layer.cornerRadius = 17
-        employerProfilePic.frame = CGRectMake(0, 0, 34, 34)
     }
     
     
     
-    // MARK: - Collection View Data Source
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return names.count
+    override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        //let child_1 = OverviewViewController(itemInfo: IndicatorInfo(title: " Overview"))
+        let child_2 = DetailsViewController(itemInfo: IndicatorInfo(title: " Details"))
+        let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: " Tasks"))
+        let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: " Location"))
+        
+        let child_5 = storyboard.instantiateViewControllerWithIdentifier("OverviewViewController")
+        
+
+        return [child_5, child_2, child_3, child_4]
     }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                               insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        
-        let flowLayout = (collectionViewLayout as! UICollectionViewFlowLayout)
-        let cellSpacing = flowLayout.minimumInteritemSpacing
-        let cellWidth = flowLayout.itemSize.width
-        let cellCount = CGFloat(collectionView.numberOfItemsInSection(section))
-        
-        let collectionViewWidth = collectionView.bounds.size.width
-        
-        let totalCellWidth = cellCount * cellWidth
-        let totalCellSpacing = cellSpacing * (cellCount - 1)
-        
-        let totalCellsWidth = totalCellWidth + totalCellSpacing
-        
-        let edgeInsets = (collectionViewWidth - totalCellsWidth) / 2.0
-        
-        return edgeInsets > 0 ? UIEdgeInsetsMake(0, edgeInsets, 0, edgeInsets) : UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = catCollectionView.dequeueReusableCellWithReuseIdentifier("myjobdetailcell", forIndexPath: indexPath) as! MyJobDetailControllerCell
-        
-        cell.catLabel?.text = self.names[indexPath.row]
-        cell.catPic?.image = self.imageArray[indexPath.row]
-        
-        print("k")
-        
-        //Round the edges
-        cell.layer.cornerRadius = 6
-        cell.layer.borderColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0).CGColor
-        cell.layer.borderWidth = 2
-        
-        return cell
-    }
-    
-    
-    
 
 }
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
 
 
 

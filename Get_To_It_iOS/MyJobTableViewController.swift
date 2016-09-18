@@ -20,14 +20,12 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         super.viewDidLoad()
         
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
-    
+        
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.stopUpdatingLocation()
-        
         
     }
     
@@ -82,20 +80,25 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         if (long != nil && lat != nil){
             camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
         } else {
+            
+            //This needs to be looked at later
             camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)
         }
         
         cell.mapView.camera = camera
-        
         let marker: GMSMarker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+        
+        
+        if (long != nil && lat != nil){
+            marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+        } else {
+            //This needs to be looked at later
+            marker.position = CLLocationCoordinate2D(latitude: 48.857165, longitude: 2.354613)
+        }
+        
         marker.title = "Mow Lawns"
         marker.appearAnimation = kGMSMarkerAnimationPop
         marker.map = cell.mapView
-    
-        
-        
-        
         return cell
     }
     

@@ -13,8 +13,6 @@ import Firebase
 
 class MainTabViewController: UITabBarController {
     
-    
-    
     func showLoginScreen(){
         // Get login screen from storyboard and present it
         let storyboard = UIStoryboard(name: "Sign-In:Create Account", bundle: nil)

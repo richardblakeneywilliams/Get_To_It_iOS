@@ -12,8 +12,6 @@ import ChameleonFramework
 
 class MoreViewController: FormViewController {
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
@@ -48,6 +46,7 @@ class MoreViewController: FormViewController {
             
             <<< ButtonRow("Payment") { (row: ButtonRow) -> Void in
                 row.title = row.tag
+                
                 row.presentationMode = .SegueName(segueName: "PaymentSegue", completionCallback: nil)
             }
             

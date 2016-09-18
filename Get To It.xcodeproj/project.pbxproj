@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D4811614A7E9E2518EF53AD7 /* Pods_Get_To_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B3E4175F969AE67E052114 /* Pods_Get_To_It.framework */; };
+		DB01B6601D8D495900909C35 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01B65F1D8D495900909C35 /* DetailsViewController.swift */; };
+		DB01B6621D8D496700909C35 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01B6611D8D496700909C35 /* TasksViewController.swift */; };
+		DB01B6641D8D497500909C35 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01B6631D8D497500909C35 /* LocationViewController.swift */; };
 		DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2EF1D24D981009F491E /* MoreViewController.swift */; };
 		DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB03D2F71D24E180009F491E /* ProfileImageView.xib */; };
 		DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB06D5811CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld */; };
@@ -20,7 +23,6 @@
 		DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */; };
 		DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */; };
 		DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */; };
-		DB3620571D80184B0038AD95 /* MyJobDetailControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */; };
 		DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3802361D598D9700ACCE0F /* LocationManager.swift */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
@@ -31,7 +33,6 @@
 		DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */; };
 		DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A061CDA184600152107 /* MainTabViewController.swift */; };
 		DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F191CEB15BD004DAFED /* Sign-In:Create Account.storyboard */; };
-		DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1D1CEB1DB1004DAFED /* User.swift */; };
 		DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1F1CEB1DBD004DAFED /* Job.swift */; };
 		DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */; };
 		DB90FE291CF268640042A75A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE281CF268640042A75A /* Category.swift */; };
@@ -46,6 +47,7 @@
 		DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */; };
 		DBD497081D10642200B8417E /* ToWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497071D10642200B8417E /* ToWorkController.swift */; };
 		DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */; };
+		DBDF07581D8AB5FC0091DD86 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF07571D8AB5FC0091DD86 /* OverviewViewController.swift */; };
 		DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF85AF11D21F367001E3E43 /* Main.storyboard */; };
 		DBFE431E1D595102003530CD /* MyJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE431D1D595102003530CD /* MyJobDetailsController.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,9 @@
 		621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.debug.xcconfig"; sourceTree = "<group>"; };
 		755DD8ED46AD1A429957BB35 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get To It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Get To It/Pods-Get To It.release.xcconfig"; sourceTree = "<group>"; };
+		DB01B65F1D8D495900909C35 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		DB01B6611D8D496700909C35 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		DB01B6631D8D497500909C35 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		DB03D2EF1D24D981009F491E /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		DB03D2F71D24E180009F491E /* ProfileImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileImageView.xib; sourceTree = "<group>"; };
 		DB06D5821CF4381C0036A835 /* Get_To_It_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Get_To_It_iOS.xcdatamodel; sourceTree = "<group>"; };
@@ -67,7 +72,6 @@
 		DB35DB9E1D25390D00E0D4BC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableViewController.swift; sourceTree = "<group>"; };
 		DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableCell.swift; sourceTree = "<group>"; };
-		DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobDetailControllerCell.swift; sourceTree = "<group>"; };
 		DB3802361D598D9700ACCE0F /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
@@ -78,7 +82,6 @@
 		DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DB763A061CDA184600152107 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		DB8B1F1A1CEB15BD004DAFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Sign-In:Create Account.storyboard"; sourceTree = "<group>"; };
-		DB8B1F1D1CEB1DB1004DAFED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB8B1F1F1CEB1DBD004DAFED /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addedPhotoPreviewCell.swift; sourceTree = "<group>"; };
 		DBD497071D10642200B8417E /* ToWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToWorkController.swift; sourceTree = "<group>"; };
 		DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationPickerViewController.swift; sourceTree = "<group>"; };
+		DBDF07571D8AB5FC0091DD86 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		DBF85AF21D21F367001E3E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBFE431D1D595102003530CD /* MyJobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,7 +149,10 @@
 				DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */,
 				DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */,
 				DBFE431D1D595102003530CD /* MyJobDetailsController.swift */,
-				DB3620561D80184B0038AD95 /* MyJobDetailControllerCell.swift */,
+				DBDF07571D8AB5FC0091DD86 /* OverviewViewController.swift */,
+				DB01B65F1D8D495900909C35 /* DetailsViewController.swift */,
+				DB01B6611D8D496700909C35 /* TasksViewController.swift */,
+				DB01B6631D8D497500909C35 /* LocationViewController.swift */,
 			);
 			name = "My Jobs ";
 			sourceTree = "<group>";
@@ -176,7 +183,6 @@
 		DB8B1F221CEB1DCD004DAFED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB8B1F1D1CEB1DB1004DAFED /* User.swift */,
 				DB8B1F1F1CEB1DBD004DAFED /* Job.swift */,
 				DB90FE281CF268640042A75A /* Category.swift */,
 				DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */,
@@ -383,7 +389,6 @@
 				DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */,
 				DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */,
 				DB90FE291CF268640042A75A /* Category.swift in Sources */,
-				DB3620571D80184B0038AD95 /* MyJobDetailControllerCell.swift in Sources */,
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
 				DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */,
 				DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */,
@@ -391,14 +396,17 @@
 				DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */,
 				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,
+				DBDF07581D8AB5FC0091DD86 /* OverviewViewController.swift in Sources */,
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
-				DB8B1F1E1CEB1DB1004DAFED /* User.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
+				DB01B6601D8D495900909C35 /* DetailsViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
 				DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */,
+				DB01B6621D8D496700909C35 /* TasksViewController.swift in Sources */,
 				DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */,
+				DB01B6641D8D497500909C35 /* LocationViewController.swift in Sources */,
 				DBFE431E1D595102003530CD /* MyJobDetailsController.swift in Sources */,
 				DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */,
 				DBD497081D10642200B8417E /* ToWorkController.swift in Sources */,

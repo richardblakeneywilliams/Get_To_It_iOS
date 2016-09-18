@@ -18,6 +18,8 @@ target "Get To It" do
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
     pod 'ChameleonFramework/Swift'
+    pod 'XLPagerTabStrip', '~> 5.0'
+
 
 
 end

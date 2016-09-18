@@ -11,7 +11,6 @@ import GoogleMaps
 
 class MyJobTableCell: UITableViewCell {
     
-    
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var profilePictureView: UIImageView!
     @IBOutlet weak var startTimeHour: UILabel!

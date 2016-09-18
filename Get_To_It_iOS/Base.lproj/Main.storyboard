@@ -130,7 +130,7 @@
                                                         <constraint firstAttribute="width" constant="92" id="YtS-co-Dy1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZI-8b-9By">
@@ -148,13 +148,9 @@
                                                         <constraint firstAttribute="width" constant="41" id="24z-8F-J1U"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QG-gC-LxS" customClass="GMSMapView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="159"/>
-                                                    <color key="backgroundColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mow Lawns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1R-Zu-7HC">
                                                     <rect key="frame" x="8" y="8" width="111" height="23"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.48688038789999999" colorSpace="calibratedRGB"/>
@@ -166,6 +162,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QG-gC-LxS" customClass="GMSMapView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="159"/>
+                                                    <color key="backgroundColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -211,7 +211,7 @@
                                     <outlet property="startTimeHour" destination="5C9-0t-cju" id="lZq-Zr-rhk"/>
                                     <outlet property="startTimeMonth" destination="F77-up-UaY" id="7GB-87-hln"/>
                                     <outlet property="status" destination="OZI-8b-9By" id="p3q-6r-Mo7"/>
-                                    <segue destination="pxA-Lf-wio" kind="show" identifier="MyJobsDetailSegue" id="J5v-kg-ZJ3"/>
+                                    <segue destination="cRq-ut-goc" kind="show" id="mVk-z8-OS5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -225,120 +225,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzh-2y-iCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1278" y="2334"/>
-        </scene>
-        <!--My Job Details Controller-->
-        <scene sceneID="BuI-xQ-Dfs">
-            <objects>
-                <viewController id="pxA-Lf-wio" customClass="MyJobDetailsController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U9W-qf-TgD"/>
-                        <viewControllerLayoutGuide type="bottom" id="SiH-n7-47B"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Byr-kz-fx1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details on your Job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dud-m0-qkn">
-                                <rect key="frame" x="0.0" y="64" width="600" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="qIk-HN-dRN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mow Lawns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5V-83-CfI">
-                                <rect key="frame" x="20" y="96" width="560" height="21"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cjz-UL-5dE">
-                                <rect key="frame" x="0.0" y="119" width="600" height="64"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kfu-0J-crz">
-                                    <size key="itemSize" width="80" height="67"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myjobdetailcell" id="xoT-Bx-7nZ" customClass="MyJobDetailControllerCell" customModule="Get_To_It" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1.5" width="80" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="67"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gardening" translatesAutoresizingMaskIntoConstraints="NO" id="1cv-aM-9Zg">
-                                                    <rect key="frame" x="15" y="8" width="50" height="37"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gardening" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-Zl-Ysx">
-                                                    <rect key="frame" x="0.0" y="46" width="80" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="1c8-4O-jmF"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                    <color key="textColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="1cv-aM-9Zg" firstAttribute="centerX" secondItem="6fR-Zl-Ysx" secondAttribute="centerX" id="IIs-Hc-TWn"/>
-                                            <constraint firstAttribute="bottom" secondItem="6fR-Zl-Ysx" secondAttribute="bottom" id="LLU-hx-4Ck"/>
-                                            <constraint firstItem="6fR-Zl-Ysx" firstAttribute="leading" secondItem="xoT-Bx-7nZ" secondAttribute="leading" id="Tha-1o-1IB"/>
-                                            <constraint firstItem="6fR-Zl-Ysx" firstAttribute="top" secondItem="1cv-aM-9Zg" secondAttribute="bottom" constant="1" id="dQE-0M-qbL"/>
-                                            <constraint firstItem="1cv-aM-9Zg" firstAttribute="leading" secondItem="xoT-Bx-7nZ" secondAttribute="leadingMargin" constant="7" id="ncN-85-i1y"/>
-                                            <constraint firstItem="1cv-aM-9Zg" firstAttribute="top" secondItem="xoT-Bx-7nZ" secondAttribute="topMargin" id="qVy-pP-QwI"/>
-                                            <constraint firstAttribute="trailing" secondItem="6fR-Zl-Ysx" secondAttribute="trailing" id="yIr-N9-0c1"/>
-                                        </constraints>
-                                        <size key="customSize" width="80" height="67"/>
-                                        <connections>
-                                            <outlet property="catLabel" destination="6fR-Zl-Ysx" id="U8S-2a-BFf"/>
-                                            <outlet property="catPic" destination="1cv-aM-9Zg" id="Amp-7v-JA4"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="pxA-Lf-wio" id="dG7-qY-mRd"/>
-                                    <outlet property="delegate" destination="pxA-Lf-wio" id="VGt-1E-PXg"/>
-                                </connections>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UO6-ap-GU5">
-                                <rect key="frame" x="267" y="260" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cjz-UL-5dE" firstAttribute="top" secondItem="X5V-83-CfI" secondAttribute="bottom" constant="2" id="4iS-xB-32T"/>
-                            <constraint firstItem="X5V-83-CfI" firstAttribute="leading" secondItem="Byr-kz-fx1" secondAttribute="leadingMargin" id="IKb-oO-aCX"/>
-                            <constraint firstAttribute="trailing" secondItem="UO6-ap-GU5" secondAttribute="trailing" constant="333" id="SXV-nV-4RT"/>
-                            <constraint firstItem="X5V-83-CfI" firstAttribute="trailing" secondItem="cjz-UL-5dE" secondAttribute="trailing" constant="-20" id="VcW-rV-0h9"/>
-                            <constraint firstItem="UO6-ap-GU5" firstAttribute="top" secondItem="Byr-kz-fx1" secondAttribute="top" constant="260" id="cDu-sb-JWK"/>
-                            <constraint firstAttribute="trailing" secondItem="dud-m0-qkn" secondAttribute="trailing" id="f4c-Zx-9Uf"/>
-                            <constraint firstItem="cjz-UL-5dE" firstAttribute="top" secondItem="X5V-83-CfI" secondAttribute="bottom" constant="2" id="f8J-cb-Olx"/>
-                            <constraint firstItem="SiH-n7-47B" firstAttribute="top" secondItem="cjz-UL-5dE" secondAttribute="bottom" constant="368" id="foP-AG-Lnv"/>
-                            <constraint firstItem="X5V-83-CfI" firstAttribute="leading" secondItem="cjz-UL-5dE" secondAttribute="leading" constant="20" id="i4R-WI-31T"/>
-                            <constraint firstItem="dud-m0-qkn" firstAttribute="leading" secondItem="Byr-kz-fx1" secondAttribute="leading" id="lNV-EU-KVo"/>
-                            <constraint firstItem="X5V-83-CfI" firstAttribute="top" secondItem="dud-m0-qkn" secondAttribute="bottom" constant="8" symbolic="YES" id="mPK-qN-A6I"/>
-                            <constraint firstItem="dud-m0-qkn" firstAttribute="top" secondItem="U9W-qf-TgD" secondAttribute="bottom" id="ogB-1R-B8p"/>
-                            <constraint firstItem="dud-m0-qkn" firstAttribute="centerX" secondItem="X5V-83-CfI" secondAttribute="centerX" id="xe6-FP-QUq"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="catCollectionView" destination="cjz-UL-5dE" id="eLh-A9-M3v"/>
-                        <outlet property="catName" destination="X5V-83-CfI" id="aGK-Sm-FwZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ej-mf-O5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2036" y="2334"/>
         </scene>
         <!--Account Settings View Controller-->
         <scene sceneID="ARg-I6-FZ8">
@@ -369,6 +255,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEh-nR-sbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2030" y="3011"/>
+        </scene>
+        <!--Overview View Controller-->
+        <scene sceneID="SCQ-qC-cEO">
+            <objects>
+                <viewController storyboardIdentifier="OverviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wSb-8E-1Ie" customClass="OverviewViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QEo-FO-XdC"/>
+                        <viewControllerLayoutGuide type="bottom" id="sY5-Lv-jwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="OverviewViewController" id="fsM-FD-qfA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Need someone fit and able to mow lawns and clean out oven." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="53s-LT-3V5">
+                                <rect key="frame" x="20" y="167" width="560" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="53s-LT-3V5" firstAttribute="trailing" secondItem="fsM-FD-qfA" secondAttribute="trailingMargin" id="1H8-VU-3jg"/>
+                            <constraint firstItem="53s-LT-3V5" firstAttribute="leading" secondItem="fsM-FD-qfA" secondAttribute="leadingMargin" id="UTI-ME-ZVc"/>
+                            <constraint firstItem="53s-LT-3V5" firstAttribute="top" secondItem="QEo-FO-XdC" secondAttribute="bottom" constant="147" id="Wd0-9y-mqc"/>
+                            <constraint firstAttribute="bottom" secondItem="53s-LT-3V5" secondAttribute="bottom" constant="305" id="vGT-UY-maf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHs-RR-qsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2764" y="2356"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="wXD-ep-HJA">
@@ -947,11 +865,64 @@
             </objects>
             <point key="canvasLocation" x="480" y="2334"/>
         </scene>
+        <!--My Job Details Controller-->
+        <scene sceneID="9j9-Gs-ypL">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUJ-Rr-r1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="cRq-ut-goc" customClass="MyJobDetailsController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o0w-p7-B9f"/>
+                        <viewControllerLayoutGuide type="bottom" id="svz-6Y-hPD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="usd-D0-KID">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zn-CJ-sb5">
+                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BcE-5m-xux" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jhd-SK-9Sz"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="31F-3B-Olk">
+                                    <size key="itemSize" width="40" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6zn-CJ-sb5" firstAttribute="leading" secondItem="usd-D0-KID" secondAttribute="leading" id="0pD-QK-6hE"/>
+                            <constraint firstItem="BcE-5m-xux" firstAttribute="top" secondItem="o0w-p7-B9f" secondAttribute="bottom" id="5Kc-kH-opC"/>
+                            <constraint firstItem="BcE-5m-xux" firstAttribute="leading" secondItem="usd-D0-KID" secondAttribute="leading" id="P0L-Vq-WGC"/>
+                            <constraint firstItem="svz-6Y-hPD" firstAttribute="top" secondItem="6zn-CJ-sb5" secondAttribute="bottom" id="bTt-fu-lEq"/>
+                            <constraint firstAttribute="trailing" secondItem="BcE-5m-xux" secondAttribute="trailing" id="hvu-hi-6nx"/>
+                            <constraint firstItem="6zn-CJ-sb5" firstAttribute="top" secondItem="BcE-5m-xux" secondAttribute="bottom" id="wHS-8E-J5G"/>
+                            <constraint firstAttribute="trailing" secondItem="6zn-CJ-sb5" secondAttribute="trailing" id="wdi-Wr-Uff"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ga8-fv-3Ij"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="BcE-5m-xux" id="81a-AQ-MDv"/>
+                        <outlet property="containerView" destination="6zn-CJ-sb5" id="7q4-J2-s0o"/>
+                        <outlet property="shadowView" destination="usd-D0-KID" id="JJo-4c-Qtv"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2041" y="2334"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Camera" width="76" height="76"/>
         <image name="Create Job" width="25" height="25"/>
-        <image name="Gardening" width="76" height="76"/>
         <image name="Menu" width="22" height="22"/>
         <image name="My Jobs" width="25" height="25"/>
         <image name="To Work" width="25" height="25"/>
