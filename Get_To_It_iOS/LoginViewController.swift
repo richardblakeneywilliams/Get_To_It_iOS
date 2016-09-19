@@ -20,6 +20,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         self.hideKeyboardWhenTappedAround()
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self

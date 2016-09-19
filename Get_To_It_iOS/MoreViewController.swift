@@ -9,6 +9,8 @@
 import UIKit
 import Eureka
 import ChameleonFramework
+import FirebaseAuth
+import FBSDKLoginKit
 
 class MoreViewController: FormViewController {
     
@@ -61,6 +63,19 @@ class MoreViewController: FormViewController {
                 row.title = "About"
                 }  .onCellSelection({ (cell, row) in
                     print("lol")
+                })
+            <<< ButtonRow() { (row: ButtonRow) -> Void in
+                row.title = "Log Out"
+                }  .onCellSelection({ (cell, row) in
+                    
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let viewController: LoginViewController = (storyboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController)
+                    self.presentViewController(viewController, animated: true, completion: {
+                        print("Logged out I hope...")
+                        try! FIRAuth.auth()!.signOut()
+                        let loginManger = FBSDKLoginManager()
+                        loginManger.logOut()
+                    })
                 })
     }
 

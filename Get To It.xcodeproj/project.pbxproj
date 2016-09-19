@@ -25,6 +25,7 @@
 		DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */; };
 		DB3802371D598D9700ACCE0F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3802361D598D9700ACCE0F /* LocationManager.swift */; };
 		DB59C8131D8F7D33006391C2 /* OverviewVcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59C8121D8F7D33006391C2 /* OverviewVcCell.swift */; };
+		DB59C8151D8FD986006391C2 /* OverviewEureka.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59C8141D8FD986006391C2 /* OverviewEureka.swift */; };
 		DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */; };
 		DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */; };
 		DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */; };
@@ -33,7 +34,7 @@
 		DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A021CD9CEF900152107 /* FirebaseService.swift */; };
 		DB763A051CD9D0AC00152107 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */; };
 		DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A061CDA184600152107 /* MainTabViewController.swift */; };
-		DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F191CEB15BD004DAFED /* Sign-In:Create Account.storyboard */; };
+		DB8B1F1B1CEB15BD004DAFED /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F191CEB15BD004DAFED /* Login.storyboard */; };
 		DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1F1CEB1DBD004DAFED /* Job.swift */; };
 		DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */; };
 		DB90FE291CF268640042A75A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE281CF268640042A75A /* Category.swift */; };
@@ -75,6 +76,7 @@
 		DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobTableCell.swift; sourceTree = "<group>"; };
 		DB3802361D598D9700ACCE0F /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB59C8121D8F7D33006391C2 /* OverviewVcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewVcCell.swift; sourceTree = "<group>"; };
+		DB59C8141D8FD986006391C2 /* OverviewEureka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewEureka.swift; sourceTree = "<group>"; };
 		DB5BBF411D22732E00F18CDB /* DateAndExtraFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndExtraFormController.swift; sourceTree = "<group>"; };
 		DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJob.swift; sourceTree = "<group>"; };
 		DB6A491D1CF958A000960A84 /* CreateJobPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobPhotoCell.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		DB763A021CD9CEF900152107 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DB763A061CDA184600152107 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
-		DB8B1F1A1CEB15BD004DAFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Sign-In:Create Account.storyboard"; sourceTree = "<group>"; };
+		DB8B1F1A1CEB15BD004DAFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		DB8B1F1F1CEB1DBD004DAFED /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 		DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBD496FB1D0F80AB00B8417E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobDetailsController.swift; sourceTree = "<group>"; };
-		DBD497021D104FAC00B8417E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Sign-In:Create Account.strings"; sourceTree = "<group>"; };
+		DBD497021D104FAC00B8417E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addedPhotoPreviewCell.swift; sourceTree = "<group>"; };
 		DBD497071D10642200B8417E /* ToWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToWorkController.swift; sourceTree = "<group>"; };
 		DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationPickerViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				DB01B65F1D8D495900909C35 /* DetailsViewController.swift */,
 				DB01B6611D8D496700909C35 /* TasksViewController.swift */,
 				DB01B6631D8D497500909C35 /* LocationViewController.swift */,
+				DB59C8141D8FD986006391C2 /* OverviewEureka.swift */,
 			);
 			name = "My Jobs ";
 			sourceTree = "<group>";
@@ -176,7 +179,7 @@
 		DB8B1F1C1CEB165B004DAFED /* Sign-In */ = {
 			isa = PBXGroup;
 			children = (
-				DB8B1F191CEB15BD004DAFED /* Sign-In:Create Account.storyboard */,
+				DB8B1F191CEB15BD004DAFED /* Login.storyboard */,
 				DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */,
 				DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */,
 			);
@@ -318,7 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB03D2F81D24E180009F491E /* ProfileImageView.xib in Resources */,
-				DB8B1F1B1CEB15BD004DAFED /* Sign-In:Create Account.storyboard in Resources */,
+				DB8B1F1B1CEB15BD004DAFED /* Login.storyboard in Resources */,
 				DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */,
 				DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */,
 				DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */,
@@ -403,6 +406,7 @@
 				DBDF07581D8AB5FC0091DD86 /* OverviewViewController.swift in Sources */,
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
+				DB59C8151D8FD986006391C2 /* OverviewEureka.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
 				DB01B6601D8D495900909C35 /* DetailsViewController.swift in Sources */,
@@ -422,13 +426,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DB8B1F191CEB15BD004DAFED /* Sign-In:Create Account.storyboard */ = {
+		DB8B1F191CEB15BD004DAFED /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DB8B1F1A1CEB15BD004DAFED /* Base */,
 				DBD497021D104FAC00B8417E /* en */,
 			);
-			name = "Sign-In:Create Account.storyboard";
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		DBCC07061CC868DC0070AEAA /* LaunchScreen.storyboard */ = {

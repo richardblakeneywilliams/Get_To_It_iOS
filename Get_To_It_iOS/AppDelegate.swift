@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showLoginScreen(){
         // Get login screen from storyboard and present it
         //print("showLoginScreen")
-        let storyboard = UIStoryboard(name: "Sign-In:Create Account", bundle: nil)
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let viewController: LoginViewController = (storyboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController)
         self.window!.makeKeyAndVisible()
         self.window!.rootViewController!.presentViewController(viewController, animated: true, completion: nil)
@@ -59,9 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
+        //Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
 
-        //NexmoClient.start(applicationId: NEXMO_KEY , sharedSecretKey: NEXMO_SECRET)
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true //Not sure where else this would go...
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

@@ -9,13 +9,14 @@
 import UIKit
 import XLPagerTabStrip
 
-class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var infoTableView: UITableView!
+    //@IBOutlet weak var infoTableView: UITableView!
+    @IBOutlet weak var eurekaFormArea: UIView!
     
     //This will need to start empty. TODO: For testing this can stay with just these.
     var photoArray = [UIImage(named: "GardenExample"),UIImage(named: "OvenExample")]
@@ -32,17 +33,27 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
     }
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionTextView.layer.cornerRadius = 8
+        
+//        let vc = (storyboard?.instantiateViewControllerWithIdentifier("overviewEureka"))! as! OverviewEureka
+//        self.addChildViewController(vc)
+//        vc.view.frame = CGRectMake(0, 0, self.eurekaFormArea.frame.size.width, self.eurekaFormArea.frame.size.height);
+//        self.eurekaFormArea.addSubview(vc.view)
+//        vc.didMoveToParentViewController(self)
+        
+
+        
+        //descriptionTextView.layer.cornerRadius = 8
         
         //CollectionView Delegate and Datasource
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         
         //TableView Delege and Datasource
-        infoTableView.delegate = self
-        infoTableView.dataSource = self
+//        infoTableView.delegate = self
+//        infoTableView.dataSource = self
         
         //Code for changing profile Imageview into a circle.
         profilePic.layer.borderWidth = 1.0
@@ -81,57 +92,60 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
         
         return cell
     }
-    
-    
-    
-    //MARK: TableView Delegate
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leftLabelNames.count
-    }
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = infoTableView.dequeueReusableCellWithIdentifier("overviewTableCell") as! OverViewTableCell
-        cell.leftLabel.text = self.leftLabelNames[indexPath.row]
-        cell.rightLabel.text = self.rightLabelInfo[indexPath.row]
-        return cell
-        
-        
-    }
-    
-    //MARK: TableView Data Source
-    var leftLabelNames = ["Start Time", "Hours", "Multiday Job"]
-    
-    //TODO: This will be where the cloud hookup grabs info.
-    var rightLabelInfo = ["9am 12/1/16", "12", "No"]
-    
-    
-    
-    
 }
-    //MARK: Tableview Cell
-class OverViewTableCell: UITableViewCell {
-    
-    
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightLabel: UILabel!
-    
-    override func awakeFromNib() {
-        self.leftLabel.layer.borderWidth = 0.5
-        self.leftLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
-        
-        self.rightLabel.layer.borderWidth = 0.5
-        self.rightLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
-    }
+
     
     
     
-}
+//    //MARK: TableView Delegate
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return leftLabelNames.count
+//    }
+//    
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = infoTableView.dequeueReusableCellWithIdentifier("overviewTableCell") as! OverViewTableCell
+//        cell.leftLabel.text = self.leftLabelNames[indexPath.row]
+//        cell.rightLabel.text = self.rightLabelInfo[indexPath.row]
+//        return cell
+//        
+//        
+//    }
+//    
+//    //MARK: TableView Data Source
+//    var leftLabelNames = ["Start Time", "Hours", "Multiday Job"]
+//    
+//    //TODO: This will be where the cloud hookup grabs info.
+//    var rightLabelInfo = ["9am 12/1/16", "12", "No"]
+//    
+//    
+//    
+//    
+//}
+//    //MARK: Tableview Cell
+//class OverViewTableCell: UITableViewCell {
+//    
+//    
+//    
+//    @IBOutlet weak var leftLabel: UILabel!
+//    @IBOutlet weak var rightLabel: UILabel!
+//    
+//    override func awakeFromNib() {
+//        self.leftLabel.layer.borderWidth = 0.5
+//        self.leftLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
+//        
+//        self.rightLabel.layer.borderWidth = 0.5
+//        self.rightLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
+//    }
+//    
+//    
+//    
+//}
 
 
 
