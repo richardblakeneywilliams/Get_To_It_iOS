@@ -90,6 +90,8 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         
     }
     
+    
+    // MARK: Image Picker
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get local file URLs
         guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
@@ -120,6 +122,8 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         dismissViewControllerAnimated(false, completion: nil)
     }
     
+    
+    // MARK: CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -135,6 +139,8 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
 }
+
+
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {

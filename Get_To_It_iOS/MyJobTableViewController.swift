@@ -29,6 +29,9 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         
     }
     
+
+    
+    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
@@ -53,9 +56,6 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        
         
     }
     
@@ -102,11 +102,13 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if  segue.identifier == "MyJobsDetailSegue" {
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "toOverViewController" {
+//            let dc = segue.destinationViewController as! OverviewViewController
+//            dc.hidesBottomBarWhenPushed = true
+//            
+//        }
+//    }
 
 }
 

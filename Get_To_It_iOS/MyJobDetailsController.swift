@@ -19,6 +19,8 @@ class MyJobDetailsController: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
         
         
+        
+        
         navigationItem.title = "Mow Lawns"
         // change selected bar color
         settings.style.buttonBarBackgroundColor = .whiteColor()
@@ -53,6 +55,7 @@ class MyJobDetailsController: ButtonBarPagerTabStripViewController {
         let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: " Location"))
         
         let child_5 = storyboard.instantiateViewControllerWithIdentifier("OverviewViewController")
+        
         
 
         return [child_5, child_2, child_3, child_4]
