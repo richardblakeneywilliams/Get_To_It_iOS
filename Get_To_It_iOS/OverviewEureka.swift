@@ -8,8 +8,31 @@
 
 import UIKit
 import Eureka
+import XLPagerTabStrip
 
-class OverviewEureka: FormViewController {
+class OverviewEureka: FormViewController, IndicatorInfoProvider {
+    
+    
+    var itemInfo: IndicatorInfo = "Eureka"
+    
+    init(itemInfo: IndicatorInfo) {
+        self.itemInfo = itemInfo
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    
+    // MARK: - IndicatorInfoProvider
+    
+    
+    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return itemInfo
+    }
+    
+    
     
     override func viewDidLoad() {
         
@@ -17,19 +40,6 @@ class OverviewEureka: FormViewController {
         
         Section()
             
-            
-            <<< DateTimeInlineRow("Start Time") {
-                $0.title = $0.tag
-                $0.value = NSDate()
-            }
-        
-                <<< IntRow("Hours"){
-                    $0.title = $0.tag
-                    $0.baseValue = 5
-                    $0.disabled = true
-
-                    }
-        
             <<< SwitchRow("Multi-Day Job:"){
                 $0.baseValue = false
                 

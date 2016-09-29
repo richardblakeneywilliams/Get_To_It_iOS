@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    
+    
+    
     let themeColour = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0)
         
     //TODO: Add offline check into this later like System Prefs 
@@ -58,8 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        //Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
+                        
+        Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), withContentStyle: .Light)
 
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true //Not sure where else this would go...

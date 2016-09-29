@@ -19,40 +19,18 @@ class DetailsViewController: UIViewController, IndicatorInfoProvider {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "XLPagerTabStrip"
-        
-        let textArea = UITextView()
-        
-        textArea.translatesAutoresizingMaskIntoConstraints = true
-        
-        view.addSubview(textArea)
-        
-        
-        
-        view.addSubview(label)
-        view.backgroundColor = .whiteColor()
-        
-        view.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: -50))
+  
     }
     
     // MARK: - IndicatorInfoProvider
-    
     func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
-    
-    
-    
-    
     
 }
 
