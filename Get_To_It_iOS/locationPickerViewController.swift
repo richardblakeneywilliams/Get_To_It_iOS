@@ -19,6 +19,9 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var kLocationTextField: UITextField!
     
+    @IBAction func backButtonPushed(_ sender: AnyObject) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     
 //    override func viewDidAppear(animated: Bool) {
 //        super.viewDidAppear(animated)

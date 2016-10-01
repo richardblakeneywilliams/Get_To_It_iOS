@@ -18,7 +18,7 @@ class DateAndExtraFormController: FormViewController {
     let ref = FIRDatabase.database().reference()
     
     @IBAction func backNavBar(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func submitJob(){

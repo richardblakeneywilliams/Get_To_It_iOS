@@ -83,7 +83,7 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     
     
     @IBAction func backNavBarAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func nextNavBatAction(_ sender: AnyObject) {
