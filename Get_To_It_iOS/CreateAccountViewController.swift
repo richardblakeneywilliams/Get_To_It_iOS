@@ -40,27 +40,27 @@ class CreateAccountViewController: UIViewController {
     }
     */
 
-    @IBAction func createAccountAction(sender: AnyObject) {
+    @IBAction func createAccountAction(_ sender: AnyObject) {
         if let email = self.emailTextField.text, let password = self.passwordTextField.text, let name = self.firstNameField.text {
         
-            FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
+            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
                 if let error = error {
                     print(error.localizedDescription)
                     return
                 } else {
                     let changeRequest = user?.profileChangeRequest()
                     changeRequest?.displayName = name
-                    NSUserDefaults.standardUserDefaults().setValue(user!.uid, forKey: "uid")
-                    NSUserDefaults.standardUserDefaults().synchronize()
+                    UserDefaults.standard.setValue(user!.uid, forKey: "uid")
+                    UserDefaults.standard.synchronize()
                     print("Account Created :) for \(user?.displayName)")
-                    self.dismissViewControllerAnimated(true,completion: nil)
+                    self.dismiss(animated: true,completion: nil)
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -78,8 +78,8 @@ class CreateAccountViewController: UIViewController {
 //    }
 
     
-    @IBAction func cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
 
     }
     

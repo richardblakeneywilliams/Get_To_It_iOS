@@ -9,10 +9,16 @@
 import UIKit
 import XLPagerTabStrip
 
+
 class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var profilePicImageView: UIImageView!
+    
+    @IBOutlet weak var declineJobButton: UIButton!
+    @IBOutlet weak var acceptJobButton: UIButton!
     //This will need to start empty. TODO: For testing this can stay with just these.
     var photoArray = [UIImage(named: "GardenExample"),UIImage(named: "OvenExample")]
     
@@ -36,41 +42,81 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
         //CollectionView Delegate and Datasource
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
+        
+        //Set up buttons TODO: Add Segue to this that hides these
+        acceptJobButton.layer.cornerRadius = 3
+        declineJobButton.layer.cornerRadius = 3
+        
+        
+        
+        //Set up profile picture view. TODO: Add Firebase
+        profilePicImageView.image = UIImage(named: "DefaultProfilePic")
+        profilePicImageView.layer.cornerRadius = 37.5
+        profilePicImageView.layer.masksToBounds = true
+        
 
-        
-        
     }
     
     // MARK: - IndicatorInfoProvider
     
     
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
-    
     
     // MARK: CollectionView Data Source Info. This is where the photoArray will be filled up when the view is loaded. Firebase Storage will be probably fucked with here. 
     
     
     
     // MARK: CollectionView Delegate
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = photoCollectionView.dequeueReusableCellWithReuseIdentifier("overviewVcCell", forIndexPath: indexPath) as! OverviewVcCell
-        cell.imageView?.image = self.photoArray[indexPath.row]
+        let cell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: "overviewVcCell", for: indexPath) as! OverviewVcCell
+        
+        cell.imageView?.image = self.photoArray[(indexPath as NSIndexPath).row]
         
         return cell
     }
 }
 
+extension CALayer {
+    
+    func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect(x: 0, y: self.frame.height - thickness, width: self.frame.width, height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect(x: self.frame.width - thickness, y: 0, width: thickness, height: self.frame.height)
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
+    }
+}
     
     
 

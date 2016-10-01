@@ -24,22 +24,29 @@
 
 import Foundation
 import XLPagerTabStrip
+import ChameleonFramework
 
-class ButtonBarExampleViewController: ButtonBarPagerTabStripViewController {
+class MyJobsButtonBarPager: ButtonBarPagerTabStripViewController {
     
     var isReload = false
     
-    let blueInstagramColor = UIColor(red: 37/255.0, green: 111/255.0, blue: 206/255.0, alpha: 1.0)
+    let appThemeColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0)
+    
     
     override func viewDidLoad() {
+        
+        //To fix the bug.
+        self.buttonBarView.collectionViewLayout = UICollectionViewFlowLayout()
+        self.buttonBarView.frame.size.height = 40
+        
         // change selected bar color
-        settings.style.buttonBarBackgroundColor = .whiteColor()
-        settings.style.buttonBarItemBackgroundColor = .whiteColor()
-        settings.style.selectedBarBackgroundColor = blueInstagramColor
-        settings.style.buttonBarItemFont = .boldSystemFontOfSize(14)
-        settings.style.selectedBarHeight = 5.0
+        settings.style.buttonBarBackgroundColor = UIColor.white
+        settings.style.buttonBarItemBackgroundColor = UIColor.white
+        settings.style.selectedBarBackgroundColor = appThemeColor
+        settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
+        settings.style.selectedBarHeight = 2.0
         settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemTitleColor = .blackColor()
+        settings.style.buttonBarItemTitleColor = UIColor.blue
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
@@ -47,48 +54,45 @@ class ButtonBarExampleViewController: ButtonBarPagerTabStripViewController {
         
         changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor = .blackColor()
-            newCell?.label.textColor = self?.blueInstagramColor
+            oldCell?.label.textColor = .black
+            newCell?.label.textColor = self?.appThemeColor
         }
-        
         super.viewDidLoad()
-
-
     }
     
-    // MARK: - PagerTabStripDataSource
     
-    override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let child_5 = DetailsViewController(itemInfo: IndicatorInfo(title: " Details"))
-        let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: " Tasks"))
-        let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: " Location"))
-        let child_2 = storyboard!.instantiateViewControllerWithIdentifier("OverviewViewController")
+    // MARK: - PagerTabStripDataSource
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+                let detailsVC = DetailsViewController(itemInfo: IndicatorInfo(title: " Details"))
+                let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: " Tasks"))
+                let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: " Location"))
+                let child_2 = storyboard!.instantiateViewController(withIdentifier: "OverviewViewController")
         
-        guard isReload else {
-            return [child_2, child_3, child_4, child_5]
-        }
+                guard isReload else {
+                    return [child_2, detailsVC, child_3, child_4]
+                }
         
-        var childViewControllers = [child_2, child_3, child_4, child_5]
+        var childViewControllers = [child_2, child_3, child_4, detailsVC]
         
-        for (index, _) in childViewControllers.enumerate(){
+        for (index, _) in childViewControllers.enumerated(){
             let nElements = childViewControllers.count - index
             let n = (Int(arc4random()) % nElements) + index
             if n != index{
                 swap(&childViewControllers[index], &childViewControllers[n])
             }
         }
-        let nItems = 1 + (rand() % 4)
+        let nItems = 1 + (arc4random() % 4)
         return Array(childViewControllers.prefix(Int(nItems)))
     }
     
+    
     override func reloadPagerTabStripView() {
         isReload = true
-        if rand() % 2 == 0 {
-            pagerBehaviour = .Progressive(skipIntermediateViewControllers: rand() % 2 == 0 , elasticIndicatorLimit: rand() % 2 == 0 )
+        if arc4random() % 2 == 0 {
+            pagerBehaviour = .progressive(skipIntermediateViewControllers: arc4random() % 2 == 0, elasticIndicatorLimit: arc4random() % 2 == 0 )
         }
         else {
-            pagerBehaviour = .Common(skipIntermediateViewControllers: rand() % 2 == 0)
+            pagerBehaviour = .common(skipIntermediateViewControllers: arc4random() % 2 == 0)
         }
         super.reloadPagerTabStripView()
-    }
-}
+    }}

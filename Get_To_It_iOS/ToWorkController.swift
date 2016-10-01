@@ -17,7 +17,7 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         //Removes the blue theme from the Google logo in the bottom left corner.
-        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
         //Put this in a manager. More than one view needs it.
         let locationManager = CLLocationManager()
@@ -37,12 +37,12 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
         var camera:GMSCameraPosition = GMSCameraPosition()
         
         if (long != nil){
-            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
+            camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 14)
         } else {
-            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)
+            camera = GMSCameraPosition.camera(withLatitude: 48.857165, longitude: 2.354613, zoom: 14)
         }
         
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         //mapView.myLocationEnabled = true
         mapView.settings.zoomGestures = true
         

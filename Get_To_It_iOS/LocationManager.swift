@@ -20,11 +20,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   var currentId = 0
   let locationManager = CLLocationManager()
 
-  override private init() {
+  override fileprivate init() {
 
   }
 
-  func subscribeToUserLocation(andDoThisWithIt: (CLLocation) -> ()) {
+  func subscribeToUserLocation(_ andDoThisWithIt: @escaping (CLLocation) -> ()) {
     self.setUpLocationListener(andDoThisWithIt)
     print(#function)
     self.listeners.append(LocationListener(id: currentId, callBack: andDoThisWithIt))
@@ -34,11 +34,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     self.listeners.removeLast()
   }
 
-  func getUserLocation(andDoThisWithIt: (CLLocation) -> ()) {
+  func getUserLocation(_ andDoThisWithIt: @escaping (CLLocation) -> ()) {
     self.setUpLocationListener(andDoThisWithIt)
   }
     
-  private func setUpLocationListener(callBack: (CLLocation) -> ()) {
+  fileprivate func setUpLocationListener(_ callBack: @escaping (CLLocation) -> ()) {
     self.locationManager.requestWhenInUseAuthorization()
     if CLLocationManager.locationServicesEnabled() {
     
@@ -50,7 +50,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
   }
 
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let callBack = callBack {
       callBack(locations[0])
       self.callBack = nil

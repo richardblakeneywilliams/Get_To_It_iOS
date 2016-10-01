@@ -36,22 +36,21 @@
 		DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB763A061CDA184600152107 /* MainTabViewController.swift */; };
 		DB8B1F1B1CEB15BD004DAFED /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F191CEB15BD004DAFED /* Login.storyboard */; };
 		DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B1F1F1CEB1DBD004DAFED /* Job.swift */; };
-		DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */; };
 		DB90FE291CF268640042A75A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE281CF268640042A75A /* Category.swift */; };
 		DB90FE2B1CF271470042A75A /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */; };
 		DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE631CF3EEBA0042A75A /* NexmoService.swift */; };
-		DBB9CAD91D9D2B800099D9F9 /* ButtonBarExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD71D9D2B800099D9F9 /* ButtonBarExampleViewController.swift */; };
+		DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */; };
 		DBB9CADA1D9D2B800099D9F9 /* ReloadExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */; };
 		DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */; };
 		DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07041CC868DC0070AEAA /* Assets.xcassets */; };
 		DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07061CC868DC0070AEAA /* LaunchScreen.storyboard */; };
 		DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */; };
-		DBD496FC1D0F80AB00B8417E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD496FB1D0F80AB00B8417E /* Reachability.swift */; };
 		DBD496FE1D0FA08800B8417E /* CreateJobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */; };
 		DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */; };
 		DBD497081D10642200B8417E /* ToWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497071D10642200B8417E /* ToWorkController.swift */; };
 		DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */; };
 		DBDF07581D8AB5FC0091DD86 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF07571D8AB5FC0091DD86 /* OverviewViewController.swift */; };
+		DBDFA2FF1D9D57D4007A578F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBDFA2FE1D9D57D4007A578F /* GoogleService-Info.plist */; };
 		DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF85AF11D21F367001E3E43 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -88,11 +87,10 @@
 		DB763A061CDA184600152107 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		DB8B1F1A1CEB15BD004DAFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		DB8B1F1F1CEB1DBD004DAFED /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleMapsService.swift; path = ../GoogleMapsService.swift; sourceTree = "<group>"; };
 		DB90FE631CF3EEBA0042A75A /* NexmoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoService.swift; sourceTree = "<group>"; };
-		DBB9CAD71D9D2B800099D9F9 /* ButtonBarExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBarExampleViewController.swift; sourceTree = "<group>"; };
+		DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsButtonBarPager.swift; sourceTree = "<group>"; };
 		DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadExampleViewController.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,13 +98,14 @@
 		DBCC07071CC868DC0070AEAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBCC07091CC868DC0070AEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DBD496FB1D0F80AB00B8417E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DBD496FD1D0FA08800B8417E /* CreateJobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateJobDetailsController.swift; sourceTree = "<group>"; };
 		DBD497021D104FAC00B8417E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		DBD497051D10537800B8417E /* addedPhotoPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addedPhotoPreviewCell.swift; sourceTree = "<group>"; };
 		DBD497071D10642200B8417E /* ToWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToWorkController.swift; sourceTree = "<group>"; };
 		DBD4970C1D1D0A7400B8417E /* locationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationPickerViewController.swift; sourceTree = "<group>"; };
 		DBDF07571D8AB5FC0091DD86 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		DBDFA2FE1D9D57D4007A578F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DBDFA3001D9D5893007A578F /* Get To It.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get To It.entitlements"; sourceTree = "<group>"; };
 		DBF85AF21D21F367001E3E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +151,7 @@
 		DB35DBA81D25544D00E0D4BC /* My Jobs  */ = {
 			isa = PBXGroup;
 			children = (
-				DBB9CAD71D9D2B800099D9F9 /* ButtonBarExampleViewController.swift */,
+				DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */,
 				DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */,
 				DB35DBA11D254A7000E0D4BC /* MyJobTableViewController.swift */,
 				DB35DBA61D25544700E0D4BC /* MyJobTableCell.swift */,
@@ -206,7 +205,6 @@
 				DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */,
 				DB763A021CD9CEF900152107 /* FirebaseService.swift */,
 				DB90FE631CF3EEBA0042A75A /* NexmoService.swift */,
-				DBD496FB1D0F80AB00B8417E /* Reachability.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -214,6 +212,7 @@
 		DBCC06EE1CC868DC0070AEAA = {
 			isa = PBXGroup;
 			children = (
+				DBDFA3001D9D5893007A578F /* Get To It.entitlements */,
 				DBCC06F91CC868DC0070AEAA /* Get_To_It_iOS */,
 				DBCC06F81CC868DC0070AEAA /* Products */,
 				727043874429C3D4901A95D5 /* Frameworks */,
@@ -233,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */,
+				DBDFA2FE1D9D57D4007A578F /* GoogleService-Info.plist */,
 				DB90FE2C1CF271760042A75A /* Services */,
-				DB8B1F231CED1E62004DAFED /* GoogleService-Info.plist */,
 				DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */,
 				DB35DBA81D25544D00E0D4BC /* My Jobs  */,
 				DB6A491A1CF6E5A100960A84 /* Create Job */,
@@ -291,12 +290,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Get To It Ltd";
 				TargetAttributes = {
 					DBCC06F61CC868DC0070AEAA = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 24XSKRK84U;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -327,9 +332,9 @@
 				DB8B1F1B1CEB15BD004DAFED /* Login.storyboard in Resources */,
 				DBF85AF31D21F367001E3E43 /* Main.storyboard in Resources */,
 				DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */,
-				DB8B1F241CED1E62004DAFED /* GoogleService-Info.plist in Resources */,
 				DB0C0A2B1D7EF18A004B5ED7 /* .travis.yml in Resources */,
 				DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */,
+				DBDFA2FF1D9D57D4007A578F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +395,6 @@
 			files = (
 				DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */,
 				DB03D2F01D24D981009F491E /* MoreViewController.swift in Sources */,
-				DBD496FC1D0F80AB00B8417E /* Reachability.swift in Sources */,
 				DB35DB9F1D25390D00E0D4BC /* SettingViewController.swift in Sources */,
 				DB5BBF461D22BB6A00F18CDB /* CurrentJob.swift in Sources */,
 				DB5BBF421D22732E00F18CDB /* DateAndExtraFormController.swift in Sources */,
@@ -411,7 +415,7 @@
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB59C8151D8FD986006391C2 /* OverviewEureka.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
-				DBB9CAD91D9D2B800099D9F9 /* ButtonBarExampleViewController.swift in Sources */,
+				DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
 				DB01B6601D8D495900909C35 /* DetailsViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
@@ -472,8 +476,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -517,8 +523,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -545,10 +553,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 621CEEEE317B0EBC3F4C0551 /* Pods-Get To It.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Get To It.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Get_To_It_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -556,6 +565,7 @@
 				PRODUCT_NAME = "Get To It";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -563,10 +573,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B623999086E1AF0B99F39391 /* Pods-Get To It.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Get To It.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
@@ -595,7 +606,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.getToIt.Get-To-It-iOS";
 				PRODUCT_NAME = "Get To It";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

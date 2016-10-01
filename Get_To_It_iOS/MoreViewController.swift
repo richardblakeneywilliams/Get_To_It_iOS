@@ -16,45 +16,45 @@ class MoreViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
         
-        ImageRow.defaultCellUpdate = { cell, row in
-            cell.accessoryView?.layer.cornerRadius = 17
-            cell.accessoryView?.frame = CGRectMake(0, 0, 34, 34)
-        }
+//        ImageRow.defaultCellUpdate = { cell, row in
+//            cell.accessoryView?.layer.cornerRadius = 17
+//            cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+//        }
         
         form =
             
             Section() {
-                $0.header = HeaderFooterView<ProfileImageView>(HeaderFooterProvider.Class)
+                $0.header = HeaderFooterView<ProfileImageView>(HeaderFooterProvider.class)
             }
             
             <<< ButtonRow("Account Settings") {
                 $0.title = $0.tag
-                $0.presentationMode = .SegueName(segueName: "AccountSettingsSegue", completionCallback: nil)
+                $0.presentationMode = .segueName(segueName: "AccountSettingsSegue", onDismiss: nil)
             }
             
             <<< ButtonRow("My Money") { row in
                 row.title = row.tag
-                row.presentationMode = .SegueName(segueName: "MyMoneySegue", completionCallback: nil)
+                row.presentationMode = .segueName(segueName: "MyMoneySegue", onDismiss: nil)
             }
             
             <<< ButtonRow("Past Jobs") { (row: ButtonRow) in
                 row.title = row.tag
-                row.presentationMode = .SegueName(segueName: "PastJobsSegue", completionCallback: nil)
+                row.presentationMode = .segueName(segueName: "PastJobsSegue", onDismiss: nil)
             }
             
             
             <<< ButtonRow("Payment") { (row: ButtonRow) -> Void in
                 row.title = row.tag
                 
-                row.presentationMode = .SegueName(segueName: "PaymentSegue", completionCallback: nil)
+                row.presentationMode = .segueName(segueName: "PaymentSegue", onDismiss: nil)
             }
             
             <<< ButtonRow("Settings") { (row: ButtonRow) -> Void in
                 row.title = row.tag
-                row.presentationMode = .SegueName(segueName: "SettingsSegue", completionCallback: nil)
+                row.presentationMode = .segueName(segueName: "SettingsSegue", onDismiss: nil)
             }
             
             
@@ -69,8 +69,8 @@ class MoreViewController: FormViewController {
                 }  .onCellSelection({ (cell, row) in
                     
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                    let viewController: LoginViewController = (storyboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController)
-                    self.presentViewController(viewController, animated: true, completion: {
+                    let viewController: LoginViewController = (storyboard.instantiateViewController(withIdentifier: "loginScreen") as! LoginViewController)
+                    self.present(viewController, animated: true, completion: {
                         print("Logged out I hope...")
                         try! FIRAuth.auth()!.signOut()
                         let loginManger = FBSDKLoginManager()
@@ -97,7 +97,7 @@ class ProfileImageView: UIView {
         name.frame = CGRect(x: 88, y: 96, width: 220, height: 21)
         
         self.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         self.addSubview(imageView)
         self.addSubview(name)
     }

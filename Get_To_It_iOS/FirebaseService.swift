@@ -40,7 +40,7 @@ public func saveJob() {
     
     let key = FIREBASE_REF.child("job").childByAutoId().key
  
-    let job : [NSObject: AnyObject] =
+    let job : [AnyHashable: Any] =
             ["uid": uid,
                "title": title!,
                "description": description!,

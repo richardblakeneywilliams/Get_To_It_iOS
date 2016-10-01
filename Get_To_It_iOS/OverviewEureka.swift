@@ -28,7 +28,7 @@ class OverviewEureka: FormViewController, IndicatorInfoProvider {
     // MARK: - IndicatorInfoProvider
     
     
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
     

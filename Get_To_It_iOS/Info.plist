@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Memes...</string>
+	<key>NSLocationUsageDescription</key>
+	<string>More memes</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Memes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Used for selecting photos to add to jobs</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used for taking photos to add to jobs.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>By accessing your location, we can make it easier for people to get the location of the job</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -93,8 +105,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>By accessing your location, we can make it easier for people to get the location of the job</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

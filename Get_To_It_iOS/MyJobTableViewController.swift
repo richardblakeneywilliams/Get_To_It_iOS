@@ -19,7 +19,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .Contrast)
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -32,7 +32,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
 
     
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
@@ -45,25 +45,25 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //This is going to be a problem later
         //OI CUNT THIS IS GOING TO BE A PROBLEM
         return 1
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
     }
     
     
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyJobTableCell", forIndexPath: indexPath) as! MyJobTableCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyJobTableCell", for: indexPath) as! MyJobTableCell
         
         cell.startTimeHour.text = "10pm"
         cell.startTimeMonth.text = "17th of August"
@@ -78,11 +78,11 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         let lat = locationManager.location?.coordinate.latitude
         
         if (long != nil && lat != nil){
-            camera = GMSCameraPosition.cameraWithLatitude(lat!, longitude: long!, zoom: 14)
+            camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 14)
         } else {
             
             //This needs to be looked at later
-            camera = GMSCameraPosition.cameraWithLatitude(48.857165, longitude: 2.354613, zoom: 14)
+            camera = GMSCameraPosition.camera(withLatitude: 48.857165, longitude: 2.354613, zoom: 14)
         }
         
         cell.mapView.camera = camera

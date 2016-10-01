@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target "Get To It" do
     
     pod 'FBSDKLoginKit'
-    pod 'Eureka'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Swift3'
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'
     pod 'Firebase/Core'
@@ -17,9 +17,8 @@ target "Get To It" do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
-    pod 'ChameleonFramework/Swift'
-    pod 'XLPagerTabStrip', '~> 5.0'
-
-
+    pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'swift3'
+    pod 'XLPagerTabStrip'
+    pod 'HCSStarRatingView'
 
 end

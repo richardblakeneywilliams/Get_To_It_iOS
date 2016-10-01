@@ -8,4 +8,6 @@
 
 import Foundation
 
-let Maps_API_Key = "AIzaSyDiJuibayYyXDxxNsaCFwYibZukus2gmv4"
+let Maps_API_Key = "AIzaSyDk9IMazLBKQa23hGBOQF3sqXSGWE4uBZY"
+
+let Places_API_Key = "AIzaSyDx0VJJCaYrHsHI5LJWoPJ2NDB3H-hz1pc"
