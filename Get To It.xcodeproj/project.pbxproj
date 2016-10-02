@@ -40,6 +40,7 @@
 		DB90FE291CF268640042A75A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE281CF268640042A75A /* Category.swift */; };
 		DB90FE2B1CF271470042A75A /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */; };
 		DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90FE631CF3EEBA0042A75A /* NexmoService.swift */; };
+		DBA90A1B1DA105E6004301C8 /* MyJobsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA90A1A1DA105E6004301C8 /* MyJobsLocationViewController.swift */; };
 		DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */; };
 		DBB9CADA1D9D2B800099D9F9 /* ReloadExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */; };
 		DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */; };
@@ -92,6 +93,7 @@
 		DB90FE281CF268640042A75A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB90FE2A1CF271470042A75A /* GoogleMapsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleMapsService.swift; path = ../GoogleMapsService.swift; sourceTree = "<group>"; };
 		DB90FE631CF3EEBA0042A75A /* NexmoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoService.swift; sourceTree = "<group>"; };
+		DBA90A1A1DA105E6004301C8 /* MyJobsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsLocationViewController.swift; sourceTree = "<group>"; };
 		DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsButtonBarPager.swift; sourceTree = "<group>"; };
 		DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadExampleViewController.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				DB01B6631D8D497500909C35 /* LocationViewController.swift */,
 				DB59C8141D8FD986006391C2 /* OverviewEureka.swift */,
 				DB4C88861DA0C7BD0025FDFC /* MyJobsDetailsViewController.swift */,
+				DBA90A1A1DA105E6004301C8 /* MyJobsLocationViewController.swift */,
 			);
 			name = "My Jobs ";
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				DB59C8131D8F7D33006391C2 /* OverviewVcCell.swift in Sources */,
 				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,
+				DBA90A1B1DA105E6004301C8 /* MyJobsLocationViewController.swift in Sources */,
 				DBDF07581D8AB5FC0091DD86 /* OverviewViewController.swift in Sources */,
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,

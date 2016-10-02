@@ -64,15 +64,15 @@ class MyJobsButtonBarPager: ButtonBarPagerTabStripViewController {
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
                 let detailsVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsDetailsViewController")
-                let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: "Tasks"))
-                let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: "Location"))
-                let child_2 = storyboard!.instantiateViewController(withIdentifier: "OverviewViewController")
+                let tasksVC = DetailsViewController(itemInfo: IndicatorInfo(title: "Tasks"))
+                let locationVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsLocationViewController")
+                let overviewVC = storyboard!.instantiateViewController(withIdentifier: "OverviewViewController")
         
                 guard isReload else {
-                    return [child_2, detailsVC, child_3, child_4]
+                    return [overviewVC, detailsVC, tasksVC, locationVC]
                 }
         
-        var childViewControllers = [child_2, child_3, child_4, detailsVC]
+        var childViewControllers = [overviewVC, detailsVC, tasksVC, locationVC]
         
         for (index, _) in childViewControllers.enumerated(){
             let nElements = childViewControllers.count - index
