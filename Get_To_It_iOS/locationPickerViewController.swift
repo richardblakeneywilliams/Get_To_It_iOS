@@ -23,27 +23,6 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
         _ = navigationController?.popViewController(animated: true)
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        //This created a new bug
-//        LocationManager.instance.subscribeToUserLocation() { (userLocation) in
-//            let camera = GMSCameraPosition.cameraWithLatitude(userLocation.coordinate.latitude,
-//                longitude: userLocation.coordinate.longitude, zoom: 15)
-//            
-//            print("Location Picker, inside sub")
-//            
-//            self.mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-//            self.mapView.myLocationEnabled = true //This is in the wrong place.
-//            self.mapView.settings.zoomGestures = true
-//            self.mapView.settings.myLocationButton = true
-//            
-//            //Here is the issue. But is it?
-//            //self.view = self.mapView
-//            
-//        }
-//    }
-    
     
     override func viewDidLoad() {
         
@@ -143,7 +122,7 @@ extension locationPickerViewController: GMSAutocompleteViewControllerDelegate {
         
         CurrentJob.instance?.long = place.coordinate.longitude
         CurrentJob.instance?.lat = place.coordinate.latitude
-        CurrentJob.instance?.address = place.formattedAddress as NSString?
+        CurrentJob.instance?.address = place.formattedAddress as String?
         
         if let long = CurrentJob.instance?.long{
             print(long)

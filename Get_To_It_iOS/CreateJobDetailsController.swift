@@ -39,9 +39,9 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FromJobDetailToLocation" {
-            CurrentJob.instance?.description = descriptionTextView.text as NSString?
-            CurrentJob.instance?.subCategory = subCategoryTextField.text as NSString?
-            CurrentJob.instance?.title = jobTitleTextField.text as NSString?
+            CurrentJob.instance?.description = descriptionTextView.text as String?
+            CurrentJob.instance?.subCategory = subCategoryTextField.text as String?
+            CurrentJob.instance?.title = jobTitleTextField.text as String?
         }
     }
     

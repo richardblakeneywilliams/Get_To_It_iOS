@@ -63,9 +63,9 @@ class MyJobsButtonBarPager: ButtonBarPagerTabStripViewController {
     
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-                let detailsVC = DetailsViewController(itemInfo: IndicatorInfo(title: " Details"))
-                let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: " Tasks"))
-                let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: " Location"))
+                let detailsVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsDetailsViewController")
+                let child_3 = DetailsViewController(itemInfo: IndicatorInfo(title: "Tasks"))
+                let child_4 = DetailsViewController(itemInfo: IndicatorInfo(title: "Location"))
                 let child_2 = storyboard!.instantiateViewController(withIdentifier: "OverviewViewController")
         
                 guard isReload else {

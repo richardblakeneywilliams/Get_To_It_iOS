@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import HCSStarRatingView
 
 
 class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -17,8 +18,18 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var profilePicImageView: UIImageView!
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var declineJobButton: UIButton!
     @IBOutlet weak var acceptJobButton: UIButton!
+    @IBOutlet weak var starRatingView: HCSStarRatingView!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var multidayLabel: UILabel!
+    
+    @IBOutlet weak var jobDetailsTextView: UITextView!
+    
     //This will need to start empty. TODO: For testing this can stay with just these.
     var photoArray = [UIImage(named: "GardenExample"),UIImage(named: "OvenExample")]
     
@@ -44,18 +55,22 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
         photoCollectionView.dataSource = self
         
         //Set up buttons TODO: Add Segue to this that hides these
-        acceptJobButton.layer.cornerRadius = 3
-        declineJobButton.layer.cornerRadius = 3
-        
-        
+//        acceptJobButton.layer.cornerRadius = 3
+//        declineJobButton.layer.cornerRadius = 3
         
         //Set up profile picture view. TODO: Add Firebase
         profilePicImageView.image = UIImage(named: "DefaultProfilePic")
         profilePicImageView.layer.cornerRadius = 37.5
         profilePicImageView.layer.masksToBounds = true
         
-
     }
+    
+    func getInfoForJob(){
+        
+        
+        
+    }
+    
     
     // MARK: - IndicatorInfoProvider
     
@@ -65,8 +80,6 @@ class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollect
     }
     
     // MARK: CollectionView Data Source Info. This is where the photoArray will be filled up when the view is loaded. Firebase Storage will be probably fucked with here. 
-    
-    
     
     // MARK: CollectionView Delegate
     func numberOfSections(in collectionView: UICollectionView) -> Int {

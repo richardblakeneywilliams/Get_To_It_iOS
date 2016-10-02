@@ -15,6 +15,5 @@ class CurrentJob: Job {
     func destroy() {
         CurrentJob.instance = nil
     }
-    
 }
 

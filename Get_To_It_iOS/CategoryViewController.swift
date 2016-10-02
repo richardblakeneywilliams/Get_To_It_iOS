@@ -58,7 +58,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
         
-        CurrentJob.instance!.category = self.names[(indexPath as NSIndexPath).row] as NSString?
+        CurrentJob.instance!.category = self.names[(indexPath as NSIndexPath).row] as String?
 
     }
 
