@@ -26,6 +26,8 @@ class Job{
         var totalCost: Double?
         var status: String?
     
+        //var jobCreatorProfilePicture: UI
+    
     init(){
         
     }
@@ -37,17 +39,18 @@ class Job{
         self.title = title
         self.description = description
         self.category = category
-        self.subCategory = category
+        self.subCategory = subCategory
         self.address = address
         self.long = long
         self.lat = lat
+        self.jobEndTime = jobEndTime
+        self.jobStartTime = jobStartTime
         self.numberOfHours = numberOfHours
         self.toolsOnSite = toolsOnSite
         self.areTheyPresent = areTheyPresent
         self.totalCost = totalCost
         self.status = status
-
-        
+        self.uid = uid
     }
     
 }

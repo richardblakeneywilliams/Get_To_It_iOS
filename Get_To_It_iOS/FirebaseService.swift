@@ -89,6 +89,9 @@ public func saveNewJob() {
     let status = "Open"
     
     
+    
+    
+    
     if let id = FIRAuth.auth()?.currentUser?.uid{
         uid = id
     } else {

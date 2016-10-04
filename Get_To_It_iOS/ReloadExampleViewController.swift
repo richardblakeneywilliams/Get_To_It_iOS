@@ -75,7 +75,7 @@ class ReloadExampleViewController: UIViewController {
             return bool ? "YES" : "NO"
         }
         
-        titleLabel.text = "Mow Lawns"
+        //titleLabel.text = "Mow Lawns"
         
         (navigationItem.titleView as? UILabel)?.text = titleLabel.text
         navigationItem.titleView?.sizeToFit()

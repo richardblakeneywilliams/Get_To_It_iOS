@@ -35,13 +35,14 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
             for(key,_) in firebaseJobs! {
                 let job:NSObject = firebaseJobs![key] as! NSObject
                 
+                
                 //Adds Firebase job to joblist.
                 let address = job.value(forKey: "address") as? String
                 let areTheyPresent = job.value(forKey: "areTheyPresent") as? Bool
                 let category = job.value(forKey: "category") as? String
                 let description = job.value(forKey: "description") as? String
-                let jobEndTime = job.value(forKey: "jobEndTime") as! String
-                let jobStartTime = job.value(forKey: "jobStartTime") as! String
+                let jobEndTime = job.value(forKey: "jobEndTime") as? String
+                let jobStartTime = job.value(forKey: "jobStartTime") as? String
                 let latitude = job.value(forKey: "latitude") as? Double
                 let longitude = job.value(forKey: "longitude") as? Double
                 let numberOfHours = job.value(forKey: "numberOfHours") as? Int
@@ -49,11 +50,14 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                 let title = job.value(forKey: "title") as? String
                 let toolsOnSite = job.value(forKey: "toolsOnSite") as? Bool
                 let totalCost = job.value(forKey: "totalCost") as? Double
+                
                 let uid = job.value(forKey: "uid") as? String
+                
                 let status = job.value(forKey: "status") as? String
 
                 
-                //Dates should be converted from String to NSDate
+                //TODO: Insert unwrapping checks on all values... Show empty map/Empty shit if information is incomplete. THIS IS TO DANGEROUS IN ITS CURRENT STATE.
+                
                 
                 let newJob = Job(title: title!,
                                  description: description!,
@@ -63,15 +67,22 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                                  long: longitude!,
                                  lat: latitude!,
                                  numberOfHours: numberOfHours!,
-                                 jobStartTime: jobStartTime,
-                                 jobEndTime: jobEndTime,
+                                 
+                                 jobStartTime: jobStartTime!,
+                                 jobEndTime: jobEndTime!,
+                                 
                                  toolsOnSite: toolsOnSite!,
                                  areTheyPresent: areTheyPresent!,
                                  totalCost: totalCost!,
                                  status: status!,
                                  uid: uid!)
                 
+                
+                
+                
+                
                 self.myjobs.append(newJob)
+                
                 self.tableView.reloadData()
 
             }
@@ -79,11 +90,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
             print(error.localizedDescription)
         }
         
-        
     }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +101,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         //For Empty Data set stuff.
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        //This gets rid of lines in the tableview when its empty.
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         locationManager.requestAlwaysAuthorization()
@@ -130,19 +138,14 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         return NSAttributedString(string: text, attributes: attributes)
     }
 
-    
-    
-    
-    
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
-    
- 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        //TODO: Google shit here.
         // Dispose of any resources that can be recreated.
     }
 
@@ -152,28 +155,28 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         return 1
     }
     
-    
-    
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myjobs.count
-    }
-    
-    
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyJobTableCell", for: indexPath) as! MyJobTableCell
         
-        print("here")
+        //Convert the Start Time into a date. 
         
-        cell.startTimeHour.text = self.myjobs[indexPath.row].title
-        cell.startTimeMonth.text = self.myjobs[indexPath.row].jobStartTime
+        
+        
+        //Take the Hour component out of the date and add AM/PM to the date.
+        
+        
+        //Date Formatter to get the right string from the date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        
         cell.status.text = self.myjobs[indexPath.row].status
-        cell.profilePictureView.image = UIImage(named: "DefaultProfilePicture")
+        cell.profilePictureView.image = UIImage(named: "DefaultProfilePic")
         
         var camera:GMSCameraPosition = GMSCameraPosition()
         let long = self.myjobs[indexPath.row].long
@@ -188,8 +191,9 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         }
         
         cell.mapView.camera = camera
-        let marker: GMSMarker = GMSMarker()
+        cell.mapView.settings.setAllGesturesEnabled(false)
         
+        let marker: GMSMarker = GMSMarker()
         
         if (long != nil && lat != nil){
             marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
@@ -204,13 +208,21 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         return cell
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "toOverViewController" {
-//            let dc = segue.destinationViewController as! OverviewViewController
-//            dc.hidesBottomBarWhenPushed = true
-//            
-//        }
-//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toReloadVC" {
+            
+            //Figure out which row was just tapped
+            if let row = tableView.indexPathForSelectedRow?.row{
+                let dc = segue.destination as! ReloadExampleViewController
+                
+                //Change navigation title label to the name of the job.
+                dc.titleLabel.text = self.myjobs[row].title
+
+                
+            }
+        }
+    }
 
 }
 
