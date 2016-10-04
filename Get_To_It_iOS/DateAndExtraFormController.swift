@@ -14,7 +14,6 @@ class DateAndExtraFormController: FormViewController {
     
     let pricePerHour = 20.00
     
-    
     let ref = FIRDatabase.database().reference()
     
     @IBAction func backNavBar(_ sender: AnyObject) {
@@ -22,13 +21,11 @@ class DateAndExtraFormController: FormViewController {
     }
     
     func submitJob(){
-        
         if let cat = CurrentJob.instance!.category{
             print(cat)
         } else {
             print("No Category")
         }
-        
         
         if let rowHoursReq = form.rowBy(tag: "Hours Required")?.baseValue {
             print(rowHoursReq)
@@ -113,7 +110,8 @@ class DateAndExtraFormController: FormViewController {
             print("No description entered")
         }
         
-
+        let viewController: MainTabViewController = (storyboard!.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)
+        self.present(viewController, animated: true, completion: nil)
         
     }
     
@@ -280,11 +278,8 @@ class DateAndExtraFormController: FormViewController {
                 row.title = "Submit Job"
                 }  .onCellSelection({ (cell, row) in
                     self.submitJob()
-                    saveJob()
+                    saveNewJob()
                 })
-        
-
-
         
     }
 }

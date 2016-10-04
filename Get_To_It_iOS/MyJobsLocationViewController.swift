@@ -34,7 +34,6 @@ class MyJobsLocationViewController: UIViewController, IndicatorInfoProvider {
         return infoInfo
     }
     
-    
     //TODO: Add getting the location from Firebase.
 
     override func viewDidLoad() {
@@ -48,9 +47,7 @@ class MyJobsLocationViewController: UIViewController, IndicatorInfoProvider {
         
         marker.map = mapView
     
-        
         let camera = GMSCameraPosition.camera(withLatitude: -45.861288, longitude: 170.514819, zoom: 18)
-        
         
         mapView.camera = camera
         

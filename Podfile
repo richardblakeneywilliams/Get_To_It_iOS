@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target "Get To It" do
     
     pod 'FBSDKLoginKit'
-    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Swift3'
+    pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'
     pod 'Firebase/Core'
@@ -20,5 +20,6 @@ target "Get To It" do
     pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'swift3'
     pod 'XLPagerTabStrip'
     pod 'HCSStarRatingView'
+    pod 'SwiftDate', '~> 4.0'
 
 end

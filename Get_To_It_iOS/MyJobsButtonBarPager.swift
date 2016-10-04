@@ -60,11 +60,10 @@ class MyJobsButtonBarPager: ButtonBarPagerTabStripViewController {
         super.viewDidLoad()
     }
     
-    
     // MARK: - PagerTabStripDataSource
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
                 let detailsVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsDetailsViewController")
-                let tasksVC = DetailsViewController(itemInfo: IndicatorInfo(title: "Tasks"))
+                let tasksVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsTasksViewController")
                 let locationVC = storyboard!.instantiateViewController(withIdentifier: "MyJobsLocationViewController")
                 let overviewVC = storyboard!.instantiateViewController(withIdentifier: "OverviewViewController")
         

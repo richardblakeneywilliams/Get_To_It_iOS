@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Chameleon.setGlobalThemeUsingPrimaryColor(themeColour, with: .light)
 
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true //Not sure where else this would go...
+        FIRDatabase.database().persistenceEnabled = true
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GMSServices.provideAPIKey(Maps_API_Key)
         

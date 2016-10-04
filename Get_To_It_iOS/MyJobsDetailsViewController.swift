@@ -91,10 +91,6 @@ class MyJobsDetailsViewController: FormViewController, IndicatorInfoProvider {
                   $0.tag = $0.title
                   $0.value = "Because alot of this work is going to reuqire de-weeding, it'd be great if you could brind a pair of thick gloves"
                 }
-        
-        
-
-
     }
 
     override func didReceiveMemoryWarning() {
