@@ -10,9 +10,15 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FBSDKLoginKit
+import ChameleonFramework
 import FBSDKCoreKit
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
+    
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
     /*!
      @abstract Sent to the delegate when the button was used to login.
      @param loginButton the sender
@@ -32,6 +38,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         }
     }
 
+    @IBOutlet weak var facebookButton: FBSDKLoginButton!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -40,12 +47,14 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
+        
+        self.loginButton.backgroundColor = .black        
         
         self.hideKeyboardWhenTappedAround()
-        let loginButton = FBSDKLoginButton()
-        loginButton.delegate = self
-        loginButton.center = self.view.center
-        self.view.addSubview(loginButton)
+        
+        
+        facebookButton.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {

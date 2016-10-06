@@ -41,8 +41,8 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                 let areTheyPresent = job.value(forKey: "areTheyPresent") as? Bool
                 let category = job.value(forKey: "category") as? String
                 let description = job.value(forKey: "description") as? String
-                let jobEndTime = job.value(forKey: "jobEndTime") as? String
-                let jobStartTime = job.value(forKey: "jobStartTime") as? String
+                let jobEndTime = job.value(forKey: "jobEndTime") as? Double
+                let jobStartTime = job.value(forKey: "jobStartTime") as? Double
                 let latitude = job.value(forKey: "latitude") as? Double
                 let longitude = job.value(forKey: "longitude") as? Double
                 let numberOfHours = job.value(forKey: "numberOfHours") as? Int
@@ -67,10 +67,8 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                                  long: longitude!,
                                  lat: latitude!,
                                  numberOfHours: numberOfHours!,
-                                 
                                  jobStartTime: jobStartTime!,
                                  jobEndTime: jobEndTime!,
-                                 
                                  toolsOnSite: toolsOnSite!,
                                  areTheyPresent: areTheyPresent!,
                                  totalCost: totalCost!,
@@ -78,11 +76,8 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                                  uid: uid!)
                 
                 
-                
-                
-                
                 self.myjobs.append(newJob)
-                
+
                 self.tableView.reloadData()
 
             }
@@ -162,18 +157,27 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyJobTableCell", for: indexPath) as! MyJobTableCell
         
-        //Convert the Start Time into a date. 
+        //New NSDate From the Interval. 
         
-        
-        
-        //Take the Hour component out of the date and add AM/PM to the date.
-        
-        
+        let startTimeDate = Date(timeIntervalSince1970: self.myjobs[indexPath.row].jobStartTime!)
+
         //Date Formatter to get the right string from the date
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm"
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
+        let Hourformatter = DateFormatter()
+        Hourformatter.dateFormat = "h:mm a"
+        Hourformatter.amSymbol = "am"
+        Hourformatter.pmSymbol = "pm"
+        Hourformatter.timeZone = NSTimeZone.local
+        
+        cell.startTimeHour.text = Hourformatter.string(from: startTimeDate)
+
+        //Date Formatter to get the right string from the date
+        let Monthformatter = DateFormatter()
+        Monthformatter.dateFormat = "dd MMMM yyyy"
+        Monthformatter.amSymbol = "am"
+        Monthformatter.pmSymbol = "pm"
+        Monthformatter.timeZone = NSTimeZone.local
+        
+        cell.startTimeMonth.text = Monthformatter.string(from: startTimeDate)
         
         cell.status.text = self.myjobs[indexPath.row].status
         cell.profilePictureView.image = UIImage(named: "DefaultProfilePic")
@@ -207,7 +211,6 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         marker.map = cell.mapView
         return cell
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toReloadVC" {

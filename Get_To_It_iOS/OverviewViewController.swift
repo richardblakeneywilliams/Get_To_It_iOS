@@ -12,8 +12,7 @@ import HCSStarRatingView
 
 
 class OverviewViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
+
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var profilePicImageView: UIImageView!

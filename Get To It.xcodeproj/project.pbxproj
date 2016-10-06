@@ -13,6 +13,9 @@
 		DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB06D5811CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld */; };
 		DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */; };
 		DB0C0A2B1D7EF18A004B5ED7 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */; };
+		DB13AD1D1DA60E4900AFC70E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD1C1DA60E4900AFC70E /* User.swift */; };
+		DB13AD1F1DA62EF000AFC70E /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */; };
+		DB13AD211DA63BB100AFC70E /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD201DA63BB100AFC70E /* NavController.swift */; };
 		DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */; };
 		DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */; };
 		DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */; };
@@ -63,6 +66,9 @@
 		DB06D5821CF4381C0036A835 /* Get_To_It_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Get_To_It_iOS.xcdatamodel; sourceTree = "<group>"; };
 		DB090EB81CFA8A6D002E234D /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		DB0C0A2A1D7EF18A004B5ED7 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		DB13AD1C1DA60E4900AFC70E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
+		DB13AD201DA63BB100AFC70E /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMoneyViewController.swift; sourceTree = "<group>"; };
 		DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJobsViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				DB8B1F191CEB15BD004DAFED /* Login.storyboard */,
 				DBCC079B1CC8D0180070AEAA /* LoginViewController.swift */,
 				DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */,
+				DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */,
+				DB13AD201DA63BB100AFC70E /* NavController.swift */,
 			);
 			name = "Sign-In";
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				DB8B1F1F1CEB1DBD004DAFED /* Job.swift */,
 				DB90FE281CF268640042A75A /* Category.swift */,
 				DB5BBF451D22BB6A00F18CDB /* CurrentJob.swift */,
+				DB13AD1C1DA60E4900AFC70E /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,6 +412,8 @@
 				DBCC079C1CC8D0180070AEAA /* LoginViewController.swift in Sources */,
 				DB6A491E1CF958A000960A84 /* CreateJobPhotoCell.swift in Sources */,
 				DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */,
+				DB13AD1F1DA62EF000AFC70E /* OpeningViewController.swift in Sources */,
+				DB13AD1D1DA60E4900AFC70E /* User.swift in Sources */,
 				DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */,
 				DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */,
 				DB59C8131D8F7D33006391C2 /* OverviewVcCell.swift in Sources */,
@@ -414,6 +425,7 @@
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
+				DB13AD211DA63BB100AFC70E /* NavController.swift in Sources */,
 				DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,

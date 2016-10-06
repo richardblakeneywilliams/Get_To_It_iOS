@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Get login screen from storyboard and present it
         //print("showLoginScreen")
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let viewController: LoginViewController = (storyboard.instantiateViewController(withIdentifier: "loginScreen") as! LoginViewController)
+        let viewController: NavController = (storyboard.instantiateViewController(withIdentifier: "NavController") as! NavController)
         self.window!.makeKeyAndVisible()
         self.window!.rootViewController!.present(viewController, animated: true, completion: nil)
     }
@@ -61,6 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
                         
         Chameleon.setGlobalThemeUsingPrimaryColor(themeColour, with: .light)
+        
+        FBSDKLoginButton.self
+
 
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true

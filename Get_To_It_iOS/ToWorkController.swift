@@ -9,13 +9,14 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-
+import SwiftDate
 
 class ToWorkController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
     override func viewDidLoad() {
+
         //Removes the blue theme from the Google logo in the bottom left corner.
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
@@ -23,7 +24,6 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         

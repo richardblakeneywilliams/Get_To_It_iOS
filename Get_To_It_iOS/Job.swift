@@ -19,8 +19,10 @@ class Job{
         var long: Double?
         var lat: Double?
         var numberOfHours: Int?
-        var jobStartTime: String?
-        var jobEndTime: String?
+    
+        var jobStartTime: Double?
+        var jobEndTime: Double?
+    
         var toolsOnSite: Bool?
         var areTheyPresent: Bool?
         var totalCost: Double?
@@ -34,7 +36,21 @@ class Job{
     
     
     
-    init(title: String, description: String, category: String, subCategory: String, address: String, long: Double, lat: Double, numberOfHours: Int, jobStartTime: String, jobEndTime: String, toolsOnSite: Bool, areTheyPresent: Bool, totalCost: Double, status: String, uid: String) {
+    init(title: String,
+         description: String,
+         category: String,
+         subCategory: String,
+         address: String,
+         long: Double,
+         lat: Double,
+         numberOfHours: Int,
+         jobStartTime: Double,
+         jobEndTime: Double,
+         toolsOnSite: Bool,
+         areTheyPresent: Bool,
+         totalCost: Double,
+         status: String,
+         uid: String) {
         
         self.title = title
         self.description = description

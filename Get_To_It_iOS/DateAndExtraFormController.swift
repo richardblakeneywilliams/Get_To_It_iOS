@@ -21,21 +21,21 @@ class DateAndExtraFormController: FormViewController {
     }
     
     func submitJob(){
-        if let cat = CurrentJob.instance!.category{
-            print(cat)
-        } else {
-            print("No Category")
-        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a MMMM dd, yyyy"
+        formatter.amSymbol = "am"
+        formatter.pmSymbol = "pm"
+        formatter.timeZone = NSTimeZone.local
+        
         
         if let rowHoursReq = form.rowBy(tag: "Hours Required")?.baseValue {
-            print(rowHoursReq)
             CurrentJob.instance?.numberOfHours = rowHoursReq as? Int
         } else {
             print("Hours Required Not Entered")
         }
         
         if let rowTotalCost = form.rowBy(tag: "Total Cost")?.baseValue {
-            print(rowTotalCost)
             CurrentJob.instance?.totalCost = rowTotalCost as? Double
         } else {
             print("RowTotalCost not calucated")
@@ -50,64 +50,33 @@ class DateAndExtraFormController: FormViewController {
         
         if let rowJobStartTime = form.rowBy(tag: "Job Start Time")?.baseValue{
             
-            let formatter = DateFormatter()
-            formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
-            formatter.timeZone = TimeZone(abbreviation: "NZST") //this is an issue.
-            let stringStart = formatter.string(from: (rowJobStartTime as? Date)!)
+            //NSDate Stored as Timestamp
+            let startInterval = (rowJobStartTime as? Date)!.timeIntervalSince1970
             
-            print(stringStart)
-            
-            CurrentJob.instance?.jobStartTime = stringStart as String
+            CurrentJob.instance?.jobStartTime = startInterval
         } else {
             print("No Start Time Entered")
         }
         
         if let rowJobEndTime = form.rowBy(tag: "Job End Time")?.baseValue {
             
-            let formatter = DateFormatter()
-            formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss zzz")
-            formatter.locale = Locale(identifier: "el_NZ")
-            formatter.timeZone = TimeZone(abbreviation: "NZST") //this is an issue.
+            //NSDate Stored as Timestamp
+            let endInterval = (rowJobEndTime as? Date)!.timeIntervalSince1970
             
-            
-            let stringEnd = formatter.string(from: (rowJobEndTime as? Date)!)
-
-            print(stringEnd)
-            
-            CurrentJob.instance?.jobEndTime = stringEnd as String
-
+            CurrentJob.instance?.jobEndTime = endInterval
         } else {
             print("No Job End Time Entered")
         }
         
         if let rowTools = form.rowBy(tag: "Tools for the Job On-Site")?.baseValue {
-            print(rowTools)
             CurrentJob.instance?.toolsOnSite = rowTools as? Bool
         } else {
             print("No row tools enter")
         }
         if let rowPresent = form.rowBy(tag: "Will you be present?")?.baseValue {
-            print(rowPresent)
             CurrentJob.instance?.areTheyPresent = rowPresent as? Bool
         } else {
             print("No are you present entered")
-        }
-        if let des = CurrentJob.instance?.description {
-            print(des)
-        } else {
-            print("No title for job entered")
-        }
-        
-        if let subCat = CurrentJob.instance?.subCategory{
-            print(subCat)
-        } else {
-            print("No sub Category entered")
-        }
-        
-        if let des = CurrentJob.instance?.description{
-            print(des)
-        } else {
-            print("No description entered")
         }
         
         let viewController: MainTabViewController = (storyboard!.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)

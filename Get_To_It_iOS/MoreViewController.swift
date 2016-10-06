@@ -69,7 +69,7 @@ class MoreViewController: FormViewController {
                 }  .onCellSelection({ (cell, row) in
                     
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                    let viewController: LoginViewController = (storyboard.instantiateViewController(withIdentifier: "loginScreen") as! LoginViewController)
+                    let viewController: NavController = (storyboard.instantiateViewController(withIdentifier: "NavController") as! NavController)
                     self.present(viewController, animated: true, completion: {
                         print("Logged out I hope...")
                         try! FIRAuth.auth()!.signOut()
