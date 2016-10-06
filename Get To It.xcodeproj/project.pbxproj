@@ -16,6 +16,7 @@
 		DB13AD1D1DA60E4900AFC70E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD1C1DA60E4900AFC70E /* User.swift */; };
 		DB13AD1F1DA62EF000AFC70E /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */; };
 		DB13AD211DA63BB100AFC70E /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD201DA63BB100AFC70E /* NavController.swift */; };
+		DB13AD231DA652B100AFC70E /* SignUpSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD221DA652B100AFC70E /* SignUpSelectorViewController.swift */; };
 		DB35DB941D25385B00E0D4BC /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */; };
 		DB35DB991D2538E000E0D4BC /* MyMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */; };
 		DB35DB9B1D2538EE00E0D4BC /* PastJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */; };
@@ -69,6 +70,7 @@
 		DB13AD1C1DA60E4900AFC70E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		DB13AD201DA63BB100AFC70E /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		DB13AD221DA652B100AFC70E /* SignUpSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSelectorViewController.swift; sourceTree = "<group>"; };
 		DB35DB931D25385B00E0D4BC /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		DB35DB981D2538E000E0D4BC /* MyMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMoneyViewController.swift; sourceTree = "<group>"; };
 		DB35DB9A1D2538EE00E0D4BC /* PastJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJobsViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				DB763A041CD9D0AC00152107 /* CreateAccountViewController.swift */,
 				DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */,
 				DB13AD201DA63BB100AFC70E /* NavController.swift */,
+				DB13AD221DA652B100AFC70E /* SignUpSelectorViewController.swift */,
 			);
 			name = "Sign-In";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				DB13AD1D1DA60E4900AFC70E /* User.swift in Sources */,
 				DB35DBA71D25544700E0D4BC /* MyJobTableCell.swift in Sources */,
 				DBD497061D10537800B8417E /* addedPhotoPreviewCell.swift in Sources */,
+				DB13AD231DA652B100AFC70E /* SignUpSelectorViewController.swift in Sources */,
 				DB59C8131D8F7D33006391C2 /* OverviewVcCell.swift in Sources */,
 				DBD4970D1D1D0A7400B8417E /* locationPickerViewController.swift in Sources */,
 				DB763A031CD9CEF900152107 /* FirebaseService.swift in Sources */,

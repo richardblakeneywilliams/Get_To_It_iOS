@@ -33,6 +33,41 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 UserDefaults.standard.set(user!.uid, forKey: "uid")
+                
+                guard let uid = user?.uid else {
+                    return
+                }
+
+                //Making request to Facebook and getting profile information.
+                let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
+                request?.start(completionHandler: { (connection, result, error) in
+                    if error == nil {
+                        let info = result as? NSDictionary
+                        
+                        //Get the results out of the info Dictionary
+                        let firstName = info?.value(forKey: "first_name") as? String
+                        let lastName = info?.value(forKey: "last_name") as? String
+                        let email = info?.value(forKey: "email") as? String
+                        let id = info?.value(forKey: "id") as? String
+                        let profileURL = "http://graph.facebook.com/\(id!)/picture?type=large"
+                        
+                        let newUser : [AnyHashable: Any] =
+                            ["firstName": firstName!,
+                             "lastName": lastName!,
+                             "email": email!,
+                             "profileURL": profileURL]
+                        
+                        //Store the results in Firebase
+                        let key = FIREBASE_REF.child("user").child(uid).setValue(newUser)
+                    
+                        
+                        
+                    } else {
+                        print(error?.localizedDescription)
+                    }
+                })
+                
+            
                 self.showMainTabScreen()
             }
         }
