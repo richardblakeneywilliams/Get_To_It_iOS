@@ -21,5 +21,6 @@ target "Get To It" do
     pod 'XLPagerTabStrip'
     pod 'HCSStarRatingView'
     pod 'SwiftDate', '~> 4.0'
-
+    pod 'AlamofireImage'
+    
 end

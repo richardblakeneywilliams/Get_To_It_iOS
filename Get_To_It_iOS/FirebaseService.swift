@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import AlamofireImage
+import Alamofire
 
 
 enum Status {
@@ -32,10 +34,11 @@ enum locationPrivacy {
 
 let FIREBASE_REF = FIRDatabase.database().reference()
 
+
+//Save a new user to the Datebase.
+
 //Check if any jobs in the DB.
 public func checkForJobs(jobUid uid: String) -> Bool{
-    
-    
     return true
 }
 
@@ -59,12 +62,10 @@ public func savePicturesFromCameraToJob(jobUid uid: String, pictures: [NSObject]
     
 }
 
-//Save the image saved. 
-// UIImage the best way to do this???
-public func saveProfilePictureToFirebase(picture: UIImage){
+//Save the image saved.
+public func saveProfilePictureToFirebase(imageUrl: String, userId: String){
     
 }
-
 
 
 //Function for saving jobs to the DB. This is called when the Job is first called. This adds to the user_open
@@ -117,3 +118,26 @@ public func saveNewJob() {
     
     FIREBASE_REF.updateChildValues(childUpdates)
 }
+
+//Extention to be able to easily download image to an image view. This is handy as fuck...
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
+    }
+}
+

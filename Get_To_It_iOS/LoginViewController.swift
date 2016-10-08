@@ -12,6 +12,8 @@ import Firebase
 import FBSDKLoginKit
 import ChameleonFramework
 import FBSDKCoreKit
+import Alamofire
+import AlamofireImage
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
@@ -44,12 +46,13 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                     if error == nil {
                         let info = result as? NSDictionary
                         
+                        
                         //Get the results out of the info Dictionary
                         let firstName = info?.value(forKey: "first_name") as? String
                         let lastName = info?.value(forKey: "last_name") as? String
                         let email = info?.value(forKey: "email") as? String
                         let id = info?.value(forKey: "id") as? String
-                        let profileURL = "http://graph.facebook.com/\(id!)/picture?type=large"
+                        let profileURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
                         let newUser : [AnyHashable: Any] =
                             ["firstName": firstName!,
@@ -58,15 +61,32 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                              "profileURL": profileURL]
                         
                         //Store the results in Firebase
-                        let key = FIREBASE_REF.child("user").child(uid).setValue(newUser)
-                    
+                        _ = FIREBASE_REF.child("user").child(uid).setValue(newUser)
+                        
+                        let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+                        
+                        //Dowloand the image
                         
                         
+                        
+                        Alamofire.request(profileURL).responseImage { response in
+                            if let image = response.result.value {
+                                if let uploadData = UIImagePNGRepresentation(image){
+                                    
+                                    storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                                        
+                                        if error != nil{
+                                            print(error?.localizedDescription)
+                                            return
+                                        }
+                                    })
+                                }
+                            }
+                        }
                     } else {
                         print(error?.localizedDescription)
                     }
                 })
-                
             
                 self.showMainTabScreen()
             }
@@ -74,7 +94,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     }
 
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
