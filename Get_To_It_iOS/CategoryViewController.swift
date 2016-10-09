@@ -19,7 +19,6 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var segueID = "SelectCategorySegue"
 
-
     let names = ["Gardening", "Manual Labour", "Tech Support", "Babysitting", "Delivery", "Food Prep", "Homecare", "Cleaning", "Admin/PA", "Petcare", "Event Help", "Other"]
     
     let imageArray = [UIImage(named: "Gardening_test"), UIImage(named: "Manual Labour"), UIImage(named: "Tech Support"), UIImage(named: "Babysitting"), UIImage(named: "Delivery"), UIImage(named: "Food Prep"), UIImage(named: "Homecare"), UIImage(named: "Cleaning"), UIImage(named: "Admin"), UIImage(named: "Pet Care"),UIImage(named: "Event Help") ,UIImage(named: "Other Question Mark")]

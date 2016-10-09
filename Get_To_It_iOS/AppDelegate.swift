@@ -73,12 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(LoggedIn){
             DispatchQueue.main.async{
                 self.showMainTabScreen()
-                //print("Going to main tab screen from app delegate")
             }
         } else {
             DispatchQueue.main.async{
                 self.showLoginScreen()
-                //print("Going to login screen from app delegate")
             }
         }
         return true

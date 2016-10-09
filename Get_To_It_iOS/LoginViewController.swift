@@ -41,6 +41,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 }
 
                 //Making request to Facebook and getting profile information.
+                //TODO: THIS CODE IS FUCKING UGLY
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 request?.start(completionHandler: { (connection, result, error) in
                     if error == nil {
@@ -60,15 +61,15 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                              "email": email!,
                              "profileURL": profileURL]
                         
+                        //Upload the profileURL to firebase "photoURL" user variable. TODO: Look at changing this to Firebase storage reference.
+                        changeProfilePic(photoURL: profileURL)
+                        
                         //Store the results in Firebase
                         _ = FIREBASE_REF.child("user").child(uid).setValue(newUser)
                         
                         let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
                         
                         //Dowloand the image
-                        
-                        
-                        
                         Alamofire.request(profileURL).responseImage { response in
                             if let image = response.result.value {
                                 if let uploadData = UIImagePNGRepresentation(image){
@@ -79,10 +80,12 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                                             print(error?.localizedDescription)
                                             return
                                         }
+                                        
+                                        
                                     })
-                                }
-                            }
-                        }
+                                } //if uploadData
+                            } //If image
+                        }// Alamofire request
                     } else {
                         print(error?.localizedDescription)
                     }

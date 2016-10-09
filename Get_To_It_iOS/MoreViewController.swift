@@ -11,6 +11,8 @@ import Eureka
 import ChameleonFramework
 import FirebaseAuth
 import FBSDKLoginKit
+import FirebaseStorage
+import FirebaseDatabase
 
 class MoreViewController: FormViewController {
     
@@ -85,11 +87,17 @@ class ProfileImageView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let imageView = UIImageView(image: UIImage(named: "DefaultProfilePic"))
+        
+        let imageView = UIImageView()
+        let profileURL = getCurrentUserPhoto()?.absoluteString
+        print(profileURL)
+        
+        imageView.loadImageUsingCacheWithUrlString(urlString: profileURL!)
+        
+        
         imageView.frame = CGRect(x: 139, y: 16, width: 80, height: 80)
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
-        
         
         //TODO FIX THIS with fucking contraints later
         let name: UILabel = UILabel()

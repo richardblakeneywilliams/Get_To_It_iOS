@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import AlamofireImage
 import Alamofire
+import UIKit
+
 
 
 enum Status {
@@ -61,10 +63,68 @@ public func editJob(jobUid uid: String){
 public func savePicturesFromCameraToJob(jobUid uid: String, pictures: [NSObject]){
     
 }
+//Function to save the stored photoURL on the Firebase User property.
+public func changeProfilePic(photoURL: String) {
+    if let user = FIRAuth.auth()?.currentUser{
+        let changeRequest = user.profileChangeRequest()
+        
+        changeRequest.photoURL = URL(string: photoURL)
+        changeRequest.commitChanges(completion: { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Successfully changed profile picture!")
+            }
+        })
+    }
+}
 
-//Save the image saved.
-public func saveProfilePictureToFirebase(imageUrl: String, userId: String){
+//Function to return the current user Photo URL
+public func getCurrentUserPhoto() -> URL?{
+    if let user = FIRAuth.auth()?.currentUser {
+        let photoUrl = user.photoURL
+        return photoUrl
+    } else {
+        return nil
+    }
+}
+
+
+//Function to get the current user ID.
+public func getCurrentUserId() -> String? {
+    if let user = FIRAuth.auth()?.currentUser {
+        let uid = user.uid
+        print("Current user ID!")
+        return uid
+    } else {
+        return nil
+    }
+}
+
+//Get the profile pic from firebase.
+public func getProfileImageURLFromFirebase(uid: String) -> UIImage{
+    let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+    var imageview: UIImage = UIImage()
     
+    storageRef.downloadURL { (url, error) in
+        if(error != nil){
+            
+            print(error?.localizedDescription)
+        } else {
+            DispatchQueue.main.async {
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil{
+                        print(error)
+                        return
+                    } else {
+
+                    }
+                }).resume()
+            }
+            
+        }
+    }
+    return imageview
 }
 
 
@@ -118,26 +178,3 @@ public func saveNewJob() {
     
     FIREBASE_REF.updateChildValues(childUpdates)
 }
-
-//Extention to be able to easily download image to an image view. This is handy as fuck...
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { () -> Void in
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
-
