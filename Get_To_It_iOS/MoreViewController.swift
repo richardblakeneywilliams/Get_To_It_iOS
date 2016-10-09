@@ -90,7 +90,6 @@ class ProfileImageView: UIView {
         
         let imageView = UIImageView()
         let profileURL = getCurrentUserPhoto()?.absoluteString
-        print(profileURL)
         
         imageView.loadImageUsingCacheWithUrlString(urlString: profileURL!)
         

@@ -101,36 +101,30 @@ public func getCurrentUserId() -> String? {
     }
 }
 
-//Get the profile pic from firebase.
-public func getProfileImageURLFromFirebase(uid: String) -> UIImage{
-    let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
-    var imageview: UIImage = UIImage()
-    
-    storageRef.downloadURL { (url, error) in
-        if(error != nil){
-            
-            print(error?.localizedDescription)
-        } else {
-            DispatchQueue.main.async {
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil{
-                        print(error)
-                        return
-                    } else {
-
-                    }
-                }).resume()
-            }
-            
-        }
-    }
-    return imageview
+public func registerUserIntoDatabaseWithUID(uid: String, values: [String: Any]){
+    FIREBASE_REF.child("user").child(uid).setValue(values)
 }
+//Get the profile pic URL from firebase based on their id.
+//public func getProfileImageURLFromFirebase(uid: String) -> String{
+//    let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+//    
+//    storageRef.downloadURL { (url, error) in
+//        if(error != nil){
+//            
+//            print(error?.localizedDescription)
+//        } else {
+//
+//            
+//        }
+//    }
+//    return imageview
+//}
 
 
 //Function for saving jobs to the DB. This is called when the Job is first called. This adds to the user_open
 //Also Saves the pictures stored in the CollectionView to Firebase Storage.
 public func saveNewJob() {
+    
     
     let title = CurrentJob.instance?.title
     var uid: String = (FIRAuth.auth()?.currentUser?.uid)!

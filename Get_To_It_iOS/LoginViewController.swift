@@ -55,17 +55,9 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let id = info?.value(forKey: "id") as? String
                         let profileURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
-                        let newUser : [AnyHashable: Any] =
-                            ["firstName": firstName!,
-                             "lastName": lastName!,
-                             "email": email!,
-                             "profileURL": profileURL]
                         
                         //Upload the profileURL to firebase "photoURL" user variable. TODO: Look at changing this to Firebase storage reference.
-                        changeProfilePic(photoURL: profileURL)
-                        
-                        //Store the results in Firebase
-                        _ = FIREBASE_REF.child("user").child(uid).setValue(newUser)
+                        //changeProfilePic(photoURL: profileURL)
                         
                         let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
                         
@@ -79,9 +71,19 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                                         if error != nil{
                                             print(error?.localizedDescription)
                                             return
+                                        } else {
+                                            changeProfilePic(photoURL: (metadata?.downloadURL()?.absoluteString)!)
+                                            let newUser : [String: Any] =
+                                                ["firstName": firstName!,
+                                                 "lastName": lastName!,
+                                                 "email": email!,
+                                                 "profileURL": (metadata?.downloadURL()?.absoluteString)!]
+                                            let currentUser = user!.uid
+                                            
+                                        registerUserIntoDatabaseWithUID(uid: currentUser, values: newUser)
+                                            
+                                            
                                         }
-                                        
-                                        
                                     })
                                 } //if uploadData
                             } //If image
