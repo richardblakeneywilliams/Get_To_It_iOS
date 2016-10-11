@@ -110,7 +110,7 @@ public func registerUserIntoDatabaseWithUID(uid: String, firstName: String, last
             // User is signed in.
             let changeRequest = user.profileChangeRequest()
             
-            changeRequest.displayName = firstName
+            changeRequest.displayName = "\(firstName) \(lastName)"
             changeRequest.photoURL = URL(string: profileUrl)
             changeRequest.commitChanges { error in
                 if error != nil {

@@ -41,8 +41,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 guard let uid = user?.uid else {
                     return
                 }
-
-                //Making request to Facebook and getting profile information.
+                // This whole thing needs to go in create account
+                // Making request to Facebook and getting profile information.
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 request?.start(completionHandler: { (connection, result, error) in
                     if error == nil {
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                                             return
                                         } else {
                                             
-                                            //Change the profile pic in Firebase
+                                            //Change the profile pic in Firebase. This code is bullshit.
                                             changeProfilePic(photoURL: (metadata?.downloadURL()?.absoluteString)!)
 
                                             let workPlace = ""
@@ -101,17 +101,13 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
-        
-        self.loginButton.backgroundColor = .black        
-        
+        self.loginButton.backgroundColor = .black
         self.hideKeyboardWhenTappedAround()
-        
         facebookButton.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
     }
     
     func showMainTabScreen(){
@@ -136,7 +132,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Error", message: "Enter Email", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
@@ -148,10 +144,4 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton) {
         try! FIRAuth.auth()!.signOut()
     }
-    
-    @IBAction func forgotPassword(_ sender: AnyObject) {
-
-    }
-    
-    
 }

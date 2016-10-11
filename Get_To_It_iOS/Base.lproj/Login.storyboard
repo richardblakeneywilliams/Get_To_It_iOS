@@ -77,7 +77,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="forgotPassword:" destination="3Lc-7P-bpo" eventType="touchUpInside" id="ann-Tw-d1Z"/>
+                                    <segue destination="63a-K6-vVb" kind="show" id="xPe-ym-wMT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCm-gi-zMx">
@@ -162,6 +162,61 @@
             </objects>
             <point key="canvasLocation" x="2473" y="-170"/>
         </scene>
+        <!--Reset Password-->
+        <scene sceneID="UYq-xx-MN4">
+            <objects>
+                <viewController id="63a-K6-vVb" customClass="ResetPasswordViewController" customModule="Get_To_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zde-VY-vVL"/>
+                        <viewControllerLayoutGuide type="bottom" id="lGe-jF-L4s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CBW-Ae-COp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter email to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFb-3N-9OP">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ROm-nM-0ex">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-Y6-kEu">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Send Reset Email">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendResetEmail:" destination="63a-K6-vVb" eventType="touchUpInside" id="2h4-Df-iHO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W9a-Y6-kEu" firstAttribute="leading" secondItem="CBW-Ae-COp" secondAttribute="leadingMargin" id="0Bn-Wy-0EE"/>
+                            <constraint firstItem="eFb-3N-9OP" firstAttribute="leading" secondItem="CBW-Ae-COp" secondAttribute="leadingMargin" id="1XM-gm-owD"/>
+                            <constraint firstItem="W9a-Y6-kEu" firstAttribute="trailing" secondItem="CBW-Ae-COp" secondAttribute="trailingMargin" id="4cn-yj-c38"/>
+                            <constraint firstItem="eFb-3N-9OP" firstAttribute="trailing" secondItem="CBW-Ae-COp" secondAttribute="trailingMargin" id="61h-WA-mZE"/>
+                            <constraint firstItem="ROm-nM-0ex" firstAttribute="leading" secondItem="CBW-Ae-COp" secondAttribute="leadingMargin" id="94e-h4-iiY"/>
+                            <constraint firstItem="ROm-nM-0ex" firstAttribute="top" secondItem="eFb-3N-9OP" secondAttribute="bottom" constant="8" id="D0v-dV-cIk"/>
+                            <constraint firstItem="eFb-3N-9OP" firstAttribute="top" secondItem="Zde-VY-vVL" secondAttribute="bottom" constant="39" id="Vvd-qV-YdK"/>
+                            <constraint firstItem="ROm-nM-0ex" firstAttribute="trailing" secondItem="CBW-Ae-COp" secondAttribute="trailingMargin" id="cgf-ZV-4Vh"/>
+                            <constraint firstItem="W9a-Y6-kEu" firstAttribute="top" secondItem="ROm-nM-0ex" secondAttribute="bottom" constant="8" id="dK0-jg-Pja"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset Password" id="Zld-hw-6cg"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ROm-nM-0ex" id="AVD-6b-cxK"/>
+                        <outlet property="sendResetEmailButton" destination="W9a-Y6-kEu" id="RGG-ld-ZiB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfU-tR-EQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3341.5999999999999" y="-170.46476761619192"/>
+        </scene>
         <!--Sign Up-->
         <scene sceneID="fxx-zr-MlT">
             <objects>
@@ -238,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trP-Tk-TQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="554.57271364317842"/>
+            <point key="canvasLocation" x="1652" y="555"/>
         </scene>
         <!--Enter Details-->
         <scene sceneID="1jB-hi-Orv">
@@ -358,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ur4-t5-PcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472.8000000000002" y="554.57271364317842"/>
+            <point key="canvasLocation" x="2473" y="555"/>
         </scene>
         <!--Your Role-->
         <scene sceneID="IYT-1D-5PX">
@@ -394,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqa-XL-KA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3509.5999999999999" y="260.41979010494754"/>
+            <point key="canvasLocation" x="3342" y="555"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="54D-nZ-1NF">

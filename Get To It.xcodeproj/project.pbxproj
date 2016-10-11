@@ -44,6 +44,7 @@
 		DBA90A1B1DA105E6004301C8 /* MyJobsLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA90A1A1DA105E6004301C8 /* MyJobsLocationViewController.swift */; };
 		DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */; };
 		DBB9CADA1D9D2B800099D9F9 /* ReloadExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */; };
+		DBC6894E1DAD04DF00C420F4 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6894D1DAD04DF00C420F4 /* ResetPasswordViewController.swift */; };
 		DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */; };
 		DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07041CC868DC0070AEAA /* Assets.xcassets */; };
 		DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07061CC868DC0070AEAA /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		DBA90A1A1DA105E6004301C8 /* MyJobsLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsLocationViewController.swift; sourceTree = "<group>"; };
 		DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsButtonBarPager.swift; sourceTree = "<group>"; };
 		DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadExampleViewController.swift; sourceTree = "<group>"; };
+		DBC6894D1DAD04DF00C420F4 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCC07041CC868DC0070AEAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				DB13AD1E1DA62EF000AFC70E /* OpeningViewController.swift */,
 				DB13AD201DA63BB100AFC70E /* NavController.swift */,
 				DB13AD221DA652B100AFC70E /* SignUpSelectorViewController.swift */,
+				DBC6894D1DAD04DF00C420F4 /* ResetPasswordViewController.swift */,
 			);
 			name = "Sign-In";
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				DB763A071CDA184600152107 /* MainTabViewController.swift in Sources */,
 				DB090EB91CFA8A6D002E234D /* CategoryViewController.swift in Sources */,
 				DB35DB9D1D2538FB00E0D4BC /* PaymentViewController.swift in Sources */,
+				DBC6894E1DAD04DF00C420F4 /* ResetPasswordViewController.swift in Sources */,
 				DB13AD211DA63BB100AFC70E /* NavController.swift in Sources */,
 				DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,

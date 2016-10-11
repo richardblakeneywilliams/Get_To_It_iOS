@@ -109,19 +109,18 @@ class MoreViewController: FormViewController {
                     // No user is signed in.
                 }
             }
-            
+            //Set up the imageView.
             imageView.layer.cornerRadius = 40
             imageView.layer.masksToBounds = true
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFill
 
+            //Set up the name label
             nameLabel.translatesAutoresizingMaskIntoConstraints = false
             nameLabel.textAlignment = .center
             nameLabel.frame = CGRect(x: 0, y: 0, width: 320, height: 20)
             
             self.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
-            
-            
             self.addSubview(imageView)
             self.addSubview(nameLabel)
 
