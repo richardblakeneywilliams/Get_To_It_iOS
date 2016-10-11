@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QXM-zU-cg8">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QXM-zU-cg8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -921,7 +921,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="hzJ-nG-Omo">
                             <connections>
-                                <action selector="nextButton:" destination="S4t-XL-pvc" id="dDw-ha-9Li"/>
+                                <action selector="nextNavBatAction:" destination="S4t-XL-pvc" id="4IY-U9-pVK"/>
                                 <segue destination="Ktp-Ol-W0P" kind="show" identifier="FromJobDetailToLocation" id="jhB-OX-qBz"/>
                             </connections>
                         </barButtonItem>
@@ -1024,7 +1024,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q2D-X0-KvS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home_Icon" id="tpt-CZ-YzQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2jq-zS-98N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2jq-zS-98N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1070,7 +1070,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jlG-cp-7u2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Create Job" image="Create Job" id="fb0-tR-hUI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" id="k7R-Bl-bWs">
+                    <navigationBar key="navigationBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="k7R-Bl-bWs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1093,7 +1093,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CLX-0S-WgB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="More" image="Menu" id="pfX-O3-iPa"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xNa-hu-q6B">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xNa-hu-q6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.67450980390000004" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1113,7 +1113,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w8C-7p-RQy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Jobs" image="My Jobs" id="vku-jj-L3U"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CxS-JB-XSc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CxS-JB-XSc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1209,7 +1209,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IOy-LM-WF3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Messaging" image="Messaging_Tab_Icon" selectedImage="Messaging_Tab_Icon" id="k2e-0v-CGU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KA6-nE-bCM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KA6-nE-bCM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

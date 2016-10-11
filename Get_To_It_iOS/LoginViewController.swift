@@ -19,7 +19,9 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     
     @IBOutlet weak var loginButton: UIButton!
-    
+    @IBOutlet weak var facebookButton: FBSDKLoginButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     /*!
      @abstract Sent to the delegate when the button was used to login.
@@ -41,7 +43,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 }
 
                 //Making request to Facebook and getting profile information.
-                //TODO: THIS CODE IS FUCKING UGLY
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 request?.start(completionHandler: { (connection, result, error) in
                     if error == nil {
@@ -53,16 +54,13 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let lastName = info?.value(forKey: "last_name") as? String
                         let email = info?.value(forKey: "email") as? String
                         let id = info?.value(forKey: "id") as? String
-                        let profileURL = "https://graph.facebook.com/\(id!)/picture?type=large"
-                        
-                        
-                        //Upload the profileURL to firebase "photoURL" user variable. TODO: Look at changing this to Firebase storage reference.
-                        //changeProfilePic(photoURL: profileURL)
+                        let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
+
                         
                         let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
                         
                         //Dowloand the image
-                        Alamofire.request(profileURL).responseImage { response in
+                        Alamofire.request(facebookProfilePictureURL).responseImage { response in
                             if let image = response.result.value {
                                 if let uploadData = UIImagePNGRepresentation(image){
                                     
@@ -72,15 +70,15 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                                             print(error?.localizedDescription)
                                             return
                                         } else {
-                                            changeProfilePic(photoURL: (metadata?.downloadURL()?.absoluteString)!)
-                                            let newUser : [String: Any] =
-                                                ["firstName": firstName!,
-                                                 "lastName": lastName!,
-                                                 "email": email!,
-                                                 "profileURL": (metadata?.downloadURL()?.absoluteString)!]
-                                            let currentUser = user!.uid
                                             
-                                        registerUserIntoDatabaseWithUID(uid: currentUser, values: newUser)
+                                            //Change the profile pic in Firebase
+                                            changeProfilePic(photoURL: (metadata?.downloadURL()?.absoluteString)!)
+
+                                            let workPlace = ""
+                                            //Register new user in Firebase.
+                                            //Force Upwrapping here.
+                                            registerUserIntoDatabaseWithUID(uid: (user?.uid)!, firstName: firstName!, lastName: lastName!, email: email!, profileUrl: (metadata?.downloadURL()?.absoluteString)!
+                                                , workPlace: workPlace)
                                             
                                             
                                         }
@@ -98,11 +96,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         }
     }
 
-    @IBOutlet weak var facebookButton: FBSDKLoginButton!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,7 +105,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         self.loginButton.backgroundColor = .black        
         
         self.hideKeyboardWhenTappedAround()
-        
         
         facebookButton.delegate = self
     }

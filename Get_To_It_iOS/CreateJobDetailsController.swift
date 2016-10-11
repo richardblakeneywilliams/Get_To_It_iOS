@@ -87,7 +87,12 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func nextNavBatAction(_ sender: AnyObject) {
-        
+        if let title = jobTitleTextField.text, let subCat = subCategoryTextField.text, let desc = descriptionTextView.text{
+            performSegue(withIdentifier: "FromJobDetailToLocation", sender: self)
+        } else {
+            print("No memes for you")
+            print(CurrentJob.instance?.title)
+        }
     }
     
     
@@ -96,7 +101,6 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         // Get local file URLs
         guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         let imageData = UIImagePNGRepresentation(image)!
-        //guard let imageURL: NSURL = info[UIImagePickerControllerReferenceURL] as? NSURL else { return }
         
         // Get a reference to the location where we'll store our photos
         let photosRef = storage.reference().child("jobPhotos")
@@ -142,13 +146,4 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
 
 
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
+

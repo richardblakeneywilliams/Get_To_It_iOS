@@ -29,11 +29,10 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         let userID = FIRAuth.auth()?.currentUser?.uid
         FIREBASE_REF.child("user-jobs").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            // Get Job value
-            let firebaseJobs = snapshot.value as? NSDictionary
-            
-            for(key,_) in firebaseJobs! {
-                let job:NSObject = firebaseJobs![key] as! NSObject
+            // Get Job value and populate the table if their is data. Else just leave it empty.
+            if let firebaseJobs = snapshot.value as? NSDictionary {
+            for(key,_) in firebaseJobs {
+                let job:NSObject = firebaseJobs[key] as! NSObject
                 
                 
                 //Adds Firebase job to joblist.
@@ -54,7 +53,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                 let uid = job.value(forKey: "uid") as? String
                 
                 let status = job.value(forKey: "status") as? String
-
+                
                 
                 //TODO: Insert unwrapping checks on all values... Show empty map/Empty shit if information is incomplete. THIS IS TO DANGEROUS IN ITS CURRENT STATE.
                 
@@ -77,9 +76,13 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
                 
                 
                 self.myjobs.append(newJob)
-
+                
                 self.tableView.reloadData()
-
+                
+            }
+            
+            } else {
+                print("No jobs")
             }
         }) { (error) in
             print(error.localizedDescription)

@@ -21,11 +21,6 @@ class MoreViewController: FormViewController {
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         
         
-//        ImageRow.defaultCellUpdate = { cell, row in
-//            cell.accessoryView?.layer.cornerRadius = 17
-//            cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-//        }
-        
         form =
             
             Section() {
@@ -73,48 +68,86 @@ class MoreViewController: FormViewController {
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
                     let viewController: NavController = (storyboard.instantiateViewController(withIdentifier: "NavController") as! NavController)
                     self.present(viewController, animated: true, completion: {
-                        print("Logged out I hope...")
                         try! FIRAuth.auth()!.signOut()
                         let loginManger = FBSDKLoginManager()
                         loginManger.logOut()
                     })
                 })
     }
-
-
-
-class ProfileImageView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        let imageView = UIImageView()
-        let profileURL = getCurrentUserPhoto()?.absoluteString
-        
-        imageView.loadImageUsingCacheWithUrlString(urlString: profileURL!)
-        
-        
-        imageView.frame = CGRect(x: 139, y: 16, width: 80, height: 80)
-        imageView.layer.cornerRadius = 40
-        imageView.layer.masksToBounds = true
-        
-        //TODO FIX THIS with fucking contraints later
-        let name: UILabel = UILabel()
-        name.text = "Richard Blakeney-Williams"
-        name.frame = CGRect(x: 88, y: 96, width: 220, height: 21)
-        
-        self.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
-        imageView.contentMode = .scaleAspectFit
-        self.addSubview(imageView)
-        self.addSubview(name)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    
-    }
 }
-}
+
+    
+    
+    class ProfileImageView: UIView {
+        
+        override func awakeFromNib() {
+            self.setNeedsDisplay()
+        }
+        
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+            let imageView = UIImageView()
+            let nameLabel: UILabel = UILabel()
+            
+            FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+                if let user = user {
+                    // User is signed in.
+                    if let profileURL = user.photoURL?.absoluteString{
+                        imageView.loadImageUsingCacheWithUrlString(urlString: profileURL)
+                    } else {
+                        print("Fuck up with the image loading")
+                    }
+                    if let name = user.displayName {
+                        nameLabel.text = name
+                    } else {
+                        print("Name didn't load")
+                    }
+                } else {
+                    print("No user is signed in")
+                    // No user is signed in.
+                }
+            }
+            
+            imageView.layer.cornerRadius = 40
+            imageView.layer.masksToBounds = true
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFill
+
+            nameLabel.translatesAutoresizingMaskIntoConstraints = false
+            nameLabel.textAlignment = .center
+            nameLabel.frame = CGRect(x: 0, y: 0, width: 320, height: 20)
+            
+            self.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
+            
+            
+            self.addSubview(imageView)
+            self.addSubview(nameLabel)
+
+            //Centre the image
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: self.topAnchor,constant: 90).isActive = true
+            
+            //Centre the name
+            nameLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor,constant: 100).isActive = true
+            nameLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+            
+            //Make Height and Width equal 80.
+            imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+            
+            //Centre the text label
+            NSLayoutConstraint(item: nameLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 1).isActive = true
+            
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+            
+        }
+    }
+
 
 
 

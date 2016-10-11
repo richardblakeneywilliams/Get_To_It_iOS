@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 
 
@@ -25,8 +26,14 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     override func viewDidLoad() {
-        
-        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let user = user {
+                // User is signed in.
+                print(user.email)
+            } else {
+                // No user is signed in.
+            }
+        }
         
     }
     

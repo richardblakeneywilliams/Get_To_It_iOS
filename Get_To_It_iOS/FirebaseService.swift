@@ -101,9 +101,37 @@ public func getCurrentUserId() -> String? {
     }
 }
 
-public func registerUserIntoDatabaseWithUID(uid: String, values: [String: Any]){
+public func registerUserIntoDatabaseWithUID(uid: String, firstName: String, lastName: String, email: String, profileUrl: String, workPlace: String){
+    
+    let values: [String: Any] = ["firstName": firstName, "lastName": lastName, "email": email, "profileUrl": profileUrl, "workPlace": workPlace]
+    
+    FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+        if let user = user {
+            // User is signed in.
+            let changeRequest = user.profileChangeRequest()
+            
+            changeRequest.displayName = firstName
+            changeRequest.photoURL = URL(string: profileUrl)
+            changeRequest.commitChanges { error in
+                if error != nil {
+                    // An error happened.
+                } else {
+                    // Profile updated.
+                    print("Success!")
+                }
+            }
+            
+        } else {
+            // No user is signed in.
+        }
+    }
+    
     FIREBASE_REF.child("user").child(uid).setValue(values)
 }
+
+
+
+
 //Get the profile pic URL from firebase based on their id.
 //public func getProfileImageURLFromFirebase(uid: String) -> String{
 //    let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
