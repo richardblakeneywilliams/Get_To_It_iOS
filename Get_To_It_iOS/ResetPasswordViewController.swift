@@ -30,12 +30,41 @@ class ResetPasswordViewController: UIViewController {
     @IBAction func sendResetEmail(_ sender: AnyObject) {
         if let email = emailTextField.text , !email.isEmpty{
             FIRAuth.auth()?.sendPasswordReset(withEmail: email) { error in
+                
+                var alertDescription: String = ""
+                
                 if error != nil {
-                    // An error happened.
+                    
+                    if let errCode = FIRAuthErrorCode(rawValue: error!._code){
+                        
+                        switch errCode {
+                        case .errorCodeUserNotFound:
+                            alertDescription = "Email: \(email) was not found in the system"
+                        case .errorCodeInvalidEmail:
+                            alertDescription = "invalid email"
+                        case .errorCodeEmailAlreadyInUse:
+                            alertDescription = "Email is already in use, try another or log in with it"
+                        case .errorCodeAccountExistsWithDifferentCredential:
+                            alertDescription = "This email is already been used to register to Get To It. Its possible you used Facebook to sign up!"
+                        case .errorCodeNetworkError:
+                            alertDescription = "No Connection, try re-connecting to the internet!"
+                        case .errorCodeUserDisabled:
+                            alertDescription = "This account has been disabled. Contact Get To It"
+                        default:
+                            print("Create User Error: \(error)")
+                        }
+                    }
+                    
+                    //What about no net? Can I catch that here...
+                    print(error?.localizedDescription)
+                    let alertController = UIAlertController(title: "Error", message: alertDescription, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    alertController .addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
                     
                 } else {
                     // Password reset email sent.
-                    let alertController = UIAlertController(title: "Password reset email sent", message: "", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Password reset email sent", message: "To \(email)", preferredStyle: .alert)
                     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                     alertController .addAction(action)
                     self.present(alertController, animated: true, completion: nil)
