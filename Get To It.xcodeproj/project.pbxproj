@@ -45,6 +45,7 @@
 		DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */; };
 		DBB9CADA1D9D2B800099D9F9 /* ReloadExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */; };
 		DBC6894E1DAD04DF00C420F4 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6894D1DAD04DF00C420F4 /* ResetPasswordViewController.swift */; };
+		DBC689501DAD35EC00C420F4 /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6894F1DAD35EC00C420F4 /* ErrorHandlers.swift */; };
 		DBCC06FB1CC868DC0070AEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */; };
 		DBCC07051CC868DC0070AEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07041CC868DC0070AEAA /* Assets.xcassets */; };
 		DBCC07081CC868DC0070AEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCC07061CC868DC0070AEAA /* LaunchScreen.storyboard */; };
@@ -100,6 +101,7 @@
 		DBB9CAD71D9D2B800099D9F9 /* MyJobsButtonBarPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyJobsButtonBarPager.swift; sourceTree = "<group>"; };
 		DBB9CAD81D9D2B800099D9F9 /* ReloadExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadExampleViewController.swift; sourceTree = "<group>"; };
 		DBC6894D1DAD04DF00C420F4 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		DBC6894F1DAD35EC00C420F4 /* ErrorHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlers.swift; sourceTree = "<group>"; };
 		DBCC06F71CC868DC0070AEAA /* Get To It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get To It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC06FA1CC868DC0070AEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCC07041CC868DC0070AEAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				DB4758AA1DAA10D8003A9EFD /* Extensions.swift */,
+				DBC6894F1DAD35EC00C420F4 /* ErrorHandlers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				DBB9CAD91D9D2B800099D9F9 /* MyJobsButtonBarPager.swift in Sources */,
 				DB35DBA21D254A7000E0D4BC /* MyJobTableViewController.swift in Sources */,
 				DB90FE641CF3EEBA0042A75A /* NexmoService.swift in Sources */,
+				DBC689501DAD35EC00C420F4 /* ErrorHandlers.swift in Sources */,
 				DB8B1F201CEB1DBD004DAFED /* Job.swift in Sources */,
 				DB06D5831CF4381C0036A835 /* Get_To_It_iOS.xcdatamodeld in Sources */,
 				DBB9CADA1D9D2B800099D9F9 /* ReloadExampleViewController.swift in Sources */,

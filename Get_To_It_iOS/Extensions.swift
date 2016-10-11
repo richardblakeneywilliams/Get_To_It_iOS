@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 
 let imageCache = NSCache<NSString, UIImage>()
@@ -14,7 +15,7 @@ let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     
     func loadImageUsingCacheWithUrlString(urlString: String) {
-        
+        SVProgressHUD.show(withStatus: "Getting Profile Picture")
         self.image = nil
         
         //check cache for image first
@@ -31,6 +32,7 @@ extension UIImageView {
             
             if error != nil {
                 print(error)
+                SVProgressHUD.dismiss()
             } else {
                 DispatchQueue.main.async {
                     if let downloadImage = UIImage(data: data!){
@@ -38,13 +40,16 @@ extension UIImageView {
                         self.image = downloadImage
                     }
                 }
+                SVProgressHUD.dismiss()
             }
         }
+        SVProgressHUD.dismiss()
         task.resume()
     }
     
 }
 
+//Makes aligning image and title vertically in UIButton object easy as fuck. 
 extension UIButton {
     
     func alignImageAndTitleVertically(padding: CGFloat = 6.0) {
@@ -67,7 +72,7 @@ extension UIButton {
         )
     }
 }
-
+//Adds gesture to tap away to ditch keyboard.
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
