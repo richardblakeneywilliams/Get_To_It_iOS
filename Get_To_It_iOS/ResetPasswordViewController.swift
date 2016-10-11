@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 class ResetPasswordViewController: UIViewController {
     
@@ -19,6 +20,9 @@ class ResetPasswordViewController: UIViewController {
         sendResetEmailButton.backgroundColor = .black
         emailTextField.text = nil
         
+        //Disbale bullshit spell check
+        emailTextField.autocorrectionType = .no
+        
         // Do any additional setup after loading the view.
     }
 
@@ -28,13 +32,18 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @IBAction func sendResetEmail(_ sender: AnyObject) {
+        
+        SVProgressHUD.show(withStatus: "Checking Email")
+
         if let email = emailTextField.text , !email.isEmpty{
+            
             FIRAuth.auth()?.sendPasswordReset(withEmail: email) { error in
                 
                 var alertDescription: String = ""
                 
                 if error != nil {
-                    
+                    SVProgressHUD.dismiss()
+                    //Deal with all the fucking errors. 
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code){
                         
                         switch errCode {
@@ -55,14 +64,13 @@ class ResetPasswordViewController: UIViewController {
                         }
                     }
                     
-                    //What about no net? Can I catch that here...
-                    print(error?.localizedDescription)
                     let alertController = UIAlertController(title: "Error", message: alertDescription, preferredStyle: .alert)
                     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                     alertController .addAction(action)
                     self.present(alertController, animated: true, completion: nil)
                     
                 } else {
+                    SVProgressHUD.dismiss()
                     // Password reset email sent.
                     let alertController = UIAlertController(title: "Password reset email sent", message: "To \(email)", preferredStyle: .alert)
                     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -72,8 +80,9 @@ class ResetPasswordViewController: UIViewController {
                 }
             }
         } else {
+            SVProgressHUD.dismiss()
             //Alert the user that they didn't enter an email!
-            let alertController = UIAlertController(title: "Please Enter an Email!", message: "", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Please enter an Email and password!", message: "", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController .addAction(action)
             self.present(alertController, animated: true, completion: nil)

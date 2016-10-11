@@ -22,4 +22,5 @@ target "Get To It" do
     pod 'HCSStarRatingView'
     pod 'SwiftDate', '~> 4.0'
     pod 'AlamofireImage'
+    pod 'SVProgressHUD'
 end

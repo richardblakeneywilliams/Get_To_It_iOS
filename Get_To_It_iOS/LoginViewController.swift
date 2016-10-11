@@ -14,6 +14,7 @@ import ChameleonFramework
 import FBSDKCoreKit
 import Alamofire
 import AlamofireImage
+import SVProgressHUD
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
@@ -42,6 +43,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                     return
                 }
                 // This whole thing needs to go in create account
+                // Should this stay here?? Means if someone signs up in the wrong place, its fine.. 
+                // This should go into a method because its going to be used twice. 
                 // Making request to Facebook and getting profile information.
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 request?.start(completionHandler: { (connection, result, error) in
@@ -68,6 +71,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                                         
                                         if error != nil{
                                             print(error?.localizedDescription)
+                                            //Error Checking here.
                                             return
                                         } else {
                                             
@@ -100,6 +104,10 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.autocorrectionType = .no
+        passwordTextField.autocorrectionType = .no
+    
+        
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         self.loginButton.backgroundColor = .black
         self.hideKeyboardWhenTappedAround()
@@ -120,18 +128,49 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     //Email Login
     @IBAction func loginAction(_ sender: AnyObject) {
-        if let email = self.emailTextField.text, let password = self.passwordTextField.text {
+        SVProgressHUD.show(withStatus: "Logging you in")
+        if let email = self.emailTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty {
             FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                var alertDescription: String = ""
+                
                 if let error = error {
-                    print(error.localizedDescription)
-                    return
+                    SVProgressHUD.dismiss()
+                    
+                    //Deal with all the fucking errors.
+                    if let errCode = FIRAuthErrorCode(rawValue: error._code){
+                        
+                        switch errCode {
+                        case .errorCodeWrongPassword:
+                            alertDescription = "Wrong password!"
+                        case .errorCodeUserNotFound:
+                            alertDescription = "Email: \(email) was not found in the system"
+                        case .errorCodeInvalidEmail:
+                            alertDescription = "Invalid email, please enter a registered or correct one."
+                        case .errorCodeEmailAlreadyInUse:
+                            alertDescription = "Email is already in use, try another or log in with it"
+                        case .errorCodeAccountExistsWithDifferentCredential:
+                            alertDescription = "This email is already been used to register to Get To It. Its possible you used Facebook to sign up!"
+                        case .errorCodeNetworkError:
+                            alertDescription = "No Connection, try re-connecting to the internet!"
+                        case .errorCodeUserDisabled:
+                            alertDescription = "This account has been disabled. Contact Get To It"
+                        default:
+                            print("Create User Error: \(error)")
+                        }
+                    }
+                    
+                    let alertController = UIAlertController(title: "Error", message: alertDescription, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    alertController .addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
                 } else {
+                    SVProgressHUD.dismiss()
                     UserDefaults.standard.set(user!.uid, forKey: "uid")
-                    print("Logged In")
                     self.showMainTabScreen()
                 }
             }
         } else {
+            SVProgressHUD.dismiss()
             let alert = UIAlertController(title: "Error", message: "Enter Email", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
