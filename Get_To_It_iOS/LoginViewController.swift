@@ -34,8 +34,13 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         SVProgressHUD.show(withStatus: "Logging you in with Facebook..")
         if let error = error {
             SVProgressHUD.dismiss()
-            print(error.localizedDescription)
+            //Handle the errors and present them to the user if necessary
+            self.present(handleFacebookSDKErrors(error: error), animated: true, completion: nil)
             return
+        } else if result.isCancelled{
+            SVProgressHUD.dismiss()
+            print("User cancelled login")
+            FBSDKLoginManager().logOut()
         } else {
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
@@ -44,7 +49,10 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 guard let uid = user?.uid else {
                     return
                 }
+                
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
+            
+                
                 request?.start(completionHandler: { (connection, result, error) in
                     if error == nil {
                         SVProgressHUD.show(withStatus: "Setting up your Profile with Facebook")
@@ -57,35 +65,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let id = info?.value(forKey: "id") as? String
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
-                        let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+                        self.storeImageFromFacebook(firstName: firstName!, lastName: lastName!, email: email!, profilePic: facebookProfilePictureURL, uid: uid)
                         
-                        //Dowloand the image
-                        SVProgressHUD.show(withStatus: "Getting your profile Picture")
-                        Alamofire.request(facebookProfilePictureURL).responseImage { response in
-                            if let image = response.result.value {
-                                if let uploadData = UIImagePNGRepresentation(image){
-                                    
-                                    storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
-                                        
-                                        if error != nil{
-                                            SVProgressHUD.dismiss()
-                                            print(error?.localizedDescription)
-                                            //Error Checking here.
-                                            return
-                                        } else {
-                                            SVProgressHUD.dismiss()
-                                            let workPlace = "" //TODO: Sort this.
-                                            //Register new user in Firebase.
-                                            //Force Upwrapping here.
-                                            registerUserIntoDatabaseWithUID(uid: (user?.uid)!, firstName: firstName!, lastName: lastName!, email: email!, profileUrl: (metadata?.downloadURL()?.absoluteString)!
-                                                , workPlace: workPlace)
-                                            
-                                            
-                                        }
-                                    })
-                                } //if uploadData
-                            } //If image
-                        }// Alamofire request
                     } else {
                         self.present(handleFirebaseAuthErrors(email: "", error: error!), animated: true, completion: nil)
                     }
@@ -95,28 +76,55 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             }
         }
     }
-
-   
+    
+    func storeImageFromFacebook(firstName: String, lastName: String, email: String, profilePic: String, uid: String){
+        let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+        //Dowloand the image
+        SVProgressHUD.show(withStatus: "Getting your profile Picture")
+        Alamofire.request(profilePic).responseImage { response in
+            if let image = response.result.value {
+                if let uploadData = UIImagePNGRepresentation(image){
+                    
+                    storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                        if error != nil{
+                            SVProgressHUD.dismiss()
+                            print(error?.localizedDescription)
+                            //Error Checking here.
+                            return
+                        } else {
+                            SVProgressHUD.dismiss()
+                            let workPlace = "" //TODO: Sort this.
+                            //Register new user in Firebase.
+                            registerUserIntoDatabaseWithUID(uid: uid, firstName: firstName, lastName: lastName, email: email, profileUrl: (metadata?.downloadURL()?.absoluteString)!
+                                , workPlace: workPlace)
+                        }
+                    })
+                } //if uploadData
+            } //If image
+        }// Alamofire request
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         emailTextField.autocorrectionType = .no
         passwordTextField.autocorrectionType = .no
-    
         
         self.setThemeUsingPrimaryColor(nil, withSecondaryColor: nil, andContentStyle: .contrast)
         self.loginButton.backgroundColor = .black
         self.hideKeyboardWhenTappedAround()
         facebookButton.delegate = self
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     func showMainTabScreen(){
         // Get main screen from storyboard and present it
-        print("showTabScreen")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController: MainTabViewController = (storyboard.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)
         present(viewController, animated: true, completion: nil)

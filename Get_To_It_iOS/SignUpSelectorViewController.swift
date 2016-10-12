@@ -13,6 +13,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import AlamofireImage
 import SVProgressHUD
+import Alamofire
 
 class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var signUpEmailButton: UIButton!

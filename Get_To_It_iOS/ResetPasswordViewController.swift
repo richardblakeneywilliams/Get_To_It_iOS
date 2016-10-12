@@ -48,7 +48,6 @@ class ResetPasswordViewController: UIViewController {
                     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                     alertController .addAction(action)
                     self.present(alertController, animated: true, completion: nil)
-                    
                 }
             }
         } else {

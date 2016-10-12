@@ -24,7 +24,6 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var picImageView: UIImageView!
     @IBOutlet weak var workPlaceTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
