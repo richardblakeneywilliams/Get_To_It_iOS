@@ -42,6 +42,43 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             print("User cancelled login")
             FBSDKLoginManager().logOut()
         } else {
+            if result.declinedPermissions.contains("email") {
+                SVProgressHUD.dismiss()
+                let alert = UIAlertController(title: "We need your email address to proceed", message: "We can't set up your account with your email. Don't worry, we will not spam your inbox! We promise", preferredStyle: UIAlertControllerStyle.alert)
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { action in
+                    // Handle cancellations
+                    print("user is cancelled the login FB")
+                    FBSDKLoginManager().logOut()
+                    
+                })
+                let reRequestAction = UIAlertAction(title: "Grant Access", style: UIAlertActionStyle.default, handler: { action in
+                    let fbsdklm = FBSDKLoginManager()
+                    fbsdklm.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+                        if (error != nil)
+                        {
+                            // Process error
+                            print("Processing Error : \(error)")
+                            FBSDKLoginManager().logOut()
+                        } else if (result?.isCancelled)! {
+                            // Handle cancellations
+                            print("user is cancelled the login FB")
+                            FBSDKLoginManager().logOut()
+                        }
+                        else {
+                            print("Got Email Permissions!")
+                            //proceed
+                        }
+                    }
+                })
+                
+                alert.addAction(cancelAction)
+                alert.addAction(reRequestAction)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            
+            
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 UserDefaults.standard.set(user!.uid, forKey: "uid")
@@ -109,7 +146,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -156,7 +192,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     
     //Logout Facebook
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton) {
