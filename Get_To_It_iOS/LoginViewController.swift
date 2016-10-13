@@ -24,6 +24,9 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
+    //TODO: This is actually really bad form having two copies of this... Sort this at some point
+    
     /*!
      @abstract Sent to the delegate when the button was used to login.
      @param loginButton the sender
@@ -45,6 +48,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             if result.declinedPermissions.contains("email") {
                 SVProgressHUD.dismiss()
                 let alert = UIAlertController(title: "We need your email address to proceed", message: "We can't set up your account with your email. Don't worry, we will not spam your inbox! We promise", preferredStyle: UIAlertControllerStyle.alert)
+                
                 let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { action in
                     // Handle cancellations
                     print("user is cancelled the login FB")
@@ -54,8 +58,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 let reRequestAction = UIAlertAction(title: "Grant Access", style: UIAlertActionStyle.default, handler: { action in
                     let fbsdklm = FBSDKLoginManager()
                     fbsdklm.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
-                        if (error != nil)
-                        {
+                        if (error != nil){
                             // Process error
                             print("Processing Error : \(error)")
                             FBSDKLoginManager().logOut()
@@ -77,8 +80,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 return
             }
             
-            
-            
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 UserDefaults.standard.set(user!.uid, forKey: "uid")
@@ -95,11 +96,12 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         SVProgressHUD.show(withStatus: "Setting up your Profile with Facebook")
                         let info = result as? NSDictionary
                         
-                        //Get the results out of the info Dictionary
+                        // Get the results out of the info Dictionary
+                        // I don't think it will get here if there isn't values in this dictionary
+                        // So going to leave the force unwrapping here for now.
                         let firstName = info?.value(forKey: "first_name") as? String
                         let lastName = info?.value(forKey: "last_name") as? String
                         let email = info?.value(forKey: "email") as? String
-                        print(email)
                         let id = info?.value(forKey: "id") as? String
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
@@ -110,7 +112,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                     }
                 })
                 connection.start()
-                
                 SVProgressHUD.dismiss()
                 self.showMainTabScreen()
             }
