@@ -51,9 +51,9 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 }
                 
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
-            
+                let connection = FBSDKGraphRequestConnection()
                 
-                request?.start(completionHandler: { (connection, result, error) in
+                connection.add(request,completionHandler: { (connection, result, error) in
                     if error == nil {
                         SVProgressHUD.show(withStatus: "Setting up your Profile with Facebook")
                         let info = result as? NSDictionary
@@ -62,6 +62,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let firstName = info?.value(forKey: "first_name") as? String
                         let lastName = info?.value(forKey: "last_name") as? String
                         let email = info?.value(forKey: "email") as? String
+                        print(email)
                         let id = info?.value(forKey: "id") as? String
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
@@ -71,6 +72,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         self.present(handleFirebaseAuthErrors(email: "", error: error!), animated: true, completion: nil)
                     }
                 })
+                connection.start()
+                
                 SVProgressHUD.dismiss()
                 self.showMainTabScreen()
             }
@@ -117,6 +120,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         self.loginButton.backgroundColor = .black
         self.hideKeyboardWhenTappedAround()
         facebookButton.delegate = self
+        facebookButton.readPermissions = ["email"]
     }
     
     override func viewDidAppear(_ animated: Bool) {
