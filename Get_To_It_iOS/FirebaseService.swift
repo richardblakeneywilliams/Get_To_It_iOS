@@ -101,6 +101,18 @@ public func getCurrentUserId() -> String? {
     }
 }
 
+//Function to add the onboarding info to the user in the DB
+public func uploadOnboardingToUser(ird: String, bankAcc: String, nZCit: Bool, visa: Bool){
+    if let userId = FIRAuth.auth()?.currentUser?.uid {
+        let ref = FIREBASE_REF.child("user").child(userId)
+    
+        let values: [AnyHashable: Any] = ["irdNumber": ird, "bankAccountNumber": bankAcc, "nZCit": nZCit, "validVisa": visa]
+        ref.setValue(values)
+    }
+    
+}
+
+
 public func registerUserIntoDatabaseWithUID(uid: String, firstName: String, lastName: String, email: String, profileUrl: String, workPlace: String){
     
     let values: [String: Any] = ["firstName": firstName, "lastName": lastName, "email": email, "profileUrl": profileUrl, "workPlace": workPlace]

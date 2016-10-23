@@ -16,16 +16,18 @@ import SVProgressHUD
 import Alamofire
 
 class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
     @IBOutlet weak var signUpEmailButton: UIButton!
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         facebookButton.delegate = self
         facebookButton.readPermissions = ["email"]
 
-        signUpEmailButton.backgroundColor = .black
+        signUpEmailButton.backgroundColor = .black //There is a bug in Xcode.
 
         // Do any additional setup after loading the view.
     }
@@ -78,6 +80,9 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                         }
                         else {
                             print("Got Email Permissions!")
+                            //Success
+                            
+            
                             //proceed
                         }
                     }
@@ -102,6 +107,8 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 connection.add(request,completionHandler: { (connection, result, error) in
                     if error == nil {
+                        //Success
+                        
                         SVProgressHUD.show(withStatus: "Setting up your Profile with Facebook")
                         let info = result as? NSDictionary
                         
@@ -115,6 +122,7 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
                         self.storeImageFromFacebook(firstName: firstName!, lastName: lastName!, email: email!, profilePic: facebookProfilePictureURL, uid: uid)
+                        self.pushOnBoarding()
                         
                     } else {
                         self.present(handleFirebaseAuthErrors(email: "", error: error!), animated: true, completion: nil)
@@ -122,7 +130,6 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                 })
                 connection.start()
                 SVProgressHUD.dismiss()
-                self.showMainTabScreen()
             }
         }
     }
@@ -154,16 +161,19 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
         }// Alamofire request
     }
     
-    func showMainTabScreen(){
-        // Get main screen from storyboard and present it
-        print("showTabScreen")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: MainTabViewController = (storyboard.instantiateViewController(withIdentifier: "mainTabbedScreen") as! MainTabViewController)
-        present(viewController, animated: true, completion: nil)
+    func pushOnBoarding(){
+        if let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "TypeOfWorkerViewController") as? TypeOfWorkerViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         try! FIRAuth.auth()!.signOut()
     }
+    
+    
+    
 
 }

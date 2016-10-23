@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User: NSObject {
     
     var uid: String?
     
@@ -26,7 +26,7 @@ class User {
     var profilePictureURL: String?
     var seeJobDistance: Double?
     
-    init () {}
+    override init () {}
     
     
 }

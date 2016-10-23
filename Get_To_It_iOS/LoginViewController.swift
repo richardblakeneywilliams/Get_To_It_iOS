@@ -15,6 +15,7 @@ import FBSDKCoreKit
 import Alamofire
 import AlamofireImage
 import SVProgressHUD
+import SwiftyJSON
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
@@ -88,7 +89,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                     return
                 }
                 
-                let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
+                let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large), work, education"])
                 let connection = FBSDKGraphRequestConnection()
                 
                 connection.add(request,completionHandler: { (connection, result, error) in
@@ -104,7 +105,57 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let email = info?.value(forKey: "email") as? String
                         let id = info?.value(forKey: "id") as? String
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
+                        let education = info?.value(forKey: "education")
                         
+                        //var json = JSON(education)
+                        
+                        //let length = json[].count - 1
+                        
+                        //Facebook Graph Api 2.8 puts the most current school/college at the end of the json array. This hack grabs the last one.
+                        // Two types of nodes here. High School and College. 
+                        // if only high school. get the top node.
+                        // if both, get the top college node.
+                        
+//                        var school = ""
+//                        var numberHighSchool: Int = 0
+//                        var numberColleges: Int = 0
+//                        for item in json[0].arrayValue {
+//                            if item == "High School"{
+//                                numberHighSchool + 1
+//                                print("Added high school")
+//                            } else {
+//                                numberColleges + 1
+//                                print("Added College")
+//                            }
+//                        }
+//                        
+//                        print(numberColleges)
+//                        print(numberHighSchool)
+//                        
+//
+//                        //If their is only high schools, grab the top node.
+//                        if json[0]["type"].stringValue == "High School", json[length]["type"].stringValue == "High School"{
+//                            if length == 1 {
+//                                school = json[0]["school"]["name"].stringValue
+//                            } else {
+//                                school = json[length]["school"]["name"].stringValue
+//                            }
+//                            print("There is only high schools!")
+//                            print(school)
+//                        } else {
+//                            //there are colleges and schools. Need to get the number of schools and then use that to get the top level
+//                            if length == (1 + numberHighSchool) {
+//                                school = json[0 + numberHighSchool]["school"]["name"].stringValue
+//                            } else {
+//                                school = json[length - numberHighSchool]["school"]["name"].stringValue
+//                            }
+//                            print("There is only high schools!")
+//                            print(school)
+//                        }
+                        
+
+                        
+                        //Guard these.
                         self.storeImageFromFacebook(firstName: firstName!, lastName: lastName!, email: email!, profilePic: facebookProfilePictureURL, uid: uid)
                         
                     } else {
@@ -157,7 +208,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         self.loginButton.backgroundColor = .black
         self.hideKeyboardWhenTappedAround()
         facebookButton.delegate = self
-        facebookButton.readPermissions = ["email"]
+        facebookButton.readPermissions = ["email","user_education_history", "user_work_history"]
     }
     
     override func viewDidAppear(_ animated: Bool) {

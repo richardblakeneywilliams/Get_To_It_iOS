@@ -23,4 +23,5 @@ target "Get To It" do
     pod 'SwiftDate', '~> 4.0'
     pod 'AlamofireImage'
     pod 'SVProgressHUD'
+    pod 'SwiftyJSON'
 end

@@ -72,6 +72,9 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                                 }
                             }
                         })
+                        
+                        
+                        
                         SVProgressHUD.dismiss()
                     }
                 }
@@ -95,7 +98,6 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     
     @IBAction func addProfilePicPressed(_ sender: AnyObject) {
         let imagePicker = UIImagePickerController()
-        
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true

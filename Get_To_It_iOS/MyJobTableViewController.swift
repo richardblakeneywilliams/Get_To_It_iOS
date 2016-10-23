@@ -112,7 +112,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     }
     
     
-
+    // MARK: - Empty Data Set
     
     //Image returned as part of the empty data set.
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
