@@ -73,9 +73,9 @@ class locationPickerViewController: UIViewController, UITextFieldDelegate, CLLoc
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LocationSegue" {
-            print(CurrentJob.instance?.lat)
-            print(CurrentJob.instance?.long)
-            print(CurrentJob.instance?.address)
+            //print(CurrentJob.instance?.lat)
+            //print(CurrentJob.instance?.long)
+            //print(CurrentJob.instance?.address)
         }
     }
 }

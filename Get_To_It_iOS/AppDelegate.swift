@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var LoggedIn: Bool{
         get {
             var loggedIn:Bool
-            if (FIRAuth.auth()?.currentUser) != nil {
+            if (Auth.auth().currentUser) != nil {
                 // User is signed in.
                 loggedIn = true
             } else {
@@ -62,8 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
         Chameleon.setGlobalThemeUsingPrimaryColor(themeColour, with: .light)
 
-        FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GMSServices.provideAPIKey(Maps_API_Key)
         

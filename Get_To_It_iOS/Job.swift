@@ -27,9 +27,7 @@ class Job{
         var areTheyPresent: Bool?
         var totalCost: Double?
         var status: String?
-    
-        //var jobCreatorProfilePicture: UI
-    
+        
     init(){
         
     }

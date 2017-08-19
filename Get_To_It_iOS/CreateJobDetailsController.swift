@@ -14,7 +14,7 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         
     
     var catArray = [UIImage]()
-    var storage: FIRStorage! //Need to add shit here.
+    var storage: Storage! //Need to add shit here.
     
     
     @IBOutlet weak var takePicsCat: UICollectionView!
@@ -27,7 +27,7 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        storage = FIRStorage.storage()
+        storage = Storage.storage()
         
         openCameraButton.backgroundColor = nil
         descriptionTextView.layer.cornerRadius = 6
@@ -87,11 +87,11 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func nextNavBatAction(_ sender: AnyObject) {
-        if let title = jobTitleTextField.text, let subCat = subCategoryTextField.text, let desc = descriptionTextView.text{
+        if let _ = jobTitleTextField.text, let _ = subCategoryTextField.text, let _ = descriptionTextView.text{
             performSegue(withIdentifier: "FromJobDetailToLocation", sender: self)
         } else {
             print("No memes for you")
-            print(CurrentJob.instance?.title)
+            //print(CurrentJob.instance?.title)
         }
     }
     
@@ -99,28 +99,29 @@ class CreateJobDetailsController: UIViewController, UICollectionViewDelegate, UI
     // MARK: Image Picker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get local file URLs
-        guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return } //Handle error???
         let imageData = UIImagePNGRepresentation(image)!
         
-        // Get a reference to the location where we'll store our photos
-        let photosRef = storage.reference().child("jobPhotos")
-        
+        //I need to set up the job uid before I get here. This needs to be done as soon as a category is selected. 
+        //This will enable me to start uploading parts of jobs as they are created. 
+        // Get a reference to the location where we'll store our photos. Put thi
+        let photosRef = storage.reference().child("jobs").child("").child("jobphotos")
         // Get a reference to store the file at jobPhotos/<FILENAME>
         let photoRef = photosRef.child("\(UUID().uuidString).png")
         
+        
         // Upload file to Firebase Storage
-        let metadata = FIRStorageMetadata()
+        let metadata = StorageMetadata()
         metadata.contentType = "image/png"
-        photoRef.put(imageData, metadata: metadata).observe(.success) { (snapshot) in
+        photoRef.putData(imageData, metadata: metadata).observe(.success) { (snapshot) in
+            
+            
             // When the image has successfully uploaded, we get it's download URL
             //let url = snapshot.metadata?.downloadURL()?.absoluteString
             // Set the download URL to the message box, so that the user can send it to the database
             
         }
 
-
-        
-        
         catArray.append(image)
         takePicsCat.reloadData()
         dismiss(animated: false, completion: nil)

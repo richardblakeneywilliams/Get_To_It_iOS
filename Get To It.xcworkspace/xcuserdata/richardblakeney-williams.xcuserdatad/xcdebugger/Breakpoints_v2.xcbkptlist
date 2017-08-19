@@ -75,7 +75,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Get_To_It_iOS/FirebaseService.swift"
-            timestampString = "497750162.497541"
+            timestampString = "524820054.336791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Get_To_It_iOS/LegalAndIRDViewController.swift"
-            timestampString = "498909701.929225"
+            timestampString = "498910647.560804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "loadWorkerOnboardingInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>

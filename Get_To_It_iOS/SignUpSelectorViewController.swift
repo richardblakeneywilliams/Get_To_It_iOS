@@ -71,7 +71,7 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                     fbsdklm.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
                         if (error != nil){
                             // Process error
-                            print("Processing Error : \(error)")
+                            print("Processing Error : \(String(describing: error))")
                             FBSDKLoginManager().logOut()
                         } else if (result?.isCancelled)! {
                             // Handle cancellations
@@ -94,8 +94,8 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            Auth.auth().signIn(with: credential) { (user, error) in
                 UserDefaults.standard.set(user!.uid, forKey: "uid")
                 
                 guard let uid = user?.uid else {
@@ -122,6 +122,8 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
                         
                         self.storeImageFromFacebook(firstName: firstName!, lastName: lastName!, email: email!, profilePic: facebookProfilePictureURL, uid: uid)
+                        
+                        //Show onboarding set up screen.
                         self.pushOnBoarding()
                         
                     } else {
@@ -135,17 +137,17 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func storeImageFromFacebook(firstName: String, lastName: String, email: String, profilePic: String, uid: String){
-        let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(uid)")
         //Dowloand the image
         SVProgressHUD.show(withStatus: "Getting your profile Picture")
         Alamofire.request(profilePic).responseImage { response in
             if let image = response.result.value {
                 if let uploadData = UIImagePNGRepresentation(image){
                     
-                    storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                         if error != nil{
                             SVProgressHUD.dismiss()
-                            print(error?.localizedDescription)
+                            //print(error?.localizedDescription)
                             //Error Checking here.
                             return
                         } else {
@@ -170,7 +172,7 @@ class SignUpSelectorViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        try! FIRAuth.auth()!.signOut()
+        try! Auth.auth().signOut()
     }
     
     

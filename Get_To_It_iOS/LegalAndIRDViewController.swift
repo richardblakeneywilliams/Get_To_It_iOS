@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import ChameleonFramework
 
 class LegalAndIRDViewController: UIViewController {
     
@@ -27,16 +28,17 @@ class LegalAndIRDViewController: UIViewController {
         if let ird = self.irdNumberTextField.text, !ird.isEmpty, let bank = self.bankAccountTextField.text, !bank.isEmpty {
             if citizenSwitch.isOn, validVisaSwitch.isOn{
                 uploadOnboardingToUser(ird: irdNumberTextField.text!, bankAcc: bankAccountTextField.text!, nZCit: true, visa: true)
+                
                 showMainTabScreen()
             } else{
                 let alert = UIAlertController(title: "Error", message: "You must have a valid visa and be entitled to work in NZ to use Get To It", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
+                return 
             }
-            
-            
-            //Check if this has been successful. If so, then push main tab. Else, notify the user and prevent a crash!
+        
+            //TODO: Check if this has been successful. If so, then push main tab. Else, notify the user and prevent a crash! I doubt there will be a crash here. 
             
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter your work info!", preferredStyle: UIAlertControllerStyle.alert)
@@ -51,8 +53,7 @@ class LegalAndIRDViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        getToItButton.backgroundColor = .black
-        
+        getToItButton.backgroundColor = UIColor(red:0.28, green:0.67, blue:0.89, alpha:1.0)
         
     }
 

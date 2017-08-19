@@ -26,7 +26,7 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
     
     //Function that returns the current jobs owned by the User and adds them to the myJobs Array
     func getCurrentJobs(){
-        let userID = FIRAuth.auth()?.currentUser?.uid
+        let userID = Auth.auth().currentUser?.uid
         FIREBASE_REF.child("user-jobs").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             // Get Job value and populate the table if their is data. Else just leave it empty.
@@ -210,7 +210,6 @@ class MyJobTableViewController: UITableViewController, CLLocationManagerDelegate
         }
         
         marker.title = self.myjobs[indexPath.row].title
-        marker.appearAnimation = kGMSMarkerAnimationPop
         marker.map = cell.mapView
         return cell
     }

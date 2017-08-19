@@ -37,7 +37,7 @@ class ResetPasswordViewController: UIViewController {
 
         if let email = emailTextField.text, !email.isEmpty{
             
-            FIRAuth.auth()?.sendPasswordReset(withEmail: email) { error in
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
                 
                 if error != nil {
                     self.present(handleFirebaseAuthErrors(email: email, error: error!), animated: true, completion: nil)

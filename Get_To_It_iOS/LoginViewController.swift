@@ -15,7 +15,7 @@ import FBSDKCoreKit
 import Alamofire
 import AlamofireImage
 import SVProgressHUD
-import SwiftyJSON
+//import SwiftyJSON
 
 class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                     fbsdklm.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
                         if (error != nil){
                             // Process error
-                            print("Processing Error : \(error)")
+                            //print("Processing Error : \(error)")
                             FBSDKLoginManager().logOut()
                         } else if (result?.isCancelled)! {
                             // Handle cancellations
@@ -81,8 +81,8 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 return
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            Auth.auth().signIn(with: credential) { (user, error) in
                 UserDefaults.standard.set(user!.uid, forKey: "uid")
                 
                 guard let uid = user?.uid else {
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let email = info?.value(forKey: "email") as? String
                         let id = info?.value(forKey: "id") as? String
                         let facebookProfilePictureURL = "https://graph.facebook.com/\(id!)/picture?type=large"
-                        let education = info?.value(forKey: "education")
+                        _ = info?.value(forKey: "education")
                         
                         //var json = JSON(education)
                         
@@ -170,17 +170,17 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     }
     
     func storeImageFromFacebook(firstName: String, lastName: String, email: String, profilePic: String, uid: String){
-        let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(uid)")
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(uid)")
         //Dowloand the image
         SVProgressHUD.show(withStatus: "Getting your profile Picture")
         Alamofire.request(profilePic).responseImage { response in
             if let image = response.result.value {
                 if let uploadData = UIImagePNGRepresentation(image){
                     
-                    storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                         if error != nil{
                             SVProgressHUD.dismiss()
-                            print(error?.localizedDescription)
+                            //print(error?.localizedDescription)
                             //Error Checking here.
                             return
                         } else {
@@ -226,7 +226,7 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     @IBAction func loginAction(_ sender: AnyObject) {
         SVProgressHUD.show(withStatus: "Logging you in")
         if let email = self.emailTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty {
-            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 
                 if let error = error {
                     self.present(handleFirebaseAuthErrors(email: email, error: error), animated: true, completion: nil)
@@ -247,6 +247,6 @@ class LoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     //Logout Facebook
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton) {
-        try! FIRAuth.auth()!.signOut()
+        try! Auth.auth().signOut()
     }
 }

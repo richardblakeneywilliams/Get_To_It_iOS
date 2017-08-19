@@ -68,7 +68,7 @@ class MoreViewController: FormViewController {
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
                     let viewController: NavController = (storyboard.instantiateViewController(withIdentifier: "NavController") as! NavController)
                     self.present(viewController, animated: true, completion: {
-                        try! FIRAuth.auth()!.signOut()
+                        try! Auth.auth().signOut()
                         let loginManger = FBSDKLoginManager()
                         loginManger.logOut()
                     })
@@ -91,7 +91,7 @@ class MoreViewController: FormViewController {
             let imageView = UIImageView()
             let nameLabel: UILabel = UILabel()
             
-            FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            Auth.auth().addStateDidChangeListener { auth, user in
                 if let user = user {
                     // User is signed in.
                     if let profileURL = user.photoURL?.absoluteString{

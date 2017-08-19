@@ -14,7 +14,7 @@ class DateAndExtraFormController: FormViewController {
     
     let pricePerHour = 20.00
     
-    let ref = FIRDatabase.database().reference()
+    let ref = Database.database().reference()
     
     @IBAction func backNavBar(_ sender: AnyObject) {
         _ = navigationController?.popViewController(animated: true)
@@ -112,17 +112,17 @@ class DateAndExtraFormController: FormViewController {
                     if IntRow.value == 1  {
                         self.showAlert()
                         decimalRow?.baseValue = Double(IntRow.value!)*self.pricePerHour
-                        decimalRow?.disabled
+                        //decimalRow?.disabled
                         decimalRow?.updateCell()
                         once = true
                     } else if IntRow.value != nil {
                         decimalRow?.baseValue = Double(IntRow.value!)*self.pricePerHour
-                        decimalRow?.disabled
+                        //decimalRow?.disabled
                         decimalRow?.updateCell()
                         once = true
                     } else {
                         decimalRow?.baseValue = 0.0
-                        decimalRow?.disabled
+                        //decimalRow?.disabled
                         decimalRow?.updateCell()
                         once = true
                     }

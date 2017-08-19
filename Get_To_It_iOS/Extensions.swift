@@ -31,7 +31,7 @@ extension UIImageView {
         let task = session.dataTask(with: url!) { (data, response, error) in
             
             if error != nil {
-                print(error)
+                print(error!)
                 SVProgressHUD.dismiss()
             } else {
                 DispatchQueue.main.async {

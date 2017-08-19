@@ -26,10 +26,10 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     override func viewDidLoad() {
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
                 // User is signed in.
-                print(user.email)
+                //print(user.email)
             } else {
                 // No user is signed in.
             }
@@ -48,6 +48,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         return self.names.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = catCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CreateJobPhotoCell
@@ -62,10 +63,15 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         CurrentJob.instance!.category = self.names[(indexPath as NSIndexPath).row] as String?
-
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueID {
+            
+        }
     }
 
 }

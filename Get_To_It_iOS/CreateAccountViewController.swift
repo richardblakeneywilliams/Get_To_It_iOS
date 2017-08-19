@@ -48,7 +48,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         if let email = self.emailTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty, let firstName = self.firstNameField.text, !firstName.isEmpty, let profilePic = self.picImageView.image,
             let workPlace = self.workPlaceTextField.text, !workPlace.isEmpty, let lastName = self.lastNameField.text, !lastName.isEmpty {
             
-            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let error = error {
                     SVProgressHUD.dismiss()
                     self.present(handleFirebaseAuthErrors(email: "", error: error), animated: true, completion: nil)
@@ -57,14 +57,14 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     UserDefaults.standard.setValue(user!.uid, forKey: "uid")
                     UserDefaults.standard.synchronize()
                     
-                    let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(user!.uid)")
+                    let storageRef = Storage.storage().reference().child("profile_images").child("\(user!.uid)")
                     
                     if let uploadData = UIImagePNGRepresentation(profilePic){
-                        storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                        storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                             if error != nil {
                                 SVProgressHUD.dismiss()
                                 //TODO: Handle Storage Errors.
-                                print(error)
+                                //print(error)
                                 return
                             } else {
                                 if let profileImageUrl = metadata?.downloadURL(){
@@ -74,8 +74,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                         })
                         
                         
-                        
                         SVProgressHUD.dismiss()
+                        self.pushOnBoarding()
                     }
                 }
             }
@@ -89,6 +89,9 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         self.dismiss(animated: true,completion: nil)
 
     }
+    
+    
+    
     
     //MARK: ImagePickerController
     
@@ -146,6 +149,17 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         picImageView.contentMode = .scaleAspectFill
         
         dismiss(animated: true, completion: nil)
-
     }
+    
+    //MARK: - Onboarding
+    
+    func pushOnBoarding(){
+        if let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "TypeOfWorkerViewController") as? TypeOfWorkerViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
+    
 }

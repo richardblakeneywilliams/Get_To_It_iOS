@@ -55,7 +55,6 @@ class ToWorkController: UIViewController, CLLocationManagerDelegate {
             marker.position = CLLocationCoordinate2D(latitude: 48.857165, longitude: 2.354613)
         }
         
-        marker.appearAnimation = kGMSMarkerAnimationPop
         marker.icon = UIImage(named: "worker_spade")
         marker.map = mapView
         

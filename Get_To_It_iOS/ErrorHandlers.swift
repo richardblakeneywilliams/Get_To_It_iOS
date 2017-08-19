@@ -18,27 +18,27 @@ public func handleFirebaseAuthErrors(email: String, error: Error) -> UIAlertCont
     var alertDescription: String = ""
         SVProgressHUD.dismiss()
         //Deal with all the fucking errors.
-        if let errCode = FIRAuthErrorCode(rawValue: error._code){
+        if let errCode = AuthErrorCode(rawValue: error._code){
             
             switch errCode {
                 
-            case .errorCodeWeakPassword:
+            case .weakPassword:
                 alertDescription = "That password is to weak! Please try again. Make sure the password has at least one capital letter and a couple of numbers"
-            case .errorCodeTooManyRequests:
+            case .tooManyRequests:
                 alertDescription = "To many requests have been made from this device. Try again or contact support"
-            case .errorCodeWrongPassword:
+            case .wrongPassword:
                 alertDescription = "Wrong password!"
-            case .errorCodeUserNotFound:
+            case .userNotFound:
                 alertDescription = "Email: \(email) was not found in the system"
-            case .errorCodeInvalidEmail:
+            case .invalidEmail:
                 alertDescription = "invalid email"
-            case .errorCodeEmailAlreadyInUse:
+            case .emailAlreadyInUse:
                 alertDescription = "Email is already in use, try another or log in with it"
-            case .errorCodeAccountExistsWithDifferentCredential:
+            case .accountExistsWithDifferentCredential:
                 alertDescription = "This email is already been used to register to Get To It. Its possible you used Facebook to sign up!"
-            case .errorCodeNetworkError:
+            case .networkError:
                 alertDescription = "No Connection, try re-connecting to the internet!"
-            case .errorCodeUserDisabled:
+            case .userDisabled:
                 alertDescription = "This account has been disabled. Contact Get To It support"
             default:
                 print("Create User Error: \(error)")
